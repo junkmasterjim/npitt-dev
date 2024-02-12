@@ -16,7 +16,7 @@ const Navbar = () => {
 				initial={{ y: -10, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				transition={{ duration: 0.5 }}
-				className="bg-secondary relative mx-auto justify-evenly items-center flex max-w-xs p-2 rounded-full px-6"
+				className="bg-secondary relative mx-auto justify-evenly items-center flex max-w-xs p-2 rounded-full px-6 border border-border/50"
 			>
 				<div className="flex items-center gap-2">
 					<Button
