@@ -31,8 +31,7 @@ const Navbar = () => {
 						</Link>
 					</Button>
 					<Button
-						// asChild
-						disabled
+						asChild
 						variant={"ghost"}
 						className={cn(
 							pathname === "/dotdotdot" && "bg-accent/75 hover:bg-accent/75"
@@ -40,16 +39,6 @@ const Navbar = () => {
 					>
 						<Link href={"/dotdotdot"}>{`[ . . . ]`}</Link>
 					</Button>
-					{/* <Button
-						disabled
-						variant={"ghost"}
-						className={cn(
-							pathname === "dotdotdot" && "bg-accent/75 hover:bg-accent/75"
-						)}
-					>
-						More
-					</Button> */}
-
 					<ModeToggle />
 				</div>
 			</motion.div>

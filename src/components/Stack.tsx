@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { IconType } from "react-icons";
+import { FaHashtag } from "react-icons/fa";
 import { FiSmartphone } from "react-icons/fi";
 import {
 	SiCss3,
@@ -35,7 +37,12 @@ const stack: { name: string; icon: IconType }[] = [
 const Stack = () => {
 	return (
 		<section id="stack">
-			<h2 className="text-lg font-bold">Stack</h2>
+			<h2 className="text-lg font-semibold flex items-center">
+				Stack
+				<Link className="text-muted-foreground" scroll href={"/#stack"}>
+					<FaHashtag className="ml-2 h-3 w-3" />
+				</Link>
+			</h2>
 			<div className="flex gap-4 flex-wrap py-3">
 				{stack.map((tech) => (
 					<motion.div

@@ -1,10 +1,16 @@
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { FaHashtag } from "react-icons/fa";
 
 const Connect = () => {
 	return (
 		<section id="connect">
-			<h2 className="text-lg font-bold">Connect</h2>
+			<h2 className="text-lg font-semibold flex items-center">
+				Connect
+				<Link className="text-muted-foreground" scroll href={"/#tools"}>
+					<FaHashtag className="ml-2 h-3 w-3" />
+				</Link>
+			</h2>
 			<div className="flex flex-col space-y-1 sm:text-base text-sm ">
 				<div className="flex gap-4">
 					<p className="max-w-[6ch] w-full">Twitter</p>
