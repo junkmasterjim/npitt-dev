@@ -4,6 +4,9 @@ import Stack from "@/components/Stack";
 import Projects from "@/components/Projects";
 import Connect from "@/components/Connect";
 
+// TODO: add tools & small projects
+// TODO: add blog
+
 export default function Home() {
 	return (
 		<>

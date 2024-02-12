@@ -43,7 +43,7 @@ const Projects = () => {
 						key={project.title}
 						target="_blank"
 						href={project.href}
-						className="md:hover:scale-[1.01] bg-primary/25 md:hover:bg-primary/50 dark:bg-primary/5 dark:md:hover:bg-primary/10 rounded-lg px-4 py-3 transition-all space-y-2"
+						className="md:hover:scale-[1.01] bg-primary/25 md:hover:bg-primary/50 dark:bg-primary-foreground/20 dark:md:hover:bg-primary/10 rounded-lg px-4 py-3 transition-all space-y-2"
 					>
 						<h3 className="text-lg font-semibold">{project.title}</h3>
 						<p className="text-muted-foreground text-sm">

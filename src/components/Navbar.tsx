@@ -16,9 +16,9 @@ const Navbar = () => {
 				initial={{ y: -10, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
 				transition={{ duration: 0.5 }}
-				className="bg-secondary relative mx-auto justify-evenly items-center flex max-w-xs p-2 rounded-full px-6 border border-border/50"
+				className="bg-secondary shadow-sm relative mx-auto justify-evenly items-center  max-w-xs p-2 rounded-full px-6 border border-border/50"
 			>
-				<div className="flex items-center gap-2">
+				<div className="flex items-center gap-2 mx-auto w-fit">
 					<Button
 						asChild
 						variant={"ghost"}
@@ -38,9 +38,9 @@ const Navbar = () => {
 							pathname === "/dotdotdot" && "bg-accent/75 hover:bg-accent/75"
 						)}
 					>
-						<Link href={"/dotdotdot"}>Tests</Link>
+						<Link href={"/dotdotdot"}>{`[ . . . ]`}</Link>
 					</Button>
-					<Button
+					{/* <Button
 						disabled
 						variant={"ghost"}
 						className={cn(
@@ -48,7 +48,7 @@ const Navbar = () => {
 						)}
 					>
 						More
-					</Button>
+					</Button> */}
 
 					<ModeToggle />
 				</div>
