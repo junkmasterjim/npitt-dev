@@ -14,12 +14,15 @@ const projects: {
 		description: "Hand-picked resource library for developers & designers.",
 		stack: ["Next.js", "Tailwind CSS", "PostgreSQL", "Auth"],
 	},
-	{
-		href: "https://shadeshuffle.org",
-		title: "ShadeShuffle - Color Palette Generator",
-		description: "Generate color palettes with the click of a button.",
-		stack: ["Next.js", "Tailwind CSS"],
-	},
+	// {
+
+	// CODE IS NOT UP TO STANDARD TO BE IN PORTFOLIO
+
+	// 	href: "https://shadeshuffle.org",
+	// 	title: "ShadeShuffle - Color Palette Generator",
+	// 	description: "Generate color palettes with the click of a button.",
+	// 	stack: ["Next.js", "Tailwind CSS"],
+	// },
 	{
 		href: "https://donebyhd.com",
 		title: "DoneByHD - Portfolio",

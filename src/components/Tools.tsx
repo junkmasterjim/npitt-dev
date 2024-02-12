@@ -3,6 +3,11 @@ import { FaHashtag } from "react-icons/fa";
 
 const tools: { title: string; description: string; href: string }[] = [
 	{
+		title: "shadeshuffle",
+		description: "easily generate color palettes",
+		href: "https://historicolor.org",
+	},
+	{
 		title: "summaraize",
 		description: "summarize articles with chatgpt",
 		href: "https://trysummaraize.vercel.app",
