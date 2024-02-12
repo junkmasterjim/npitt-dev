@@ -51,7 +51,7 @@ const Projects = () => {
 						</p>
 						<div className="flex flex-wrap items-center gap-4">
 							{project.stack.map((tech) => (
-								<Badge>{tech}</Badge>
+								<Badge key={tech}>{tech}</Badge>
 							))}
 						</div>
 					</Link>
