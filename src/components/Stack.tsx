@@ -39,6 +39,7 @@ const Stack = () => {
 			<div className="flex gap-4 flex-wrap py-3">
 				{stack.map((tech) => (
 					<motion.div
+						key={tech.name}
 						whileHover={{
 							scale: 1.05,
 							rotate: Math.random() * 10 - 5,
@@ -52,9 +53,9 @@ const Stack = () => {
 				))}
 			</div>
 			<p>
-				My specialty is building beautiful, responsive web applications with
+				{`My specialty is building beautiful, responsive web applications with
 				Next.js. I'm also experienced with Node.js, Express, and various
-				databases listed above.
+				databases listed above.`}
 			</p>
 		</section>
 	);

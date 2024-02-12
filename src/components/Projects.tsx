@@ -40,6 +40,7 @@ const Projects = () => {
 			<div className="grid grid-cols-1 gap-4">
 				{projects.map((project) => (
 					<Link
+						key={project.title}
 						target="_blank"
 						href={project.href}
 						className="md:hover:scale-[1.01] bg-primary/25 md:hover:bg-primary/50 dark:bg-primary/5 dark:md:hover:bg-primary/10 rounded-lg px-4 py-3 transition-all space-y-2"
