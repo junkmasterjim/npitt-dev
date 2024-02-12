@@ -17,7 +17,6 @@ const tools: { title: string; description: string; href: string }[] = [
 		description: "recolor old black & white photos",
 		href: "https://historicolor.org",
 	},
-	// {title, href}
 ];
 
 const Tools = () => {
@@ -29,7 +28,7 @@ const Tools = () => {
 					<FaHashtag className="ml-2 h-3 w-3" />
 				</Link>
 			</h2>
-			<ul className="flex flex-col gap-1">
+			<ul className="flex sm:text-base text-sm flex-col gap-1">
 				{tools.map((tool) => (
 					<Link
 						target="_blank"

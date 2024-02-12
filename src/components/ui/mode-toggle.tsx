@@ -13,7 +13,8 @@ export function ModeToggle() {
 
 	return (
 		<motion.button
-			whileTap={{ translateY: 2 }}
+			whileTap={{ translateY: -3 }}
+			transition={{ duration: 0.1 }}
 			className="focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring/0 disabled:pointer-events-none disabled:opacity-50 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors h-9 w-9"
 			onClick={() => {
 				toggleTheme();
