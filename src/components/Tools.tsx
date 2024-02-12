@@ -5,7 +5,7 @@ const tools: { title: string; description: string; href: string }[] = [
 	{
 		title: "shadeshuffle",
 		description: "easily generate color palettes",
-		href: "https://historicolor.org",
+		href: "https://shadeshuffle.org",
 	},
 	{
 		title: "summaraize",
