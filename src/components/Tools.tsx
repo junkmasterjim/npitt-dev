@@ -15,7 +15,7 @@ const tools: { title: string; description: string; href: string }[] = [
 	{
 		title: "qrgen",
 		description: "generate qr codes from links",
-		href: "https://qrgen-omega.vercel.app",
+		href: "https://qr.npitt.dev",
 	},
 	{
 		title: "historicolor",
