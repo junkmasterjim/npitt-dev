@@ -7,11 +7,11 @@ const tools: { title: string; description: string; href: string }[] = [
 		description: "easily generate color palettes",
 		href: "https://shadeshuffle.org",
 	},
-	{
-		title: "summaraize",
-		description: "summarize articles with chatgpt",
-		href: "https://trysummaraize.vercel.app",
-	},
+	// {
+	// 	title: "summaraize",
+	// 	description: "summarize articles with chatgpt",
+	// 	href: "https://trysummaraize.vercel.app",
+	// },
 	{
 		title: "qrgen",
 		description: "generate qr codes from links",
