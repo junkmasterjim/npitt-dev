@@ -9,17 +9,23 @@ import {
 import { useEffect } from "react";
 import { cn } from "@/lib/utils";
 
-export const Cursor = ({ className }: { className?: string }) => {
-	// equal to height and width of the cursor
-	const cursorSize: number = 20;
-	// use Mouse if you want to use the cursor position with no spring
-	const mouse = { x: useMotionValue(0), y: useMotionValue(0) };
-	const smoothOptions: SpringOptions = {
+export const Cursor = ({
+	className,
+	variant = "static",
+	smoothOptions = {
 		stiffness: 300,
 		damping: 20,
 		mass: 0.5,
-	};
-
+	},
+	cursorSize = 20,
+}: {
+	className?: string;
+	variant?: "static" | "spring";
+	smoothOptions?: SpringOptions;
+	cursorSize?: number;
+}) => {
+	// use Mouse if you want to use the cursor position with no spring
+	const mouse = { x: useMotionValue(0), y: useMotionValue(0) };
 	// use smooth if you want to use the cursor position with a spring
 	const smooth = {
 		x: useSpring(mouse.x, smoothOptions),
@@ -43,15 +49,17 @@ export const Cursor = ({ className }: { className?: string }) => {
 		<motion.div
 			initial={{ opacity: 0 }}
 			animate={{ opacity: [0, 0, 1] }}
-			transition={{ duration: 1, times: [0, 0.9, 1] }}
+			transition={{ duration: 0.5, times: [0, 0.9, 1] }}
 			style={{
 				// smooth for spring, mouse for static
-				left: mouse.x,
-				top: mouse.y,
+				left: variant === "spring" ? smooth.x : mouse.x,
+				top: variant === "spring" ? smooth.y : mouse.y,
+				height: `${cursorSize}px`,
+				width: `${cursorSize}px`,
 			}}
 			className={cn(
 				// height and width of the cursor is set to 16px
-				"rounded-full h-5 w-5 z-50 cursor-none pointer-events-none backdrop-blur- fixed inset-0 backdrop-invert hidden md:block",
+				"rounded-full z-50 cursor-none pointer-events-none backdrop-blur- fixed inset-0 backdrop-invert hidden md:block",
 				className
 			)}
 		/>

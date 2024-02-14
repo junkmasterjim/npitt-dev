@@ -3,7 +3,7 @@ import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Navbar from "@/components/Navbar";
-import { Cursor } from "./dotdotdot/_components/cursor";
+import { Cursor } from "../components/ui/Cursor";
 
 const noto = Noto_Sans({ subsets: ["latin"] });
 
