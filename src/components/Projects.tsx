@@ -51,7 +51,7 @@ const Projects = () => {
 						target="_blank"
 						href={project.href}
 						className="md:hover:scale-[1.01] bg-primary/25 md:hover:bg-primary/50 dark:bg-primary-foreground/20 dark:md:hover:bg-primary/10 rounded-lg px-4 py-3 transition-all space-y-2 
-						border-border/10 dark:border-border/25 border  dark:shadow-accent/15 shadow-sm
+						border-border/10 dark:border-border/10 border  dark:shadow-accent/10 hover:shadow
 						"
 					>
 						<h3 className="text-lg font-semibold">{project.title}</h3>
