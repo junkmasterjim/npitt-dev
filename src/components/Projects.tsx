@@ -27,7 +27,7 @@ const projects: {
 		href: "https://donebyhd.com",
 		title: "DoneByHD - Portfolio",
 		description: "Portfolio website for a freelance designer.",
-		stack: ["Next.js", "Tailwind CSS", "Prisma", "MySQL"],
+		stack: ["Next.js", "Tailwind CSS", "Prisma", "MySQL", "Auth"],
 	},
 ];
 

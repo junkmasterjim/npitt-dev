@@ -52,6 +52,7 @@
 @layer base {
 	* {
 		@apply border-border;
+		@apply md:cursor-none !important;
 	}
 	body {
 		@apply bg-background text-foreground;

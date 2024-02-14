@@ -3,6 +3,7 @@ import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Navbar from "@/components/Navbar";
+import { Cursor } from "./dotdotdot/_components/cursor";
 
 const noto = Noto_Sans({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className="scroll-smooth" suppressHydrationWarning>
+		<html lang="en" className="scroll-smooth">
 			<body className={(noto.className, "p-3")}>
 				<ThemeProvider
 					attribute="class"
@@ -32,6 +33,7 @@ export default function RootLayout({
 					</main>
 					<Navbar />
 				</ThemeProvider>
+				<Cursor />
 			</body>
 		</html>
 	);
