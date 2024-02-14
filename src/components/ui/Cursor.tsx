@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 
 export const Cursor = ({
 	className,
+	blur = "none",
 	variant = "static",
 	smoothOptions = {
 		stiffness: 300,
@@ -20,6 +21,7 @@ export const Cursor = ({
 	cursorSize = 20,
 }: {
 	className?: string;
+	blur?: "none" | "sm" | "md" | "lg";
 	variant?: "static" | "spring";
 	smoothOptions?: SpringOptions;
 	cursorSize?: number;
@@ -46,22 +48,56 @@ export const Cursor = ({
 	});
 
 	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: [0, 0, 1] }}
-			transition={{ duration: 0.5, times: [0, 0.9, 1] }}
-			style={{
-				// smooth for spring, mouse for static
-				left: variant === "spring" ? smooth.x : mouse.x,
-				top: variant === "spring" ? smooth.y : mouse.y,
-				height: `${cursorSize}px`,
-				width: `${cursorSize}px`,
-			}}
-			className={cn(
-				// height and width of the cursor is set to 16px
-				"rounded-full z-50 cursor-none pointer-events-none backdrop-blur- fixed inset-0 backdrop-invert hidden md:block",
-				className
-			)}
-		/>
+		<>
+			{/* STATIC RENDER */}
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: [0, 0, 1] }}
+				transition={{ duration: 0.5, times: [0, 0.9, 1] }}
+				style={{
+					// smooth for spring, mouse for static
+					left: mouse.x,
+					top: mouse.y,
+					height: `${cursorSize}px`,
+					width: `${cursorSize}px`,
+				}}
+				className={cn(
+					// height and width of the cursor is set to 16px
+					"rounded-full z-50 cursor-none pointer-events-none backdrop-blur- fixed inset-0 backdrop-invert",
+					// "hidden md:block",
+					"scale-0",
+					className,
+					variant === "static" && "scale-100",
+					blur === "sm" && "backdrop-blur-sm",
+					blur === "md" && "backdrop-blur-md",
+					blur === "lg" && "backdrop-blur-lg"
+				)}
+			/>
+
+			{/* SPRING RENDER */}
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: [0, 0, 1] }}
+				transition={{ duration: 0.5, times: [0, 0.9, 1] }}
+				style={{
+					// smooth for spring, mouse for static
+					left: smooth.x,
+					top: smooth.y,
+					height: `${cursorSize}px`,
+					width: `${cursorSize}px`,
+				}}
+				className={cn(
+					// height and width of the cursor is set to 16px
+					"rounded-full z-50 cursor-none pointer-events-none backdrop-blur- fixed inset-0 backdrop-invert",
+					// "hidden md:block",
+					"scale-0",
+					className,
+					variant === "spring" && "scale-100",
+					blur === "sm" && "backdrop-blur-sm",
+					blur === "md" && "backdrop-blur-md",
+					blur === "lg" && "backdrop-blur-lg"
+				)}
+			/>
+		</>
 	);
 };

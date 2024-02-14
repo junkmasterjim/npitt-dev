@@ -3,7 +3,6 @@ import { Noto_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Navbar from "@/components/Navbar";
-import { Cursor } from "../components/ui/Cursor";
 
 const noto = Noto_Sans({ subsets: ["latin"] });
 
@@ -33,7 +32,6 @@ export default function RootLayout({
 					</main>
 					<Navbar />
 				</ThemeProvider>
-				<Cursor />
 			</body>
 		</html>
 	);

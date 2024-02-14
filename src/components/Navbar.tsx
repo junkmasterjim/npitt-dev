@@ -18,7 +18,7 @@ const Navbar = () => {
 				transition={{ duration: 0.5 }}
 				className="bg-secondary shadow-sm relative mx-auto justify-evenly items-center  max-w-xs p-2 rounded-full px-6 border border-border/50"
 			>
-				<div className="flex items-center gap-2 mx-auto w-fit">
+				<div className="flex items-center justify-evenly  w-full gap-2 mx-auto">
 					<Button
 						asChild
 						variant={"ghost"}
@@ -34,7 +34,8 @@ const Navbar = () => {
 						asChild
 						variant={"ghost"}
 						className={cn(
-							pathname === "/dotdotdot" && "bg-accent/75 hover:bg-accent/75"
+							pathname.includes("/dotdotdot") &&
+								"bg-accent/75 hover:bg-accent/75"
 						)}
 					>
 						<Link href={"/dotdotdot"}>{`[ . . . ]`}</Link>

@@ -26,24 +26,24 @@
 		--radius: 0.5rem;
 	}
 	.dark {
-		--background: 150 50% 5%;
-		--foreground: 150 5% 90%;
-		--card: 150 50% 0%;
-		--card-foreground: 150 5% 90%;
-		--popover: 150 50% 5%;
-		--popover-foreground: 150 5% 90%;
+		--background: 150 10% 5%;
+		--foreground: 150 0% 90%;
+		--card: 150 0% 0%;
+		--card-foreground: 150 0% 90%;
+		--popover: 150 10% 5%;
+		--popover-foreground: 150 0% 90%;
 		--primary: 150 43.8% 87.5%;
 		--primary-foreground: 0 0% 0%;
-		--secondary: 150 30% 10%;
+		--secondary: 150 10% 10%;
 		--secondary-foreground: 0 0% 100%;
-		--muted: 112 30% 15%;
-		--muted-foreground: 150 5% 60%;
-		--accent: 112 30% 15%;
-		--accent-foreground: 150 5% 90%;
-		--destructive: 0 100% 30%;
-		--destructive-foreground: 150 5% 90%;
-		--border: 150 30% 18%;
-		--input: 150 30% 18%;
+		--muted: 112 10% 15%;
+		--muted-foreground: 150 0% 60%;
+		--accent: 112 10% 15%;
+		--accent-foreground: 150 0% 90%;
+		--destructive: 0 50% 30%;
+		--destructive-foreground: 150 0% 90%;
+		--border: 150 20% 18%;
+		--input: 150 20% 18%;
 		--ring: 150 43.8% 87.5%;
 		--radius: 0.5rem;
 	}
@@ -52,7 +52,6 @@
 @layer base {
 	* {
 		@apply border-border;
-		@apply md:cursor-none !important;
 	}
 	body {
 		@apply bg-background text-foreground;

@@ -5,6 +5,7 @@ import Projects from "@/components/Projects";
 import Connect from "@/components/Connect";
 import Present from "@/components/Present";
 import Tools from "@/components/Tools";
+import RecentDot from "@/components/RecentDot";
 
 // TODO: add tools & small projects
 // TODO: add blog
@@ -15,6 +16,7 @@ export default function Home() {
 			<Header />
 			<About />
 			<Present />
+			<RecentDot />
 			<Stack />
 			<Projects />
 			<Tools />
