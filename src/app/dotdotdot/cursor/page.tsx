@@ -42,14 +42,20 @@ const Page = () => {
 
 	return (
 		<>
-			<div className="justify-end flex">
-				<Button asChild variant={"ghost"}>
-					<Link href="/dotdotdot">{`router.push([. . .])`}</Link>
-				</Button>
-			</div>
-			{/* CARD WITH CURSOR CONTROLS */}
+			<header className="flex flex-col gap-4 p-4">
+				<div className="justify-between flex items-center">
+					<div>
+						<h1 className="font-medium text-lg">Custom Cursor</h1>
+						<p className="text-sm text-muted-foreground">February 2024</p>
+					</div>
+					<Button asChild variant={"ghost"}>
+						<Link href="/dotdotdot">{`Back to [. . .]`}</Link>
+					</Button>
+				</div>
+			</header>
 
-			<main className="max-w-2xl w-full p-4">
+			<main className="max-w-2xl w-full  p-4">
+				{/* CARD WITH CURSOR CONTROLS */}
 				<Card className="invert shadow-background/25 shadow-lg">
 					<CardHeader>
 						<CardTitle>Cursor Properties</CardTitle>
@@ -170,7 +176,6 @@ const Page = () => {
 				</Card>
 
 				{/* CURSOR RENDER */}
-
 				<Cursor
 					blur={cursor.blur}
 					cursorSize={cursor.size}
