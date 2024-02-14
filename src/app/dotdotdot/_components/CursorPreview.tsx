@@ -43,7 +43,11 @@ const CursorPreview = () => {
 					className="relative top-3 right-4 z-50"
 					href={"/dotdotdot/cursor"}
 				>
-					<Button variant={"ghost"} size={"icon"}>
+					<Button
+						variant={"ghost"}
+						className="text-muted-foreground"
+						size={"icon"}
+					>
 						<ArrowRight className="h-5 w-5" />
 					</Button>
 				</Link>
