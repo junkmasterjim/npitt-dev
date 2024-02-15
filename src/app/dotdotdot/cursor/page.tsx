@@ -1,6 +1,6 @@
 "use client";
 
-import { Cursor } from "@/components/ui/Cursor";
+import { Cursor } from "@/app/dotdotdot/_components/Cursor";
 
 import {
 	Card,
@@ -20,7 +20,6 @@ import {
 } from "@/components/ui/select";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { useState } from "react";
 import { sample } from "./_codeSample";
 
@@ -33,15 +32,17 @@ const Page = () => {
 		stiffness: number;
 		damping: number;
 		mass: number;
-		variant: "static" | "spring";
+		behaviour: "static" | "spring";
+		variant: "circle" | "square" | "square45";
 		blur: "none" | "sm" | "md" | "lg";
 	}>({
 		size: 32,
 		stiffness: 300,
 		damping: 30,
 		mass: 0.5,
-		variant: "static",
+		behaviour: "static",
 		blur: "none",
+		variant: "circle",
 	});
 
 	return (
@@ -58,11 +59,38 @@ const Page = () => {
 					<CardContent className="space-y-4">
 						<div className="flex sm:flex-row flex-col gap-4 ">
 							<div className="space-y-2 font-medium">
+								<p>Behaviour</p>
+
+								<Select
+									onValueChange={(e) =>
+										setCursor({
+											...cursor,
+											behaviour: e as "static" | "spring",
+										})
+									}
+									value={cursor.behaviour}
+								>
+									<SelectTrigger className="w-[180px]">
+										<SelectValue placeholder="Select a behaviour" />
+									</SelectTrigger>
+									<SelectContent>
+										<SelectGroup>
+											<SelectLabel>Behaviours</SelectLabel>
+											<SelectItem value="static">Static</SelectItem>
+											<SelectItem value="spring">Spring</SelectItem>
+										</SelectGroup>
+									</SelectContent>
+								</Select>
+							</div>
+							<div className="space-y-2 font-medium">
 								<p>Variant</p>
 
 								<Select
 									onValueChange={(e) =>
-										setCursor({ ...cursor, variant: e as "static" | "spring" })
+										setCursor({
+											...cursor,
+											variant: e as "circle" | "square",
+										})
 									}
 									value={cursor.variant}
 								>
@@ -72,8 +100,9 @@ const Page = () => {
 									<SelectContent>
 										<SelectGroup>
 											<SelectLabel>Variants</SelectLabel>
-											<SelectItem value="static">Static</SelectItem>
-											<SelectItem value="spring">Spring</SelectItem>
+											<SelectItem value="circle">Circle</SelectItem>
+											<SelectItem value="square">Square</SelectItem>
+											<SelectItem value="square45">Square 45</SelectItem>
 										</SelectGroup>
 									</SelectContent>
 								</Select>
@@ -92,11 +121,11 @@ const Page = () => {
 									value={cursor.blur}
 								>
 									<SelectTrigger className="w-[180px]">
-										<SelectValue placeholder="Select a variant" />
+										<SelectValue placeholder="Select a behaviour" />
 									</SelectTrigger>
 									<SelectContent>
 										<SelectGroup>
-											<SelectLabel>Variants</SelectLabel>
+											<SelectLabel>Behaviours</SelectLabel>
 											<SelectItem value="none">None</SelectItem>
 											<SelectItem value="sm">Small</SelectItem>
 											<SelectItem value="md">Medium</SelectItem>
@@ -122,9 +151,9 @@ const Page = () => {
 						<div className="space-y-2 font-medium">
 							<p>Stiffness</p>
 							<Slider
-								disabled={cursor.variant === "static"}
+								disabled={cursor.behaviour === "static"}
 								className={cn(
-									cursor.variant === "static" &&
+									cursor.behaviour === "static" &&
 										"opacity-50 cursor-not-allowed",
 									"invert dark:invert-0"
 								)}
@@ -138,9 +167,9 @@ const Page = () => {
 						<div className="space-y-2 font-medium">
 							<p>Damping</p>
 							<Slider
-								disabled={cursor.variant === "static"}
+								disabled={cursor.behaviour === "static"}
 								className={cn(
-									cursor.variant === "static" &&
+									cursor.behaviour === "static" &&
 										"opacity-50 cursor-not-allowed",
 									"invert dark:invert-0"
 								)}
@@ -153,9 +182,9 @@ const Page = () => {
 						<div className="space-y-2 font-medium">
 							<p>Mass</p>
 							<Slider
-								disabled={cursor.variant === "static"}
+								disabled={cursor.behaviour === "static"}
 								className={cn(
-									cursor.variant === "static" &&
+									cursor.behaviour === "static" &&
 										"opacity-50 cursor-not-allowed",
 									"invert dark:invert-0"
 								)}
@@ -173,12 +202,13 @@ const Page = () => {
 				<Cursor
 					blur={cursor.blur}
 					cursorSize={cursor.size}
-					behaviour={cursor.variant}
+					behaviour={cursor.behaviour}
 					smoothOptions={{
 						damping: cursor.damping,
 						mass: cursor.mass,
 						stiffness: cursor.stiffness,
 					}}
+					variant={cursor.variant}
 				/>
 			</main>
 

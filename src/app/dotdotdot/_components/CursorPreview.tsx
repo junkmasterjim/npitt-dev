@@ -1,6 +1,6 @@
 "use client";
 
-import { Cursor } from "@/components/ui/Cursor";
+import { Cursor } from "@/app/dotdotdot/_components/Cursor";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
@@ -58,7 +58,7 @@ const CursorPreview = () => {
 			<div className={cn("relative h-[400px] group", !spring && "cursor-none")}>
 				{spring ? (
 					<Cursor
-						variant="spring"
+						behaviour="spring"
 						cursorSize={32}
 						className="group-hover:block hidden"
 					/>

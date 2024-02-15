@@ -11,10 +11,11 @@ export const { sample } = {
         useMotionValue,
         useSpring,
     } from "framer-motion";
-    
+
     export const Cursor = ({
         className,
         blur = "none",
+        variant = "circle",
         behaviour = "static",
         smoothOptions = {
             stiffness: 300,
@@ -25,6 +26,7 @@ export const { sample } = {
     }: {
         className?: string;
         blur?: "none" | "sm" | "md" | "lg";
+        variant?: "circle" | "square" | "square45";
         behaviour?: "static" | "spring";
         smoothOptions?: SpringOptions;
         cursorSize?: number;
@@ -36,20 +38,20 @@ export const { sample } = {
             x: useSpring(mouse.x, smoothOptions),
             y: useSpring(mouse.y, smoothOptions),
         };
-    
+
         const handleMouseMove = (e: { clientX: any; clientY: any }) => {
             const { clientX, clientY } = e;
             mouse.x.set(clientX - cursorSize / 2);
             mouse.y.set(clientY - cursorSize / 2);
         };
-    
+
         useEffect(() => {
             window.addEventListener("mousemove", handleMouseMove);
             return () => {
                 window.removeEventListener("mousemove", handleMouseMove);
             };
         });
-    
+
         return (
             <>
                 {/* STATIC RENDER */}
@@ -67,16 +69,21 @@ export const { sample } = {
                     className={cn(
                         // height and width of the cursor is set to 16px
                         "rounded-full z-50 cursor-none pointer-events-none fixed inset-0 backdrop-invert",
-                        // "hidden md:block",
-                        "scale-0",
+
+                        // props
                         className,
-                        behaviour === "static" && "scale-100",
+                        "invisible",
+                        behaviour === "static" && "visible",
+                        variant === "square" && "rounded-none",
+                        variant === "square45" && "rounded-none rotate-45",
+
+                        // blur
                         blur === "sm" && "backdrop-blur-sm",
                         blur === "md" && "backdrop-blur-md",
                         blur === "lg" && "backdrop-blur-lg"
                     )}
                 />
-    
+
                 {/* SPRING RENDER */}
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -91,11 +98,17 @@ export const { sample } = {
                     }}
                     className={cn(
                         // height and width of the cursor is set to 16px
-                        "rounded-full z-50 cursor-none pointer-events-none backdrop-blur- fixed inset-0 backdrop-invert",
-                        // "hidden md:block",
-                        "scale-0",
+                        " z-50 cursor-none pointer-events-none backdrop-blur- fixed inset-0 backdrop-invert",
+
+                        // props
                         className,
-                        behaviour === "spring" && "scale-100",
+                        "invisible",
+                        behaviour === "spring" && "visible",
+                        variant === "circle" && "rounded-full",
+                        variant === "square" && "rounded-none",
+                        variant === "square45" && "rounded-none rotate-45",
+
+                        // blur
                         blur === "sm" && "backdrop-blur-sm",
                         blur === "md" && "backdrop-blur-md",
                         blur === "lg" && "backdrop-blur-lg"
