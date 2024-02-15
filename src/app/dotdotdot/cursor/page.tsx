@@ -1,7 +1,7 @@
 "use client";
 
 import { Cursor } from "@/components/ui/Cursor";
-import { Button } from "@/components/ui/button";
+
 import {
 	Card,
 	CardContent,
@@ -22,6 +22,10 @@ import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useState } from "react";
+import { sample } from "./_codeSample";
+
+import { CodePreview } from "../_components/CodePreview";
+import { PreviewHeader } from "../_components/PreviewHeader";
 
 const Page = () => {
 	const [cursor, setCursor] = useState<{
@@ -42,19 +46,9 @@ const Page = () => {
 
 	return (
 		<>
-			<header className="flex flex-col gap-4 p-4">
-				<div className="justify-between flex items-center">
-					<div>
-						<h1 className="font-medium text-lg">Custom Cursor</h1>
-						<p className="text-sm text-muted-foreground">February 2024</p>
-					</div>
-					<Button asChild variant={"ghost"}>
-						<Link href="/dotdotdot">{`Back to [. . .]`}</Link>
-					</Button>
-				</div>
-			</header>
+			<PreviewHeader title="Custom Cursor" created="February 2024" />
 
-			<main className="max-w-2xl w-full  p-4">
+			<main className="">
 				{/* CARD WITH CURSOR CONTROLS */}
 				<Card className="invert shadow-background/25 shadow-lg">
 					<CardHeader>
@@ -187,6 +181,9 @@ const Page = () => {
 					}}
 				/>
 			</main>
+
+			{/* CODE SAMPLE */}
+			<CodePreview code={sample} />
 		</>
 	);
 };

@@ -63,7 +63,7 @@ export const Cursor = ({
 				}}
 				className={cn(
 					// height and width of the cursor is set to 16px
-					"rounded-full z-50 cursor-none pointer-events-none backdrop-blur- fixed inset-0 backdrop-invert",
+					"rounded-full z-50 cursor-none pointer-events-none fixed inset-0 backdrop-invert",
 					// "hidden md:block",
 					"scale-0",
 					className,
