@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 export const Cursor = ({
 	className,
 	blur = "none",
-	variant = "static",
+	behaviour = "static",
 	smoothOptions = {
 		stiffness: 300,
 		damping: 20,
@@ -22,7 +22,7 @@ export const Cursor = ({
 }: {
 	className?: string;
 	blur?: "none" | "sm" | "md" | "lg";
-	variant?: "static" | "spring";
+	behaviour?: "static" | "spring";
 	smoothOptions?: SpringOptions;
 	cursorSize?: number;
 }) => {
@@ -67,7 +67,7 @@ export const Cursor = ({
 					// "hidden md:block",
 					"scale-0",
 					className,
-					variant === "static" && "scale-100",
+					behaviour === "static" && "scale-100",
 					blur === "sm" && "backdrop-blur-sm",
 					blur === "md" && "backdrop-blur-md",
 					blur === "lg" && "backdrop-blur-lg"
@@ -92,7 +92,7 @@ export const Cursor = ({
 					// "hidden md:block",
 					"scale-0",
 					className,
-					variant === "spring" && "scale-100",
+					behaviour === "spring" && "scale-100",
 					blur === "sm" && "backdrop-blur-sm",
 					blur === "md" && "backdrop-blur-md",
 					blur === "lg" && "backdrop-blur-lg"

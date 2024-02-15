@@ -173,7 +173,7 @@ const Page = () => {
 				<Cursor
 					blur={cursor.blur}
 					cursorSize={cursor.size}
-					variant={cursor.variant}
+					behaviour={cursor.variant}
 					smoothOptions={{
 						damping: cursor.damping,
 						mass: cursor.mass,
