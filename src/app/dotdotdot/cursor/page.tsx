@@ -33,7 +33,7 @@ const Page = () => {
 		damping: number;
 		mass: number;
 		behaviour: "static" | "spring";
-		variant: "circle" | "square" | "square45";
+		variant: "circle" | "square";
 		blur: "none" | "sm" | "md" | "lg";
 	}>({
 		size: 32,
@@ -102,7 +102,6 @@ const Page = () => {
 											<SelectLabel>Variants</SelectLabel>
 											<SelectItem value="circle">Circle</SelectItem>
 											<SelectItem value="square">Square</SelectItem>
-											<SelectItem value="square45">Square 45</SelectItem>
 										</SelectGroup>
 									</SelectContent>
 								</Select>

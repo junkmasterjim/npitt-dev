@@ -26,7 +26,7 @@ export const { sample } = {
     }: {
         className?: string;
         blur?: "none" | "sm" | "md" | "lg";
-        variant?: "circle" | "square" | "square45";
+        variant?: "circle" | "square";
         behaviour?: "static" | "spring";
         smoothOptions?: SpringOptions;
         cursorSize?: number;
@@ -75,7 +75,6 @@ export const { sample } = {
                         "invisible",
                         behaviour === "static" && "visible",
                         variant === "square" && "rounded-none",
-                        variant === "square45" && "rounded-none rotate-45",
 
                         // blur
                         blur === "sm" && "backdrop-blur-sm",
@@ -106,7 +105,6 @@ export const { sample } = {
                         behaviour === "spring" && "visible",
                         variant === "circle" && "rounded-full",
                         variant === "square" && "rounded-none",
-                        variant === "square45" && "rounded-none rotate-45",
 
                         // blur
                         blur === "sm" && "backdrop-blur-sm",
