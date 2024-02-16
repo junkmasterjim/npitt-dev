@@ -47,7 +47,7 @@ const Navbar = () => {
 										layoutId="bubble"
 										className="absolute inset-0 z-10 bg-accent/75 mix-blend-overlay"
 										style={{ borderRadius: 6 }}
-										transition={{ type: "spring", bounce: 0.1, duration: 0.5 }}
+										transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
 									/>
 								)}
 							</button>
