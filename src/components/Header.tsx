@@ -9,6 +9,7 @@ const Header = () => {
 					src={"/noah.jpeg"}
 					alt="Noah Pittman"
 					width={64}
+					priority
 					height={64}
 					className="rounded-full object-cover"
 				/>

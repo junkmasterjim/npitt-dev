@@ -6,7 +6,12 @@ const About = () => {
 		<section id="about">
 			<h2 className="text-lg font-semibold flex items-center">
 				About
-				<Link className="text-muted-foreground" scroll href={"/#about"}>
+				<Link
+					className="text-muted-foreground"
+					aria-label="anchor"
+					scroll
+					href={"/#about"}
+				>
 					<FaHashtag className="ml-2 h-3 w-3" />
 				</Link>
 			</h2>

@@ -6,7 +6,12 @@ const Present = () => {
 		<section id="present">
 			<h2 className="text-lg flex items-center font-semibold">
 				Present{" "}
-				<Link className="text-muted-foreground" scroll href={"/#present"}>
+				<Link
+					className="text-muted-foreground"
+					aria-label="anchor"
+					scroll
+					href={"/#present"}
+				>
 					<FaHashtag className="ml-2 h-3 w-3" />
 				</Link>
 			</h2>
@@ -16,7 +21,7 @@ const Present = () => {
 				things to work on, so if you have a project in mind, feel free to
 				`}
 				<Link
-					className="text-muted-foreground hover:text-foreground border-b border-border/0 hover:border-foreground transition-colors"
+					className="text-muted-foreground hover:text-foreground border-b border-muted-foreground hover:border-foreground transition-colors"
 					target="_blank"
 					href="mailto:noahpittman00@gmail.com?subject=Hello!&body=Hi, my name is [name] and I have a project that I would like to discuss with you."
 					type="email"

@@ -29,11 +29,16 @@ const Tools = () => {
 		<section id="tools">
 			<h2 className="text-lg flex items-center font-semibold">
 				Tools
-				<Link className="text-muted-foreground" scroll href={"/#tools"}>
+				<Link
+					className="text-muted-foreground"
+					aria-label="anchor"
+					scroll
+					href={"/#tools"}
+				>
 					<FaHashtag className="ml-2 h-3 w-3" />
 				</Link>
 			</h2>
-			<ul className="flex sm:text-base text-sm flex-col gap-1">
+			<div className="flex sm:text-base text-sm flex-col gap-1">
 				{tools.map((tool) => (
 					<Link
 						target="_blank"
@@ -44,7 +49,7 @@ const Tools = () => {
 						{tool.title} - {tool.description}
 					</Link>
 				))}
-			</ul>
+			</div>
 		</section>
 	);
 };

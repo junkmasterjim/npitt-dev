@@ -7,7 +7,12 @@ const Connect = () => {
 		<section id="connect">
 			<h2 className="text-lg font-semibold flex items-center">
 				Connect
-				<Link className="text-muted-foreground" scroll href={"/#connect"}>
+				<Link
+					className="text-muted-foreground"
+					aria-label="anchor"
+					scroll
+					href={"/#connect"}
+				>
 					<FaHashtag className="ml-2 h-3 w-3" />
 				</Link>
 			</h2>

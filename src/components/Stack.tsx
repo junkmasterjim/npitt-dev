@@ -39,7 +39,12 @@ const Stack = () => {
 		<section id="stack">
 			<h2 className="text-lg font-semibold flex items-center">
 				Stack
-				<Link className="text-muted-foreground" scroll href={"/#stack"}>
+				<Link
+					className="text-muted-foreground"
+					aria-label="anchor"
+					scroll
+					href={"/#stack"}
+				>
 					<FaHashtag className="ml-2 h-3 w-3" />
 				</Link>
 			</h2>
