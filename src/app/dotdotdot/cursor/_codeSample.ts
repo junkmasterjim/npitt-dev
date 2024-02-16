@@ -97,7 +97,7 @@ export const { sample } = {
                     }}
                     className={cn(
                         // height and width of the cursor is set to 16px
-                        " z-50 cursor-none pointer-events-none backdrop-blur- fixed inset-0 backdrop-invert",
+                        " z-50 cursor-none pointer-events-none fixed inset-0 backdrop-invert",
 
                         // props
                         className,
