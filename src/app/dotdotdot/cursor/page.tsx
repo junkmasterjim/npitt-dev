@@ -23,8 +23,8 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { sample } from "./_codeSample";
 
-import { CodePreview } from "../_components/CodePreview";
-import { PreviewHeader } from "../_components/PreviewHeader";
+import { CodePreview } from "../_components/layout/CodePreview";
+import { PreviewHeader } from "../_components/layout/PreviewHeader";
 
 const Page = () => {
 	const [cursor, setCursor] = useState<{

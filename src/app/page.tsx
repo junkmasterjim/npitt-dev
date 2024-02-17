@@ -6,7 +6,7 @@ import Connect from "@/components/Connect";
 import Present from "@/components/Present";
 import Tools from "@/components/Tools";
 import RecentDot from "@/components/RecentDot";
-import CursorPreview from "./dotdotdot/_components/CursorPreview";
+import SpotlightPreview from "./dotdotdot/_components/SpotlightPreview";
 
 // TODO: add tools & small projects
 // TODO: add blog
@@ -17,7 +17,7 @@ export default function Home() {
 			<Header />
 			<About />
 			<Present />
-			<RecentDot dot={<CursorPreview />} />
+			<RecentDot dot={<SpotlightPreview />} />
 			<Stack />
 			<Projects />
 			<Tools />

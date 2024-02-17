@@ -1,0 +1,115 @@
+let mouseX = "${mouse.x}px";
+let mouseY = "${mouse.y}px";
+let r = "${colorRGB?.r}";
+let g = "${colorRGB.g}";
+let b = "${colorRGB.b}";
+let opacity = "${opacity}";
+let sz = "${size}";
+
+export const { sample } = {
+	sample: `
+    // The 'cn' function is a utility function that allows you to conditionally join class names together.
+    import { cn } from "@/lib/utils";
+
+    import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+    import { MouseEvent } from "react";
+
+    export default function SpotlightCard({
+        byline = "Info",
+        bylineStyles,
+        header = "Header",
+        headerStyles,
+        description = "Lorem ipsum dolor sit amet consectetur adipisicing elit, facilis illum eum ullam nostrum atque quam.",
+        descriptionStyles,
+        colorRGB = { r: 120, g: 120, b: 120 },
+        opacity = 0.15,
+        className,
+        weight = "normal",
+        children,
+        size = 250,
+    }: {
+        byline?: string;
+        bylineStyles?: string;
+        header?: string;
+        headerStyles?: string;
+        description?: string;
+        descriptionStyles?: string;
+        colorRGB?: { r: number; g: number; b: number };
+        opacity?: 0.1 | 0.15 | 0.2 | 0.25 | 0.3 | 0.35 | 0.4;
+        className?: string;
+        weight?: "normal" | "bold";
+        children?: React.ReactNode;
+        size?: number;
+    }) {
+        let mouse = {
+            x: useMotionValue(0),
+            y: useMotionValue(0),
+        };
+
+        function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
+            let { left, top } = currentTarget.getBoundingClientRect();
+
+            mouse.x.set(clientX - left);
+            mouse.y.set(clientY - top);
+        }
+
+        return (
+            <div
+                className={cn(
+                    'group relative max-w-md rounded-xl border px-8 py-12 shadow-lg 
+                    border-neutral-200 dark:border-neutral-900 
+                    dark:shadow-neutral-900/50 
+                    bg-neutral-100 dark:bg-neutral-950 
+                    text-neutral-900 dark:text-neutral-100',
+                    className
+                )}
+                onMouseMove={handleMouseMove}
+            >
+                <motion.div
+                    className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition group-hover:opacity-100"
+                    style={{
+                        background: useMotionTemplate'
+                radial-gradient(
+                ${sz}px circle at ${mouseX}px ${mouseY}px,
+                rgba(${r}, ${g}, ${b}, ${opacity}),
+                transparent 80%
+                )
+            ',
+                    }}
+                />
+                <div className="pb-4">
+                    <h3
+                        className={cn(
+                            "text-base font-semibold leading-7 text-neutral-500",
+                            bylineStyles,
+                            weight === "bold" ? "font-semibold" : "font-medium"
+                        )}
+                    >
+                        {byline}
+                    </h3>
+                    <div className="mt-2 flex items-center gap-x-2">
+                        <span
+                            className={cn(
+                                "text-5xl font-bold tracking-tight",
+                                headerStyles,
+                                weight === "bold" ? "font-bold" : "font-semibold"
+                            )}
+                        >
+                            {header}
+                        </span>
+                    </div>
+                    <p
+                        className={cn(
+                            "mt-2 text-base leading-7 text-neutral-400",
+                            descriptionStyles
+                        )}
+                    >
+                        {description}
+                    </p>
+                </div>
+                {children}
+            </div>
+        );
+    }
+    `,
+};
