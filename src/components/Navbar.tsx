@@ -3,9 +3,9 @@
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "./ui/mode-toggle";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const tabs: { label: string; id: string; href: string }[] = [
 	{ label: "Home", id: "home", href: "/" },
@@ -21,7 +21,9 @@ const Navbar = () => {
 			<motion.div
 				initial={{ y: -10, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
-				transition={{ duration: 0.5 }}
+				layout
+				style={{ originY: "0px" }}
+				transition={{ duration: 0.4 }}
 				className="bg-secondary shadow-sm relative mx-auto justify-evenly items-center  max-w-xs p-2 rounded-full px-6 border border-border/50"
 			>
 				<div className="flex gap-2 justify-evenly items-center">
@@ -44,10 +46,11 @@ const Navbar = () => {
 								{/* Active tab span */}
 								{activeTab === tab.id && (
 									<motion.span
-										layoutId="bubble"
-										className="absolute inset-0 z-10 bg-accent/75 mix-blend-overlay"
-										style={{ borderRadius: 6 }}
-										transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+										layoutId="selected-tab"
+										className="absolute flex inset-0 z-10 bg-accent/75 mix-blend-overlay"
+										// originY: "0px" is a workaround for a bug in Framer Motion
+										style={{ borderRadius: 6, originY: "0px" }}
+										transition={{ type: "spring", duration: 0.5 }}
 									/>
 								)}
 							</button>
