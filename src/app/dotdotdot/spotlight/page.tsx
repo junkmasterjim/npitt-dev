@@ -14,6 +14,7 @@ const Page = () => {
 				byline="Spotlight"
 				header="Hover me!"
 				description="Hover this card to view the spotlight effect."
+				rounded="lg"
 				className="bg-card max-w-none justify-between flex-1"
 			>
 				<div className="grid h-full flex-1 gap-8 justify-between">

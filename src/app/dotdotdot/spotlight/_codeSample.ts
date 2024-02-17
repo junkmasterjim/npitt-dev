@@ -27,6 +27,7 @@ export const { sample } = {
         weight = "normal",
         children,
         size = 250,
+        rounded = "xl",
     }: {
         byline?: string;
         bylineStyles?: string;
@@ -40,6 +41,7 @@ export const { sample } = {
         weight?: "normal" | "bold";
         children?: React.ReactNode;
         size?: number;
+        rounded?: "none" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "full";
     }) {
         let mouse = {
             x: useMotionValue(0),
@@ -56,17 +58,38 @@ export const { sample } = {
         return (
             <div
                 className={cn(
-                    'group relative max-w-md rounded-xl border px-8 py-12 shadow-lg 
+                    'group relative max-w-md rounded-xl border px-8 py-12 shadow-lg transition
                     border-neutral-200 dark:border-neutral-900 
+                    hover:border-neutral-300 hover:dark:border-neutral-800
                     dark:shadow-neutral-900/50 
                     bg-neutral-100 dark:bg-neutral-950 
                     text-neutral-900 dark:text-neutral-100',
-                    className
+                    className,
+                    
+                    rounded === "none" && "rounded-none",
+                    rounded === "sm" && "rounded-sm",
+                    rounded === "md" && "rounded-md",
+                    rounded === "lg" && "rounded-lg",
+                    rounded === "xl" && "rounded-xl",
+                    rounded === "2xl" && "rounded-2xl",
+                    rounded === "3xl" && "rounded-3xl",
+                    rounded === "full" && "rounded-full"
                 )}
                 onMouseMove={handleMouseMove}
             >
                 <motion.div
-                    className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition group-hover:opacity-100"
+                    className={cn(
+                            "pointer-events-none absolute -inset-px rounded-xl opacity-0 transition group-hover:opacity-100",
+
+                            rounded === "none" && "rounded-none",
+                            rounded === "sm" && "rounded-sm",
+                            rounded === "md" && "rounded-md",
+                            rounded === "lg" && "rounded-lg",
+                            rounded === "xl" && "rounded-xl",
+                            rounded === "2xl" && "rounded-2xl",
+                            rounded === "3xl" && "rounded-3xl",
+                            rounded === "full" && "rounded-full"
+                        )}
                     style={{
                         background: useMotionTemplate'
                 radial-gradient(
