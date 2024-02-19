@@ -124,7 +124,7 @@ const Page = () => {
 									</SelectTrigger>
 									<SelectContent>
 										<SelectGroup>
-											<SelectLabel>Behaviours</SelectLabel>
+											<SelectLabel>Blur</SelectLabel>
 											<SelectItem value="none">None</SelectItem>
 											<SelectItem value="sm">Small</SelectItem>
 											<SelectItem value="md">Medium</SelectItem>
