@@ -46,7 +46,7 @@ const Header = () => {
 							</div>
 						}
 					/>
-					<HoverMe className="dark:invert absolute h-36 w-full object-cover -top-8 end-0 -mr-32 opacity-80" />
+					<HoverMe className="dark:invert hidden md:block absolute h-36 w-full object-cover -top-8 end-0 -mr-32 opacity-80" />
 				</div>
 			</div>
 			<Separator />
