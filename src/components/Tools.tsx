@@ -7,11 +7,6 @@ const tools: { title: string; description: string; href: string }[] = [
 		description: "easily generate color palettes",
 		href: "https://shadeshuffle.org",
 	},
-	// {
-	// 	title: "summaraize",
-	// 	description: "summarize articles with chatgpt",
-	// 	href: "https://trysummaraize.vercel.app",
-	// },
 	{
 		title: "qrgen",
 		description: "generate qr codes from links",
@@ -22,13 +17,23 @@ const tools: { title: string; description: string; href: string }[] = [
 		description: "recolor old black & white photos",
 		href: "https://historicolor.org",
 	},
+	{
+		title: "ballpit",
+		description: "ballpit effect using matter.js",
+		href: "https://ballpit.npitt.dev",
+	},
+	{
+		title: "pokedex - tanstack query",
+		description: "pokedex made using tanstack query",
+		href: "https://pokedex.npitt.dev",
+	},
 ];
 
 const Tools = () => {
 	return (
 		<section id="tools">
 			<h2 className="text-lg flex items-center font-semibold">
-				Tools
+				Tools & Fun
 				<Link
 					className="text-muted-foreground"
 					aria-label="anchor"
