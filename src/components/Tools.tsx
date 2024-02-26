@@ -23,8 +23,8 @@ const tools: { title: string; description: string; href: string }[] = [
 		href: "https://ballpit.npitt.dev",
 	},
 	{
-		title: "pokedex - tanstack query",
-		description: "pokedex made using tanstack query",
+		title: "pokedex",
+		description: "made using tanstack query",
 		href: "https://pokedex.npitt.dev",
 	},
 ];
