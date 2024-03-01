@@ -16,7 +16,7 @@ const Header = () => {
 					className="rounded-full object-cover"
 				/>
 				<div className="relative">
-					<div className="block sm:hidden">
+					<div className="block md:hidden">
 						<h1 className="text-xl leading-normal font-semibold">
 							Noah Pittman
 						</h1>
