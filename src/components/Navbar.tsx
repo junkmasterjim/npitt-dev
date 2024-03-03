@@ -9,12 +9,17 @@ import { useEffect, useState } from "react";
 
 const tabs: { label: string; id: string; href: string }[] = [
 	{ label: "Home", id: "home", href: "/" },
+	{ label: "Blog", id: "blog", href: "/blog" },
 	{ label: "[ . . . ]", id: "dotdotdot", href: "/dotdotdot" },
 ];
 
 const Navbar = () => {
 	const pathname = usePathname();
 	const [activeTab, setActiveTab] = useState(pathname.split("/")[1] || "home");
+
+	useEffect(() => {
+		setActiveTab(pathname.split("/")[1] || "home");
+	}, [pathname]);
 
 	return (
 		<nav className="fixed inset-x-0 bottom-4 w-full px-2">
