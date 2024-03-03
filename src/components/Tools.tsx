@@ -22,11 +22,6 @@ const tools: { title: string; description: string; href: string }[] = [
 		description: "ballpit effect using matter.js",
 		href: "https://ballpit.npitt.dev",
 	},
-	{
-		title: "pokedex",
-		description: "made using tanstack query",
-		href: "https://pokedex.npitt.dev",
-	},
 ];
 
 const Tools = () => {
