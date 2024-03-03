@@ -56,4 +56,82 @@
 	body {
 		@apply bg-background text-foreground;
 	}
+	.prose h1 {
+		@apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+	}
+	.prose h2 {
+		@apply scroll-m-20 border-b pb-2 text-4xl font-semibold tracking-tight first-of-type:mt-2 first-of-type:text-2xl first-of-type:opacity-70  mt-8;
+	}
+	.prose h3 {
+		@apply scroll-m-20 text-2xl font-semibold tracking-tight mt-4;
+	}
+	.prose h4 {
+		@apply scroll-m-20 text-xl font-semibold tracking-tight;
+	}
+	.prose h5 {
+		@apply scroll-m-20 text-lg font-semibold tracking-tight;
+	}
+	.prose h6 {
+		@apply scroll-m-20 text-base font-medium tracking-tight;
+	}
+	.prose p {
+		@apply leading-7 [&:not(:first-child)]:mt-6;
+	}
+	.prose ul {
+		@apply list-disc pl-6 [&:not(:first-child)]:mt-6;
+	}
+	.prose ol {
+		@apply list-decimal pl-6 [&:not(:first-child)]:mt-6;
+	}
+	.prose li {
+		@apply leading-7;
+	}
+	.prose a {
+		@apply text-foreground/80 underline hover:text-foreground transition-colors cursor-pointer;
+	}
+	.prose strong {
+		@apply font-semibold;
+	}
+	.prose em {
+		@apply italic;
+	}
+	.prose hr {
+		@apply my-6 border-t border-border;
+	}
+	.prose blockquote {
+		@apply mt-6 border-l-2 pl-6 italic;
+	}
+	.prose table {
+		@apply w-full;
+	}
+	.prose tr {
+		@apply m-0 border-t p-0 even:bg-muted;
+	}
+	.prose th {
+		@apply border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right;
+	}
+	.prose td {
+		@apply border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right;
+	}
+	.prose code {
+		@apply bg-foreground/90 text-background font-medium font-mono p-1 px-2 rounded-md;
+	}
+	.prose pre {
+		@apply bg-foreground/90 text-background font-mono p-4 rounded-md overflow-auto text-wrap;
+	}
+	.prose pre code {
+		@apply bg-transparent text-inherit p-0;
+	}
+	.prose img {
+		@apply w-full h-auto;
+	}
+	.prose video {
+		@apply w-full h-auto;
+	}
+	.prose figure {
+		@apply mt-6;
+	}
+	.prose figcaption {
+		@apply text-sm text-muted text-center;
+	}
 }
