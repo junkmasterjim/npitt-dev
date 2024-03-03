@@ -1,0 +1,241 @@
+import { DotLoader } from "./_components/DotLoader.tsx";
+import { WordleLoader } from "./_components/WordleLoader.tsx";
+import { LoaderText } from "./_components/LoaderText.tsx";
+
+# Custom Loaders With React, TypeScript & Framer Motion
+
+## A fun way to spice up your loading screens
+
+I&apos;ve been having a lot of fun with Framer Motion lately. It&apos;s more intuitive and runs smoother than other animation libraries. I appreciate that. There really isn&apos;t much you can&apos;t animate; from HTML content or positioning, to borders, backgrounds & more, it&apos;s perhaps my new favourite addition to my front-end toolbox.
+
+Which is why I want to share some fun React loading components made with Framer Motion, and dive into the mechanics that make them work. They&apos;re simple, yet effective. Keep in mind, these are made with React using TypeScript.
+
+## Dots Loader
+
+This is the classic. Easy to make with CSS alone, but framer motion adds a level of control that plain CSS doesn&apos;t provide with such ease. Here&apos;s the example & code.
+
+### Code
+
+```tsx
+import { motion } from "framer-motion";
+
+function DotLoader({
+	stagger = 0.1,
+	duration = 0.3,
+	repeatDelay = 1.25,
+}: {
+	stagger?: 0.05 | 0.1 | 0.2;
+	duration?: number | null;
+	repeatDelay?: number;
+}) {
+	return (
+		<div className="flex w-fit gap-2 justify-center">
+			{Array.from({ length: 5 }, (_, i) => i).map((item, i) => (
+				<motion.div
+					animate={{
+						translateY: ["0%", "-25%", "0%"],
+					}}
+					transition={{
+						repeat: Infinity,
+						repeatDelay: repeatDelay,
+						easings: [
+							[0.8, 0, 1, 1],
+							[0, 0, 0.2, 1],
+							[0.8, 0, 1, 1],
+						],
+						duration: duration,
+						delay: i * stagger,
+					}}
+					key={item}
+				>
+					<motion.div key={item} className="size-4 rounded-full bg-black" />
+				</motion.div>
+			))}
+		</div>
+	);
+}
+
+export { DotLoader };
+```
+
+### Breakdown
+
+Like I said, it&apos;s fairly simple, but let&apos;s look at the return statement. Flexbox, yadda yadda. We start by initializing an array with a length of 5, using `Array.from()`, and call `.map()` on it to render our 5 dots. If you wanted to add a custom prop to change the amount of dots from 5 to something smaller like 3, this would be the place to do it.
+
+### Keyframes with Framer Motion
+
+Within our `.map()` we return a `<motion.div>` with a simple animation. Using the array syntax, we can animate our `translateY`. See how easy it is to define keyframes?
+
+In our `transition` prop, we can set an infinite repeat, and throw in our custom repeatDelay prop, as well as the duration, and stagger. Inside of easings, we use the same array syntax to line up our animation curves with our keyframes. We can do this using an array of custom cubic bezier functions.
+
+### Result
+
+<div className="py-12 flex justify-center items-center dark:invert">
+	<DotLoader />
+</div>
+
+## Wordle Loader
+
+This is a small change from the classic dots, but a definite improvement. I&apos;m sure we are all familiar with [Wordle](https://www.nytimes.com/games/wordle/index.html). This loader takes inspiration from Wordle & it&apos;s design choices. Let&apos;s browse the code.
+
+### Code
+
+```tsx
+import { motion } from "framer-motion";
+
+function WordleLoader({
+	stagger = 0.1,
+	duration = 0.3,
+	repeatDelay = 1.25,
+	text = "Loading",
+}: {
+	stagger?: 0.05 | 0.1 | 0.2;
+	duration?: number | null;
+	repeatDelay?: number;
+	text?: string;
+}) {
+	return (
+		<div className="flex gap-4">
+			{text.split("").map((item, i) => (
+				<motion.div
+					animate={{
+						scale: [1, 1.2, 1],
+					}}
+					transition={{
+						repeat: Infinity,
+						repeatDelay: repeatDelay,
+						easings: [
+							[0.8, 0, 1, 1],
+							[0, 0, 0.2, 1],
+							[0.8, 0, 1, 1],
+						],
+						duration: duration,
+						delay: i * stagger,
+					}}
+					key={item}
+				>
+					<motion.div
+						key={item}
+						className="size-16 uppercase bg-black text-center grid place-content-center font-bold text-3xl text-white"
+					>
+						{item}
+					</motion.div>
+				</motion.div>
+			))}
+		</div>
+	);
+}
+
+export { WordleLoader };
+```
+
+### Breakdown
+
+One major difference. We ditched `Array.from()`, and instead use `Array.split()`. In the call to `.map()`, we return the same `<motion.div>` element, with some minor styling changes to place the text in a box, and style it like Wordle. Rather than animating the `translateY`, we animate the `scale` property.
+
+### Result
+
+<div className="py-12 flex justify-center items-center dark:invert">
+	<WordleLoader />
+</div>
+
+## SVG Text Loader
+
+This is where Framer Motion shines, and truly feels like magic. Animating SVGs with Framer Motion is quite easy if you understand how SVGs work. In this case, we will be animating a `<text>` svg element.
+
+### Code
+
+```tsx
+import { motion } from "framer-motion";
+
+function LoaderText({
+	text = "Loading  . . .",
+	variant = "reverse",
+	fontSize = 720,
+}: {
+	text?: string;
+	variant?: "reverse" | "constant";
+	fontSize?: number;
+}) {
+	return (
+		<motion.svg
+			viewBox={`0 0 ${fontSize * 8} ${fontSize * 2}`}
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<motion.text
+				fontSize={fontSize}
+				textAnchor="middle"
+				dominantBaseline={"middle"}
+				fontFamily="sans-serif"
+				fontWeight={"bold"}
+				x={fontSize * 4}
+				y={fontSize}
+				fill="none"
+				stroke="#000"
+				strokeWidth={15}
+				initial={
+					variant === "reverse"
+						? {
+								strokeDasharray: fontSize / 12,
+								strokeDashoffset: fontSize,
+						  }
+						: {
+								strokeDasharray: 50,
+								strokeDashoffset: 2500,
+						  }
+				}
+				animate={
+					variant === "reverse"
+						? { strokeDashoffset: 0, strokeDasharray: fontSize * 3.5 }
+						: { strokeDashoffset: 0 }
+				}
+				transition={{
+					duration: variant === "reverse" ? 3 : 10,
+					repeat: Infinity,
+					ease: variant === "reverse" ? "easeInOut" : "linear",
+					repeatType: "reverse",
+				}}
+			>
+				{text}
+			</motion.text>
+		</motion.svg>
+	);
+}
+
+export { LoaderText };
+```
+
+### Breakdown
+
+This one is slightly different, as it uses an SVG rather than a basic HTML element. Nonetheless, it works. We start by defining a `<motion.svg>` using the `fontSize` prop as our basis for sizing. Now, we can create a text `<motion.text>` element which contains everything we need for our animations.
+
+Quite a few props! No worries, they&apos;re all fairly self explanatory. What we want to look at is the `initial`, `animate`, and `transition` props, the bread & butter of Framer Motion.
+
+Our `initial` state sets the `strokeDasharray` & `strokeDashoffset` props based on the variant selected (`reverse`, or `constant`). A basic explanation of these props is as follows:
+
+- `strokeDasharray`: Defines the pattern of dashes and gaps used to paint the outline of the shape.
+  - i.e. `strokeDasharray: 14` = Shape split into 14 dashes, with equally sized gaps.
+- `strokeDashoffset`:Defines an offset on the rendering of the associated dash array.
+  - i.e. `strokeDashoffset: 128` = Dashes are offset by 128 units.
+
+Having set these props in the `initial` state, we can look at the `animate` prop. As the animation plays out, we get the effect of movement both in size, and position, as we animate our stroke dash properties.
+
+The `transition` never really changes much. To Infinity and beyond, we get it. Throw in some conditional easing based on the variant, and you&apos;re good to go! These are my favourite.
+
+### Result
+
+<div className="dark:invert">
+	<LoaderText variant={"constant"} />
+	<LoaderText />
+</div>
+
+## Conclusion
+
+Framer motion rocks. I don&apos;t have many other ways to put it. I&apos;ve been having way too much fun building components with Framer Motion & TS, and don&apos;t plan to stop any time soon. I intend to have as much fun as I possibly can, and spread the knowledge I develop along the way.
+
+Thanks for reading! Hopefully you learned something, or at least found this interesting. Feel free to use these in your own projects.
+
+See ya! 👋
+
+<br />
+`noah - mar. '24`

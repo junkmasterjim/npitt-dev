@@ -16,7 +16,7 @@ const RecentDot = ({ dot }: { dot: React.ReactNode }) => {
 					<FaHashtag className="ml-2 h-3 w-3" />
 				</Link>
 			</h2>
-			{dot}
+			<div className="flex flex-col gap-4">{dot}</div>
 		</section>
 	);
 };
