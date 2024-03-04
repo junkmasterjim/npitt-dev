@@ -6,9 +6,11 @@ import { motion } from "framer-motion";
 function Magnetic({
 	children,
 	stretch = "md",
+	className,
 }: {
 	children: React.ReactNode;
 	stretch?: "xs" | "sm" | "md" | "lg";
+	className?: string;
 }) {
 	const ref = useRef<HTMLDivElement>(null);
 	const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -44,6 +46,7 @@ function Magnetic({
 			onMouseLeave={reset}
 			animate={{ x, y }}
 			transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+			className={className}
 		>
 			{children}
 		</motion.div>

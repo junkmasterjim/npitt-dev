@@ -18,6 +18,7 @@ import {
 	SiTailwindcss,
 	SiTypescript,
 } from "react-icons/si";
+import { Magnetic } from "./Magnetic";
 
 const stack: { name: string; icon: IconType }[] = [
 	{ name: "JavaScript", icon: SiJavascript },
@@ -50,18 +51,20 @@ const Stack = () => {
 			</h2>
 			<div className="flex gap-4 flex-wrap py-3">
 				{stack.map((tech) => (
-					<motion.div
-						key={tech.name}
-						whileHover={{
-							scale: 1.05,
-							rotate: Math.random() * 10 - 5,
-							transition: { duration: 0.1 },
-						}}
-						className="flex items-center w-fit border rounded-md p-1 px-2 leading-none cursor-default hover:shadow-md dark:shadow-border/25 transition-shadow duration-100"
-					>
-						<tech.icon className="h-5 w-5 mr-2" />
-						{tech.name}
-					</motion.div>
+					<Magnetic stretch="sm">
+						<motion.div
+							key={tech.name}
+							whileHover={{
+								scale: 1.05,
+								rotate: Math.random() * 2.5,
+								transition: { duration: 0.1 },
+							}}
+							className="flex items-center w-fit border rounded-md p-1 px-2 leading-none cursor-default hover:shadow-md dark:shadow-border/25 transition-shadow duration-100"
+						>
+							<tech.icon className="h-5 w-5 mr-2" />
+							{tech.name}
+						</motion.div>
+					</Magnetic>
 				))}
 			</div>
 			<p>
