@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function Page() {
 	return (
-		<div className="grid grid-cols-2 gap-4">
+		<div className="grid md:grid-cols-2 grid-cols-1 gap-4">
 			{blogPosts.reverse().map((post, i) => (
 				<Link
 					key={i}
