@@ -17,7 +17,6 @@ export default function Home() {
 			<Header />
 			<About />
 			<Present />
-			<RecentDot dot={<SpotlightPreview />} />
 			<RecentBlog
 				posts={[
 					posts[0],
@@ -25,6 +24,7 @@ export default function Home() {
 					// posts[2]
 				]}
 			/>
+			<RecentDot dot={<SpotlightPreview />} />
 			<Stack />
 			<Projects />
 			<Tools />
