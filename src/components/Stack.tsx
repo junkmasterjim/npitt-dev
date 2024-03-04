@@ -50,10 +50,9 @@ const Stack = () => {
 				</Link>
 			</h2>
 			<div className="flex gap-4 flex-wrap py-3">
-				{stack.map((tech) => (
-					<Magnetic stretch="sm">
+				{stack.map((tech, i) => (
+					<Magnetic stretch="sm" key={i}>
 						<motion.div
-							key={tech.name}
 							whileHover={{
 								scale: 1.05,
 								rotate: Math.random() * 2.5,
