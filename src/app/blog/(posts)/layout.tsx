@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<main>
+		<main className="overflow-hidden">
 			<menu className="flex justify-end py-4">
 				<Button asChild>
 					<Link href={"/blog"}>Return to blog</Link>
