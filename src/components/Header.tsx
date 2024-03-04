@@ -3,66 +3,72 @@ import { Separator } from "./ui/separator";
 import Text3D from "./Text3D";
 import { cn } from "@/lib/utils";
 
-const Header = () => {
+const Header = ({ children }: { children?: React.ReactNode }) => {
 	return (
 		<div className="space-y-4">
-			<div className="flex gap-4 items-center">
-				<Image
-					src={"/noah.jpeg"}
-					alt="Noah Pittman"
-					width={64}
-					priority
-					height={64}
-					className="rounded-full object-cover"
-				/>
-				<div className="relative">
-					<div className="block md:hidden">
-						<h1 className="text-xl leading-normal font-semibold">
-							Noah Pittman
-						</h1>
-						<p className="text-muted-foreground text-lg leading-none font-medium">
-							Full Stack Developer
-							<br />
-							<span className="text-sm font-medium">UI / UX Designer</span>
-						</p>
+			<div className="flex gap-4 items-center w-full justify-between">
+				<div className="flex items-center gap-4">
+					<Image
+						src={"/noah.jpeg"}
+						alt="Noah Pittman"
+						width={64}
+						priority
+						height={64}
+						className="rounded-full object-cover"
+					/>
+					<div className="relative">
+						<div className="block md:hidden">
+							<h1 className="text-xl leading-normal font-semibold">
+								Noah Pittman
+							</h1>
+							<p className="text-muted-foreground text-lg leading-none font-medium">
+								Full Stack Developer
+								<br />
+								<span className="text-sm font-medium">UI / UX Designer</span>
+							</p>
+						</div>
+						<div className="hidden md:block">
+							<Text3D
+								clickToggle
+								bgColors={["bg-background", "bg-background"]}
+								textColors={["text-foreground", "text-muted-background"]}
+								containerClassName="rounded-none border-none"
+								text={
+									<div>
+										<h1 className="text-xl leading-normal font-semibold">
+											Noah Pittman
+										</h1>
+										<p className="text-muted-foreground text-lg leading-none font-medium">
+											Full Stack Developer
+											<br />
+											<span className="text-sm font-medium">
+												UI / UX Designer
+											</span>
+										</p>
+									</div>
+								}
+								secondaryText={
+									<div>
+										<h1 className="text-xl leading-normal font-semibold">
+											Noah Pittman
+										</h1>
+										<p className="text-muted-foreground text-lg leading-none font-medium">
+											Passionate Creative
+											<br />
+											<span className="text-sm font-medium">
+												Loving Husband
+											</span>
+										</p>
+									</div>
+								}
+							/>
+						</div>
+						<HoverMe className="dark:invert hidden md:block absolute h-36 w-full object-cover -top-8 end-0 -mr-32 opacity-80" />
 					</div>
-					<div className="hidden md:block">
-						<Text3D
-							clickToggle
-							bgColors={["bg-background", "bg-background"]}
-							textColors={["text-foreground", "text-muted-background"]}
-							containerClassName="rounded-none border-none"
-							text={
-								<div>
-									<h1 className="text-xl leading-normal font-semibold">
-										Noah Pittman
-									</h1>
-									<p className="text-muted-foreground text-lg leading-none font-medium">
-										Full Stack Developer
-										<br />
-										<span className="text-sm font-medium">
-											UI / UX Designer
-										</span>
-									</p>
-								</div>
-							}
-							secondaryText={
-								<div>
-									<h1 className="text-xl leading-normal font-semibold">
-										Noah Pittman
-									</h1>
-									<p className="text-muted-foreground text-lg leading-none font-medium">
-										Passionate Creative
-										<br />
-										<span className="text-sm font-medium">Loving Husband</span>
-									</p>
-								</div>
-							}
-						/>
-					</div>
-					<HoverMe className="dark:invert hidden md:block absolute h-36 w-full object-cover -top-8 end-0 -mr-32 opacity-80" />
 				</div>
+				{children}
 			</div>
+
 			<Separator />
 		</div>
 	);
