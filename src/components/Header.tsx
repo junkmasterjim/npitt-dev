@@ -66,7 +66,7 @@ const Header = ({ children }: { children?: React.ReactNode }) => {
 						<HoverMe className="dark:invert hidden md:block absolute h-36 w-full object-cover -top-8 end-0 -mr-32 opacity-80" />
 					</div>
 				</div>
-				{children}
+				<div className="select-none">{children}</div>
 			</div>
 
 			<Separator />
