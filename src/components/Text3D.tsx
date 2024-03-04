@@ -32,7 +32,7 @@ export default function Text3D({
 			onMouseLeave={() => setHovered(false)}
 			onClickCapture={() => clickToggle && setHovered(!hovered)}
 			className={cn(
-				"px-3 py-2 rounded-full border-neutral-300/25 border select-none",
+				"rounded-full border-neutral-300/25 border select-none",
 				containerClassName,
 				bgColors?.[0]
 					? hovered
