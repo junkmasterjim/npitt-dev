@@ -9,6 +9,12 @@ const projects: {
 	stack: string[];
 }[] = [
 	{
+		href: "https://pomologs.vercel.app",
+		title: "PomoLogs - Pomodoro Timer & Work Logs",
+		description: "Combines a traditional pomodoro timer with work logs.",
+		stack: ["Next.js", "Tailwind CSS"],
+	},
+	{
 		href: "https://devpillar.org",
 		title: "DevPillar - Resource Library",
 		description: "Hand-picked resource library for developers & designers.",
