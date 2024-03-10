@@ -21,7 +21,7 @@ const Connect = () => {
 					<p className="max-w-[6ch] w-full">Twitter</p>
 					<Link
 						className="flex items-center decoration-1 text-muted-foreground decoration-muted-foreground hover:text-foreground hover:decoration-foreground transition-colors border-b border-muted-foreground/0 hover:border-foreground "
-						href={"https://twitter.com/_pittman"}
+						href={"https://dm.new/noah"}
 						target="_blank"
 					>
 						<p className="truncate">@_pittman</p>
