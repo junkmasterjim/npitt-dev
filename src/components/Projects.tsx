@@ -9,9 +9,10 @@ const projects: {
 	stack: string[];
 }[] = [
 	{
-		href: "https://pomologs.vercel.app",
+		href: "https://pomologs.org",
 		title: "PomoLogs - Pomodoro Timer & Work Logs",
-		description: "Combines a traditional pomodoro timer with work logs.",
+		description:
+			"Combines a traditional pomodoro timer with work logs. Downloadable as a PWA with Tauri.",
 		stack: ["Next.js", "Tailwind CSS"],
 	},
 	{
