@@ -27,7 +27,7 @@ const projects: {
 		href: "https://devpillar.org",
 		title: "DevPillar - Resource Library",
 		description: "Hand-picked resource library for developers & designers.",
-		stack: ["Next.ts", "Tailwind CSS", "PostgreSQL", "Auth"],
+		stack: ["Next.js", "Tailwind CSS", "PostgreSQL", "Auth"],
 		repo: "https://github.com/noahpittman/devpillar",
 	},
 	// {
@@ -87,7 +87,9 @@ const Projects = () => {
 							</p>
 							<div className="flex flex-wrap items-center gap-4">
 								{project.stack.map((tech) => (
-									<Badge key={tech}>{tech}</Badge>
+									<Badge className="opacity-50" key={tech}>
+										{tech}
+									</Badge>
 								))}
 							</div>
 						</Link>
