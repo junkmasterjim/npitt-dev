@@ -1,4 +1,3 @@
-import CursorPreview from "@/app/dotdotdot/_components/CursorPreview";
 import Link from "next/link";
 import { FaHashtag } from "react-icons/fa";
 
@@ -6,7 +5,7 @@ const RecentDot = ({ dot }: { dot: React.ReactNode }) => {
 	return (
 		<section id="recentdot">
 			<h2 className="text-lg flex items-center font-semibold pb-3">
-				{"Latest [. . .]"}
+				{"[. . .][0]"}
 				<Link
 					className="text-muted-foreground"
 					aria-label="anchor"

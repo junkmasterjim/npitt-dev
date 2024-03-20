@@ -17,13 +17,13 @@ export default function Home() {
 			<Header />
 			<About />
 			<Present />
-			<RecentBlog
+			{/* <RecentBlog
 				posts={[
 					posts[0],
 					// posts[1],
 					// posts[2]
 				]}
-			/>
+			/> */}
 			<RecentDot dot={<SpotlightPreview />} />
 			<Stack />
 			<Projects />
