@@ -18,6 +18,11 @@ const tools: { title: string; description: string; href: string }[] = [
 		href: "https://historicolor.org",
 	},
 	{
+		title: "pokedex",
+		description: "pokedex using pokeapi & tanstack query",
+		href: "https://pokedex.npitt.dev",
+	},
+	{
 		title: "ballpit",
 		description: "ballpit effect using matter.js",
 		href: "https://ballpit.npitt.dev",

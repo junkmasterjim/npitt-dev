@@ -44,7 +44,7 @@ const projects: {
 		title: "DoneByHD - Portfolio",
 		description: "Portfolio website for a freelance designer.",
 		stack: ["Next.js", "Tailwind CSS", "Prisma", "MySQL", "Auth"],
-		repo: "https://github.com/noahpittman/donebyhd",
+		repo: "https://github.com/noahpittman/hd-entertainment",
 	},
 ];
 
