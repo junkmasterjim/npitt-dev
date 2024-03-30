@@ -7,7 +7,7 @@ import Present from "@/components/Present";
 import Tools from "@/components/Tools";
 import RecentDot from "@/components/RecentDot";
 import SpotlightPreview from "./dotdotdot/_components/SpotlightPreview";
-import RecentBlog from "@/components/RecentBlog";
+// import RecentBlog from "@/components/RecentBlog";
 import { blogPosts } from "@/lib/utils";
 
 const posts = blogPosts.reverse();
