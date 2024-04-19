@@ -101,10 +101,10 @@ const DrawerNavPreview = () => {
 							</h1>
 							<p className="mt-6 text-lg leading-8 text-gray-600">
 								<span>Click the navigation menu</span> to see the drawer in
-								action. Or just click the buttons below, they work too. I'm
-								running out of copy here so I'm just going to keep typing until
-								the text wraps nicely into a few lines. Almost there, just need
-								to add a few more words. There we go.
+								action. Or just click the buttons below, they work too. I&apos;m
+								running out of copy here so I&apos;m just going to keep typing
+								until the text wraps nicely into a few lines. Almost there, just
+								need to add a few more words. There we go.
 							</p>
 							<div className="mt-10 flex items-center justify-center gap-x-6">
 								<a
