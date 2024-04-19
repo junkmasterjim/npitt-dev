@@ -13,7 +13,7 @@ const Page = () => {
 		<>
 			<PreviewHeader title="Drawer Navigation" created="April 2024" />
 
-			<Card className="bg-foreground aspect-square overflow-hidden">
+			<Card className="bg-foreground aspect-square overflow-y-scroll">
 				<DrawerNavLayout
 					navBG="bg-foreground"
 					links={[

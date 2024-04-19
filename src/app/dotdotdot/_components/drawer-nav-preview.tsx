@@ -7,7 +7,7 @@ import { DrawerNavLayout } from "./drawer-nav-layout";
 const DrawerNavPreview = () => {
 	return (
 		<>
-			<Card className="bg-foreground aspect-square overflow-hidden relative">
+			<Card className="bg-foreground aspect-square overflow-y-auto relative">
 				<Link
 					prefetch
 					className="absolute z-50 bottom-3 right-4"
