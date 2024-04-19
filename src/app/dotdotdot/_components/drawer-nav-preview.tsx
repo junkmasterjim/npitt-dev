@@ -16,7 +16,7 @@ const DrawerNavPreview = () => {
 				>
 					<Button
 						tabIndex={-1}
-						variant={"ghost"}
+						variant={"outline"}
 						className="text-muted-foreground"
 						name="cursor-preview"
 					>
@@ -88,7 +88,7 @@ const DrawerNavPreview = () => {
 					<div className="mx-auto max-w-2xl py-24">
 						<div className="hidden sm:mb-8 sm:flex sm:justify-center">
 							<div className="relative rounded-full px-3 py-1 text-sm leading-6 text-muted-foreground ring-1 dark:ring-muted hover:ring-muted-foreground transition-all">
-								Announcing our next round of funding.{" "}
+								Built with Framer Motion & TailwindCSS.{" "}
 								<a href="#" className="font-semibold text-indigo-600">
 									<span className="absolute inset-0" aria-hidden="true" />
 									Read more <span aria-hidden="true">&rarr;</span>
@@ -97,12 +97,14 @@ const DrawerNavPreview = () => {
 						</div>
 						<div className="text-center">
 							<h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
-								Data to enrich your online business
+								Drawer navigation menu
 							</h1>
 							<p className="mt-6 text-lg leading-8 text-gray-600">
-								Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-								lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-								fugiat aliqua.
+								<span>Click the navigation menu</span> to see the drawer in
+								action. Or just click the buttons below, they work too. I'm
+								running out of copy here so I'm just going to keep typing until
+								the text wraps nicely into a few lines. Almost there, just need
+								to add a few more words. There we go.
 							</p>
 							<div className="mt-10 flex items-center justify-center gap-x-6">
 								<a
