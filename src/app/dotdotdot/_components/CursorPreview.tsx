@@ -49,7 +49,7 @@ const CursorPreview = () => {
 				>
 					<Button
 						tabIndex={-1}
-						variant={"ghost"}
+						variant={"outline"}
 						className="text-muted-foreground"
 						name="cursor-preview"
 					>
