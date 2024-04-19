@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { FaHashtag } from "react-icons/fa";
-import { Dialog, DialogTrigger } from "./ui/dialog";
 
 const About = () => {
 	return (
