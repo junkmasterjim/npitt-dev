@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaHashtag } from "react-icons/fa";
+import { Dialog, DialogTrigger } from "./ui/dialog";
 
 const About = () => {
 	return (
@@ -48,6 +49,7 @@ const Present = () => {
 				time I freelance & work on my own projects! I'm always looking for new
 				things to work on, so if you have a project in mind, feel free to
 				`}
+
 				<Link
 					className="text-muted-foreground hover:text-foreground border-b border-muted-foreground hover:border-foreground transition-colors"
 					target="_blank"

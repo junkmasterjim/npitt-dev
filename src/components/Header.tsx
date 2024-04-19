@@ -100,13 +100,13 @@ const HoverMe = ({ className }: { className?: string }) => {
 				>
 					<stop
 						offset="0%"
-						stop-color="hsl(1.4, 100%, 67%)"
-						stop-opacity="1"
+						stopColor="hsl(1.4, 100%, 67%)"
+						stopOpacity="1"
 					></stop>
 					<stop
 						offset="100%"
-						stop-color="hsl(167, 52%, 78%)"
-						stop-opacity="1"
+						stopColor="hsl(167, 52%, 78%)"
+						stopOpacity="1"
 					></stop>
 				</linearGradient>
 			</defs>

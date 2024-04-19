@@ -83,7 +83,7 @@ const Projects = () => {
 						</CardHeader>
 						<CardContent className="space-y-4">
 							<Separator />
-							<div className="flex items-center  gap-2">
+							<div className="flex items-center flex-wrap gap-2">
 								{project.href && (
 									<Link target="_blank" href={project.href}>
 										<Button>
