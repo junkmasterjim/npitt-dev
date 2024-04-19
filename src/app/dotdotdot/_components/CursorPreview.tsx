@@ -2,6 +2,7 @@
 
 import { Cursor } from "@/app/dotdotdot/_components/Cursor";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -11,10 +12,7 @@ const CursorPreview = () => {
 	const [spring, setSpring] = useState<boolean>(false);
 
 	return (
-		<div
-			aria-hidden
-			className="border-border/10 dark:border-border/50 border rounded-lg bg-card/75 dark:shadow-card/25 shadow-sm"
-		>
+		<Card>
 			{/* Preview buttons */}
 			<div className="flex justify-between h-0">
 				<Button
@@ -54,9 +52,9 @@ const CursorPreview = () => {
 						variant={"ghost"}
 						className="text-muted-foreground"
 						name="cursor-preview"
-						size={"icon"}
 					>
-						<ArrowRight className="h-5 w-5" />
+						Code
+						<ArrowRight className="ml-2 h-5 w-5" />
 					</Button>
 				</Link>
 			</div>
@@ -74,7 +72,7 @@ const CursorPreview = () => {
 					<Cursor cursorSize={32} className="group-hover:block hidden" />
 				)}
 			</div>
-		</div>
+		</Card>
 	);
 };
 

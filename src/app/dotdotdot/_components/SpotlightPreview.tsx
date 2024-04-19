@@ -24,9 +24,9 @@ const SpotlightPreview = () => {
 						variant={"ghost"}
 						className="text-muted-foreground"
 						name="cursor-preview"
-						size={"icon"}
 					>
-						<ArrowRight className="h-5 w-5" />
+						Code
+						<ArrowRight className="ml-2 h-5 w-5" />
 					</Button>
 				</Link>
 			</SpotlightCard>

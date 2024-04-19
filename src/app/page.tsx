@@ -5,6 +5,8 @@ import Projects from "@/components/Projects";
 import Connect from "@/components/Connect";
 import Tools from "@/components/Tools";
 import { blogPosts } from "@/lib/utils";
+import RecentDot from "@/components/RecentDot";
+import DrawerNavPreview from "./dotdotdot/_components/drawer-nav-preview";
 
 const posts = blogPosts.reverse();
 
@@ -14,6 +16,7 @@ export default function Home() {
 			<Header />
 			<About />
 			<Stack />
+			<RecentDot dot={<DrawerNavPreview />} />
 			<Projects />
 			<Tools />
 			<Connect />
