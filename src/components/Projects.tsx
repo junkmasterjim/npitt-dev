@@ -76,6 +76,7 @@ const Projects = () => {
 
 			<div className="grid grid-cols-1 gap-4">
 				{projects.map((project, i) => (
+					
 					<Card key={i} className="shadow-sm">
 						<CardHeader>
 							<CardTitle>{project.title}</CardTitle>
