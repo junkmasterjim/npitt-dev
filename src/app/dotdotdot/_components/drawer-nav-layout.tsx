@@ -73,7 +73,7 @@ export const DrawerNavLayout = ({
 						"rounded-t-[2rem] pt-4 px-6 h-24 min-h-svh transition-all duration-500",
 						contentBG,
 						contentColor,
-						!noScale && open && "scale-x-90 brightness-75"
+						!noScale && open && "scale-90 brightness-75 origin-bottom"
 					)}
 				>
 					{children}
