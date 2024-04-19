@@ -3,7 +3,15 @@ import { Badge } from "./ui/badge";
 import { FaHashtag } from "react-icons/fa";
 import { Button } from "./ui/button";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { Download } from "lucide-react";
+import { Download, Globe } from "lucide-react";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardHeader,
+	CardTitle,
+} from "./ui/card";
+import { Separator } from "./ui/separator";
 
 const projects: {
 	href: string;
@@ -68,59 +76,50 @@ const Projects = () => {
 
 			<div className="grid grid-cols-1 gap-4">
 				{projects.map((project, i) => (
-					<div
-						className={`flex ${
-							i % 2 === 0 ? "sm:flex-row" : "sm:flex-row-reverse"
-						} gap-4 flex-col`}
-						key={i}
-					>
-						<Link
-							key={project.title}
-							target="_blank"
-							href={project.href}
-							className="md:hover:scale-[1.01] bg-primary/25 md:hover:bg-primary/50 dark:bg-primary-foreground/20 dark:md:hover:bg-primary/10 rounded-lg px-4 py-3 transition-all space-y-2
-							border-border/10 dark:border-border/10 border  dark:shadow-accent/10 hover:shadow sm:w-3/4"
-						>
-							<h3 className="text-lg font-semibold">{project.title}</h3>
-							<p className="text-muted-foreground text-sm">
-								{project.description}
-							</p>
-							<div className="flex flex-wrap items-center gap-4">
-								{project.stack.map((tech) => (
-									<Badge className="opacity-50" key={tech}>
-										{tech}
-									</Badge>
-								))}
-							</div>
-						</Link>
-						{(project.repo || project.download) && (
-							<div
-								className="sm:w-1/4 md:hover:scale-[1.01] bg-primary/25 md:hover:bg-primary/50 dark:bg-primary-foreground/20 dark:md:hover:bg-primary/10 rounded-lg px-4 py-3 transition-all
-							border-border/10 dark:border-border/10 border  dark:shadow-accent/10 hover:shadow flex flex-row sm:flex-col justify-center items-center gap-4 flex-wrap"
-							>
+					<Card className="shadow-sm">
+						<CardHeader>
+							<CardTitle>{project.title}</CardTitle>
+							<CardDescription>{project.description}</CardDescription>
+						</CardHeader>
+						<CardContent className="space-y-4">
+							<Separator />
+							<div className="flex items-center  gap-2">
+								{project.href && (
+									<Link target="_blank" href={project.href}>
+										<Button>
+											<Globe className="mr-2 size-4" />
+											Website
+										</Button>
+									</Link>
+								)}
 								{project.repo && (
-									<Button asChild variant={"ghost"}>
-										<Link href={project.repo} target="_blank">
-											<GitHubLogoIcon className="size-5 mr-2" />
+									<Link target="_blank" href={project.repo}>
+										<Button>
+											<GitHubLogoIcon className="mr-2 size-4" />
 											Repo
-										</Link>
-									</Button>
+										</Button>
+									</Link>
 								)}
 								{project.download && (
-									<Button asChild variant={"ghost"}>
-										<Link
-											href={project.download}
-											target="_blank"
-											className="self-center justify-self-center"
-										>
-											<Download className="size-5 mr-2" />
+									<Link target="_blank" href={project.download}>
+										<Button>
+											<Download className="mr-2 size-4" />
 											Download
-										</Link>
-									</Button>
+										</Button>
+									</Link>
 								)}
 							</div>
-						)}
-					</div>
+							<div className="flex flex-wrap items-center justify-between gap-4">
+								<div className="flex flex-wrap gap-2">
+									{project.stack.map((tech) => (
+										<Badge className="opacity-50" key={tech}>
+											{tech}
+										</Badge>
+									))}
+								</div>
+							</div>
+						</CardContent>
+					</Card>
 				))}
 			</div>
 		</section>

@@ -9,7 +9,7 @@ const tools: { title: string; description: string; href: string }[] = [
 	},
 	{
 		title: "qrgen",
-		description: "generate qr codes from links",
+		description: "qr code generator with url",
 		href: "https://qr.npitt.dev",
 	},
 	{
