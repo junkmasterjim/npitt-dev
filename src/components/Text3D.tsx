@@ -33,14 +33,14 @@ export default function Text3D({
 			onClickCapture={() => clickToggle && setHovered(!hovered)}
 			className={cn(
 				"rounded-full border-neutral-300/25 border select-none",
-				containerClassName,
-				bgColors?.[0]
-					? hovered
-						? bgColors[1]
-						: bgColors[0]
-					: hovered
-					? "bg-white"
-					: "bg-black"
+				containerClassName
+				// bgColors?.[0]
+				// 	? hovered
+				// 		? bgColors[1]
+				// 		: bgColors[0]
+				// 	: hovered
+				// 	? "bg-white"
+				// 	: "bg-black"
 			)}
 			style={{
 				transitionProperty: "background-color",

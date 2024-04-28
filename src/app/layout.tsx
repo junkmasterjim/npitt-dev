@@ -19,7 +19,8 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className="scroll-smooth" suppressHydrationWarning>
-			<body className={(noto.className, "p-3")}>
+			<body className={(noto.className, "p-3 relative")}>
+				<Background />
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
@@ -36,3 +37,12 @@ export default function RootLayout({
 		</html>
 	);
 }
+
+const Background = () => {
+	return (
+		<>
+			<div className="fixed inset-0 -z-10 bg-gradient-to-t from-background from-25%  h-full w-full" />
+			<div className="fixed inset-0 h-screen w-full -z-20 bg-[linear-gradient(to_right,#8080800a_2px,transparent_2px),linear-gradient(to_bottom,#8080800a_2px,transparent_2px)] bg-[size:12px_16px] dark:opacity-75" />
+		</>
+	);
+};
