@@ -1,3 +1,4 @@
+import { about, present } from "@/config";
 import Link from "next/link";
 import { FaHashtag } from "react-icons/fa";
 
@@ -16,11 +17,7 @@ const About = () => {
 						<FaHashtag className="ml-2 h-3 w-3" />
 					</Link>
 				</h2>
-				<p>
-					{`I'm Noah, a freelance full stack developer with a burning desire to
-				progress. When I'm not building stunning web applications, I can be
-				found reading, watching HBO, or on a nature walk with my wife.`}
-				</p>
+				<p>{about}</p>
 			</section>
 			<Present />
 		</>
@@ -44,11 +41,7 @@ const Present = () => {
 				</Link>
 			</h2>
 			<p>
-				{`Currently I work as a manager at a corporate paint store. In my free
-				time I freelance & work on my own projects! I'm always looking for new
-				things to work on, so if you have a project in mind, feel free to
-				`}
-
+				{present}
 				<Link
 					className="text-muted-foreground hover:text-foreground border-b border-muted-foreground hover:border-foreground transition-colors"
 					target="_blank"

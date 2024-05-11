@@ -2,38 +2,9 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { IconType } from "react-icons";
-import { FaHashtag } from "react-icons/fa";
-import { FiSmartphone } from "react-icons/fi";
-import {
-	SiCss3,
-	SiExpress,
-	SiJavascript,
-	SiMysql,
-	SiNextdotjs,
-	SiNodedotjs,
-	SiPostgresql,
-	SiPrisma,
-	SiReact,
-	SiTailwindcss,
-	SiTypescript,
-} from "react-icons/si";
 import { Magnetic } from "./Magnetic";
-
-const stack: { name: string; icon: IconType }[] = [
-	{ name: "JavaScript", icon: SiJavascript },
-	{ name: "TypeScript", icon: SiTypescript },
-	{ name: "React", icon: SiReact },
-	{ name: "Next.js", icon: SiNextdotjs },
-	{ name: "Node.js", icon: SiNodedotjs },
-	{ name: "Express", icon: SiExpress },
-	{ name: "CSS", icon: SiCss3 },
-	{ name: "Tailwind CSS", icon: SiTailwindcss },
-	{ name: "PostgreSQL", icon: SiPostgresql },
-	{ name: "MySQL", icon: SiMysql },
-	{ name: "Prisma", icon: SiPrisma },
-	{ name: "UI/UX Design", icon: FiSmartphone },
-];
+import { FaHashtag } from "react-icons/fa";
+import { stack } from "@/config";
 
 const Stack = () => {
 	return (

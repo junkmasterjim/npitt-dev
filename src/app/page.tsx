@@ -16,9 +16,9 @@ export default function Home() {
 			<Header />
 			<About />
 			<Stack />
-			<RecentDot dot={<DrawerNavPreview />} />
 			<Projects />
 			<Tools />
+			<RecentDot dot={<DrawerNavPreview />} />
 			<Connect />
 		</>
 	);

@@ -1,33 +1,6 @@
+import { tools } from "@/config";
 import Link from "next/link";
 import { FaHashtag } from "react-icons/fa";
-
-const tools: { title: string; description: string; href: string }[] = [
-	{
-		title: "shadeshuffle",
-		description: "easily generate color palettes",
-		href: "https://shadeshuffle.org",
-	},
-	{
-		title: "qrgen",
-		description: "qr code generator with url",
-		href: "https://qr.npitt.dev",
-	},
-	{
-		title: "historicolor",
-		description: "recolor old black & white photos",
-		href: "https://historicolor.org",
-	},
-	{
-		title: "pokedex",
-		description: "pokedex using pokeapi & tanstack query",
-		href: "https://pokedex.npitt.dev",
-	},
-	{
-		title: "ballpit",
-		description: "ballpit effect using matter.js",
-		href: "https://ballpit.npitt.dev",
-	},
-];
 
 const Tools = () => {
 	return (

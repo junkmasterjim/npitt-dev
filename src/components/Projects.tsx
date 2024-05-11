@@ -12,49 +12,7 @@ import {
 	CardTitle,
 } from "./ui/card";
 import { Separator } from "./ui/separator";
-
-const projects: {
-	href: string;
-	title: string;
-	description: string;
-	stack: string[];
-	repo?: string;
-	download?: string;
-}[] = [
-	{
-		href: "https://pomologs.org",
-		title: "PomoLogs - Pomodoro Timer & Work Logs",
-		description:
-			"Combines a traditional pomodoro timer with work logs. Downloadable as a PWA with Tauri.",
-		stack: ["Next.js", "Tailwind CSS", "Tauri"],
-		repo: "https://github.com/noahpittman/pomologs-tauri",
-		download:
-			"https://www.dropbox.com/scl/fi/0d003v63e6t6una1sysxj/PomoLogs.zip?rlkey=sgb6h0kdpgdiu47zdo21vui4f&dl=1",
-	},
-	{
-		href: "https://devpillar.org",
-		title: "DevPillar - Resource Library",
-		description: "Hand-picked resource library for developers & designers.",
-		stack: ["Next.js", "Tailwind CSS", "PostgreSQL", "Auth"],
-		repo: "https://github.com/noahpittman/devpillar",
-	},
-	// {
-
-	// CODE IS NOT UP TO STANDARD TO BE IN PORTFOLIO
-
-	// 	href: "https://shadeshuffle.org",
-	// 	title: "ShadeShuffle - Color Palette Generator",
-	// 	description: "Generate color palettes with the click of a button.",
-	// 	stack: ["Next.js", "Tailwind CSS"],
-	// },
-	{
-		href: "https://donebyhd.com",
-		title: "DoneByHD - Portfolio",
-		description: "Portfolio website for a freelance designer.",
-		stack: ["Next.js", "Tailwind CSS", "Prisma", "MySQL", "Auth"],
-		repo: "https://github.com/noahpittman/hd-entertainment",
-	},
-];
+import { projects } from "@/config";
 
 const Projects = () => {
 	return (

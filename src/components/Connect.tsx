@@ -1,3 +1,4 @@
+import { connect } from "@/config";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { FaHashtag } from "react-icons/fa";
@@ -17,39 +18,19 @@ const Connect = () => {
 				</Link>
 			</h2>
 			<div className="flex flex-col space-y-1 sm:text-base text-sm ">
-				<div className="flex gap-4">
-					<p className="max-w-[6ch] w-full">Twitter</p>
-					<Link
-						className="flex items-center decoration-1 text-muted-foreground decoration-muted-foreground hover:text-foreground hover:decoration-foreground transition-colors border-b border-muted-foreground/0 hover:border-foreground "
-						href={"https://twitter.com/_pittman"}
-						target="_blank"
-					>
-						<p className="truncate">@_pittman</p>
-						<ArrowUpRight className="h-4 w-4 ml-1" />
-					</Link>
-				</div>
-				<div className="flex gap-4">
-					<p className="max-w-[6ch] w-full">Github</p>
-					<Link
-						className="flex items-center decoration-1 text-muted-foreground decoration-muted-foreground hover:text-foreground hover:decoration-foreground transition-colors border-b border-muted-foreground/0 hover:border-foreground "
-						href={"https://github.com/noahpittman"}
-						target="_blank"
-					>
-						<p className="truncate">@noahpittman</p>
-						<ArrowUpRight className="h-4 w-4 ml-1" />
-					</Link>
-				</div>
-				<div className="flex gap-4">
-					<p className="max-w-[6ch] w-full">Email</p>
-					<Link
-						className="flex items-center decoration-1 text-muted-foreground decoration-muted-foreground hover:text-foreground hover:decoration-foreground transition-colors border-b border-muted-foreground/0 hover:border-foreground"
-						href={"mailto:noahpittman00@gmail.com"}
-						target="_blank"
-					>
-						<p className="truncate">noahpittman[zero][zero]@gmail.com</p>
-						<ArrowUpRight className="h-4 w-4 ml-1" />
-					</Link>
-				</div>
+				{connect.map((connection) => (
+					<div className="flex gap-4" key={connection.title}>
+						<p className="max-w-[6ch] w-full">{connection.title}</p>
+						<Link
+							className="flex items-center decoration-1 text-muted-foreground decoration-muted-foreground hover:text-foreground hover:decoration-foreground transition-colors border-b border-muted-foreground/0 hover:border-foreground "
+							href={connection.href}
+							target="_blank"
+						>
+							<p className="truncate">{connection.description}</p>
+							<ArrowUpRight className="h-4 w-4 ml-1" />
+						</Link>
+					</div>
+				))}
 			</div>
 		</section>
 	);
