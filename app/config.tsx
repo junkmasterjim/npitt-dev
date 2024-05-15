@@ -29,7 +29,7 @@ export const CONNECT_LINKS: Array<{
 	},
 	{
 		name: "Email",
-		href: "#connect",
+		href: "mailto:noahpittman00@gmail.com",
 		icon: <Inbox className="size-6 " />,
 	},
 ];

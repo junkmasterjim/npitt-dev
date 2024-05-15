@@ -19,7 +19,7 @@ export function ModeToggle({ className }: { className?: string }) {
 		<Tooltip>
 			<TooltipTrigger asChild>
 				<motion.button
-					whileTap={{ translateY: -3 }}
+					whileTap={{ scale: 0.9 }}
 					transition={{ duration: 0.1 }}
 					className={cn(
 						"focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-ring/0 disabled:pointer-events-none disabled:opacity-50 inline-flex items-center justify-center whitespace-nowrap text-sm font-medium h-9 w-9 hover:invert transition-all rounded-full focus:border-2 hover:border-2 border-border/25"
