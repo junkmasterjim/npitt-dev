@@ -5,6 +5,9 @@ import Link from "next/link";
 
 import { CONNECT_LINKS, FEATURED_PROJECTS } from "./config";
 import { ProjectLink } from "@/components/project-link";
+import { Section } from "@/components/section";
+import { SectionHeading } from "@/components/section-heading";
+import { Dashes } from "@/components/dashes";
 
 const Home = () => {
 	return (
@@ -84,39 +87,3 @@ const Home = () => {
 };
 
 export default Home;
-
-export const Section = ({
-	children,
-	id,
-	className,
-}: {
-	children: React.ReactNode;
-	id: string;
-	className?: string;
-}) => {
-	return (
-		<section
-			id={id}
-			className={cn("space-y-4 sm:space-y-6  tracking-tight", className)}
-		>
-			{children}
-		</section>
-	);
-};
-
-export const Dashes = ({ className }: { className?: string }) => {
-	return (
-		<div
-			className={cn(
-				"border-t border-dashed h-px w-full border-muted-foreground",
-				className
-			)}
-		/>
-	);
-};
-
-export const SectionHeading = ({ children }: { children: React.ReactNode }) => {
-	return (
-		<h3 className="text-sm uppercase text-muted-foreground">{children}</h3>
-	);
-};

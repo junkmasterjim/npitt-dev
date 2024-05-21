@@ -1,9 +1,12 @@
-import { ProjectLinkProps } from "@/app/config";
 import Image from "next/image";
 import Link from "next/link";
 import { Dashes } from "./dashes";
 
-export const ProjectLink = ({ link }: { link: ProjectLinkProps }) => {
+export const ProjectLink = ({
+	link,
+}: {
+	link: { name: string; desc: string; href: string; src: string };
+}) => {
 	return (
 		<Link
 			target="_blank"
