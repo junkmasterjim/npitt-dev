@@ -1,22 +1,33 @@
+import { allPosts } from "@/.contentlayer/generated";
+import { Dashes } from "@/components/dashes";
+import { RouteHeading } from "@/components/route-heading";
+import { format } from "date-fns";
+import Link from "next/link";
+
 const Blog = () => {
 	return (
 		<>
 			<div>
-				<h1 className="text-4xl font-bold">Blog</h1>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti,
-				nulla iure accusantium reiciendis recusandae vitae eligendi harum
-				obcaecati quae dolorem molestias nihil dolore? Ipsum aperiam debitis
-				perferendis architecto ut molestias ratione, quaerat vel Blogorum alias
-				fuga! Eveniet neque aspernatur culpa sit magni dolorem quos nesciunt
-				ullam numquam! Vitae laudantium tempora ut quae corrupti, repellat, ea
-				voluptate vel cum nihil cupiditate nisi eos quidem harum deleniti
-				tempore facere error hic numquam distinctio consectetur perferendis rem.
-				Omnis unde consequatur error consectetur autem tempore praesentium,
-				impedit voluptatibus asperiores similique cumque ducimus temporibus
-				delectus, esse cum tempora aut nulla, ut nesciunt! Deserunt ipsum iure
-				voluptates explicabo inventore fuga cupiditate consectetur repellendus
-				aliquid! Nulla, optio molestias ex excepturi sint ut veniam suscipit
-				quam tenetur? Fugiat!
+				{/* <h1 className="text-4xl font-bold">Blog</h1> */}
+				<RouteHeading
+					heading="Blog"
+					description="Here you'll find my general thoughts and musings on technology, design, and the world around me. Updated from time to time."
+				/>
+			</div>
+			<div className="flex flex-col gap-8">
+				{allPosts.map((post) => (
+					<Link key={post.slug} href={`/blog/${post.slug}`} className="group">
+						<div key={post.title}>
+							<h2>{post.title}</h2>
+							<div className="flex items-center gap-4">
+								<p className="text-sm text-muted-foreground whitespace-nowrap pl-2 border-l-4">
+									{format(post.date, "MMMM d, yyyy")}
+								</p>
+								<Dashes className="group-hover:border-foreground border-foreground/10 shrink" />
+							</div>
+						</div>
+					</Link>
+				))}
 			</div>
 		</>
 	);

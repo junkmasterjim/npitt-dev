@@ -1,9 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { ModeToggle } from "./mode-toggle";
 import { motion } from "framer-motion";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
@@ -19,7 +18,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 const tabs: { label: string; id: string; href: string; icon: LucideIcon }[] = [
 	{ label: "Home", id: "home", href: "/", icon: Home },
 	{ label: "Projects", id: "projects", href: "/projects", icon: Package },
-	// { label: "Blog (coming soon)", id: "blog", href: "/blog", icon: FilesIcon },
+	{ label: "Blog", id: "blog", href: "/blog", icon: FilesIcon },
 	// {
 	// 	label: "Lab",
 	// 	id: "lab",
