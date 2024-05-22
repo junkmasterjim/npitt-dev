@@ -9,6 +9,8 @@ import { ProjectLink } from "@/components/project-link";
 import { Section } from "@/components/section";
 import { SectionHeading } from "@/components/section-heading";
 import { Dashes } from "@/components/dashes";
+import { allPosts } from "@/.contentlayer/generated";
+import BlogPostLink from "@/components/blog-post-link";
 
 const Home = () => {
 	return (
@@ -80,6 +82,23 @@ const Home = () => {
 						className="group inline-flex gap-2 items-center text-sm  text-muted-foreground h-9 px-2 hover:underline"
 					>
 						All projects{" "}
+						<ArrowRightIcon className="size-5 group-hover:-rotate-[30deg] transition-all duration-200" />
+					</Link>
+				</div>
+			</Section>
+
+			<Section id="blog">
+				<SectionHeading>Check out my blog</SectionHeading>
+
+				<div className="flex flex-col gap-6">
+					<BlogPostLink post={allPosts[allPosts.length - 1]} />
+				</div>
+				<div className="w-full flex justify-center items-center">
+					<Link
+						href={"/blog"}
+						className="group inline-flex gap-2 items-center text-sm  text-muted-foreground h-9 px-2 hover:underline"
+					>
+						All posts{" "}
 						<ArrowRightIcon className="size-5 group-hover:-rotate-[30deg] transition-all duration-200" />
 					</Link>
 				</div>
