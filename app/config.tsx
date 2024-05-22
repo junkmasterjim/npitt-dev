@@ -55,6 +55,12 @@ export const ALL_PROJECTS: Array<{
 		src: "/projects/bordly.png",
 	},
 	{
+		name: "Where's Bobby?",
+		desc: "Quickly find your elevation & coordinates. Made for a friend",
+		href: "https://wheresbobby.vercel.app",
+		src: "/projects/wheresbobby.png",
+	},
+	{
 		name: "PomoLogs",
 		desc: "Pomodoro timer with log tracking",
 		href: "https://pomologs.org",
