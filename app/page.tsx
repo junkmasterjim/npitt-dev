@@ -53,6 +53,7 @@ const Home = () => {
 						<Link
 							key={link.name}
 							href={link.href}
+							target="_blank"
 							className="flex gap-2 justify-between items-end group"
 						>
 							<span>{link.name}</span>
