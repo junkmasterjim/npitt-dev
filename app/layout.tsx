@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Navbar from "@/components/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
-const jbm = JetBrains_Mono({ subsets: ["latin"] });
+
+import { GeistMono } from "geist/font/mono";
 
 export const metadata: Metadata = {
 	title: "Noah Pittman",
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={cn(jbm.className, "p-2 relative")}>
+			<body className={cn(GeistMono.className, "p-2 relative")}>
 				<Background />
 				<ThemeProvider
 					attribute="class"
