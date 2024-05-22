@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { CONNECT_LINKS, FEATURED_PROJECTS } from "./config";
+import { ALL_PROJECTS, CONNECT_LINKS } from "./config";
 import { ProjectLink } from "@/components/project-link";
 import { Section } from "@/components/section";
 import { SectionHeading } from "@/components/section-heading";
@@ -72,7 +72,7 @@ const Home = () => {
 				<SectionHeading>Featured projects</SectionHeading>
 
 				<div className="flex flex-col gap-6">
-					{FEATURED_PROJECTS.map((link) => (
+					{ALL_PROJECTS.slice(0, 3).map((link) => (
 						<ProjectLink key={link.name} link={link} />
 					))}
 				</div>

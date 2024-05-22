@@ -97,26 +97,3 @@ export const ALL_PROJECTS: Array<{
 		src: "/projects/shadeshuffle.png",
 	},
 ];
-
-// ! Featured projects
-
-export const FEATURED_PROJECTS = [
-	{
-		name: "hushh",
-		desc: "Minimalist white noise generator for MacOS",
-		href: "https://hushh.npitt.dev",
-		src: "/projects/hushh.png",
-	},
-	{
-		name: "Bordly",
-		desc: "Style guide generator for quick design systems",
-		href: "https://bordly.app",
-		src: "/projects/bordly.png",
-	},
-	{
-		name: "DevPillar",
-		desc: "Open source design & development resource library",
-		href: "https://devpillar.org",
-		src: "/projects/devpillar.png",
-	},
-];
