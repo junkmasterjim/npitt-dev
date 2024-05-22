@@ -40,7 +40,7 @@ const BlogPost = ({ params }: { params: { slug: string } }) => {
 				</time>
 			</div>
 			<div
-				className="[&>*]:mb-3 [&>*:last-child]:mb-0 sm:prose prose-xs"
+				className="[&>*]:mb-3 [&>*:last-child]:mb-0 prose"
 				dangerouslySetInnerHTML={{ __html: post.body.html }}
 			/>
 		</article>

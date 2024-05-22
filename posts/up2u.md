@@ -8,7 +8,7 @@ slug: up2u
 
 I’ve often fallen into the trap of believing I’ve ‘run out’ of things to motivate me. Like I’d somehow run the course of everything I could possibly be inspired by. Obviously, that’s not possible. We carry these ideas with us and give them such weight, but we’re the ones in control. It’s pretty counterintuitive if you ask me.
 
-I’ve always been a sponge of sorts. Trying to soak up any knowledge I could on a given subject made me feel more comfortable with new things, and in my later years has been a great benefit to my growth & development; personal, and professional. Fortunately for me, that trait came a hunger to learn as much as I could about as much as I could.
+I’ve always been a sponge of sorts. Trying to soak up any knowledge I could on a given subject made me feel more comfortable with new things, and as I get older, has been a great benefit to my growth & development; personal, and professional. Fortunately for me, with that trait came a hunger to learn as much as I could about as much as I could.
 
 ## Find your thing
 
@@ -27,7 +27,7 @@ I’m a big believer of 2 things:
 
 With that being said, maybe books aren’t your thing. If so, that’s fine. The key isn’t the book. The key is something to learn from. Maybe you inspect machines for fun, maybe you have a life coach or a mentor. Whatever it is, it’s up to you to make sure that you stay on track.
 
-## My dad says:
+## My dad says
 
 My dad once told me at a very young age, “once you stop learning, you start dying.” That always stuck with me. Maybe that’s the reason I became spongy. Maybe he said that because he already saw the path I was on and wanted to encourage me.
 
