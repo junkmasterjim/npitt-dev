@@ -1,25 +1,97 @@
+import { CodePreview } from "@/components/code-preview";
+import { RouteHeading } from "@/components/route-heading";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
 const Lab = () => {
 	return (
 		<>
 			<div>
-				<h1 className="text-4xl font-bold">Lab</h1>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti,
-				nulla iure accusantium reiciendis recusandae vitae eligendi harum
-				obcaecati quae dolorem molestias nihil dolore? Ipsum aperiam debitis
-				perferendis architecto ut molestias ratione, quaerat vel laborum alias
-				fuga! Eveniet neque aspernatur culpa sit magni dolorem quos nesciunt
-				ullam numquam! Vitae laudantium tempora ut quae corrupti, repellat, ea
-				voluptate vel cum nihil cupiditate nisi eos quidem harum deleniti
-				tempore facere error hic numquam distinctio consectetur perferendis rem.
-				Omnis unde consequatur error consectetur autem tempore praesentium,
-				impedit voluptatibus asperiores similique cumque ducimus temporibus
-				delectus, esse cum tempora aut nulla, ut nesciunt! Deserunt ipsum iure
-				voluptates explicabo inventore fuga cupiditate consectetur repellendus
-				aliquid! Nulla, optio molestias ex excepturi sint ut veniam suscipit
-				quam tenetur? Fugiat!
+				<RouteHeading
+					heading="Lab"
+					description="Welcome to my lab. You'll find some cool stuff here. I like experimenting with UI elements, animations, and building fun interactions."
+				/>
+
+				<div className="flex flex-col gap-8">
+					<LabExperiment
+						title="Example"
+						description="This is an example of a component."
+						preview={
+							<div>
+								<h3>Preview</h3>
+								<p>this is a preview</p>
+								<p>look how cool it is</p>
+								<p>it's so cool</p>
+								<br />
+								<br />
+								<p> so cool</p>
+							</div>
+						}
+						code={""}
+					/>
+				</div>
 			</div>
 		</>
 	);
 };
 
 export default Lab;
+
+const LabExperiment = ({
+	title,
+	description,
+	preview,
+	code,
+	usage,
+}: {
+	title: string;
+	description: string;
+	preview: React.ReactNode;
+	code: string;
+	usage?: string;
+}) => {
+	return (
+		<>
+			<div>
+				<h3 className="text-lg font-semibold leading-none">{title}</h3>
+				<p className="text-sm text-muted-foreground">{description}</p>
+				<Tabs
+					defaultValue="preview"
+					className="aspect-[4/3] max-h-96 w-full rounded-lg border shadow bg-background dark:bg-neutral-900 mt-2 overflow-hidden"
+				>
+					<TabsList className="bg-card rounded-none rounded-t-lg w-full justify-start gap-2 px-2 h-12 relative z-50">
+						<TabsTrigger value="preview">Preview</TabsTrigger>
+						<TabsTrigger value="code">Code</TabsTrigger>
+						{usage ? <TabsTrigger value="usage">Usage</TabsTrigger> : null}
+					</TabsList>
+
+					<>
+						<TabsContent
+							value="preview"
+							className="grid place-content-center max-h-[calc(100%-48px)] data-[state=active]:h-full m-0 w-full"
+						>
+							<div className="flex flex-col items-center justify-center w-full h-full">
+								{preview}
+							</div>
+						</TabsContent>
+
+						<TabsContent
+							value="code"
+							className="max-h-[calc(100%-48px)] data-[state=active]:h-full m-0 overflow-auto px-2 w-full"
+						>
+							<CodePreview code={code} />
+						</TabsContent>
+
+						{usage ? (
+							<TabsContent
+								value="usage"
+								className="max-h-[calc(100%-48px)] data-[state=active]:h-full m-0 overflow-auto px-2 w-full"
+							>
+								<CodePreview code={usage} />
+							</TabsContent>
+						) : null}
+					</>
+				</Tabs>
+			</div>
+		</>
+	);
+};

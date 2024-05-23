@@ -6,6 +6,7 @@ import Navbar from "@/components/navbar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { GeistMono } from "geist/font/mono";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
 	title: "Noah Pittman",
@@ -33,6 +34,7 @@ export default function RootLayout({
 							<Navbar />
 							{children}
 						</div>
+						<Toaster />
 					</TooltipProvider>
 				</ThemeProvider>
 			</body>

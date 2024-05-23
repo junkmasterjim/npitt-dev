@@ -19,12 +19,12 @@ const tabs: { label: string; id: string; href: string; icon: LucideIcon }[] = [
 	{ label: "Home", id: "home", href: "/", icon: Home },
 	{ label: "Projects", id: "projects", href: "/projects", icon: Package },
 	{ label: "Blog", id: "blog", href: "/blog", icon: FilesIcon },
-	// {
-	// 	label: "Lab",
-	// 	id: "lab",
-	// 	href: "/lab",
-	// 	icon: FlaskConical,
-	// },
+	{
+		label: "Lab",
+		id: "lab",
+		href: "/lab",
+		icon: FlaskConical,
+	},
 ];
 
 const Navbar = () => {
@@ -103,9 +103,6 @@ const Navbar = () => {
 								)}
 							</span>
 						))}
-						<p className="text-xs ml-2 pointer-events-none select-none text-muted-foreground">
-							more soon...
-						</p>
 					</div>
 
 					<ModeToggle className="rounded-full" />
