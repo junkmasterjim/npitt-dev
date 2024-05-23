@@ -1,4 +1,6 @@
 import { CodePreview } from "@/components/code-preview";
+import { PROMISE_BUTTON_CODE } from "@/components/lab/promise-button/code";
+import PromiseButton from "@/components/lab/promise-button/promise-button";
 import { RouteHeading } from "@/components/route-heading";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -13,20 +15,25 @@ const Lab = () => {
 
 				<div className="flex flex-col gap-8">
 					<LabExperiment
-						title="Example"
-						description="This is an example of a component."
+						title="Promise Button"
+						description="Reflects the state of a promise or async function."
 						preview={
-							<div>
-								<h3>Preview</h3>
-								<p>this is a preview</p>
-								<p>look how cool it is</p>
-								<p>it's so cool</p>
-								<br />
-								<br />
-								<p> so cool</p>
+							<div className="grid gap-8">
+								<span>
+									<p className="text-muted-foreground text-sm text-center">
+										success
+									</p>
+									<PromiseButton>Subscribe</PromiseButton>
+								</span>
+								<span>
+									<p className="text-muted-foreground text-sm text-center">
+										error
+									</p>
+									<PromiseButton error>Subscribe</PromiseButton>
+								</span>
 							</div>
 						}
-						code={""}
+						code={PROMISE_BUTTON_CODE}
 					/>
 				</div>
 			</div>
