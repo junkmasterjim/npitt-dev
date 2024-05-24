@@ -9,6 +9,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { Dashes } from "@/components/dashes";
 import { allPosts } from "@/.contentlayer/generated";
 import BlogPostLink from "@/components/blog-post-link";
+import { ContactDialog } from "@/components/contact-dialog";
 
 const Home = () => {
 	return (
@@ -52,16 +53,37 @@ const Home = () => {
 
 				<div className="flex flex-col gap-2">
 					{CONNECT_LINKS.map((link) => (
-						<Link
-							key={link.name}
-							href={link.href}
-							target="_blank"
-							className="flex gap-2 justify-between items-end group"
-						>
-							<span>{link.name}</span>
-							<Dashes className="group-hover:border-foreground border-foreground/10 mb-2" />
-							{link.icon}
-						</Link>
+						<span key={link.name}>
+							{link.name.toLowerCase() === "email" ? (
+								<>
+									<ContactDialog
+										trigger={
+											<div
+												key={link.name}
+												className="flex gap-2 justify-between items-end group cursor-pointer"
+											>
+												<span>{link.name}</span>
+												<Dashes className="group-hover:border-foreground border-foreground/10 mb-2" />
+												{link.icon}
+											</div>
+										}
+									/>
+								</>
+							) : (
+								<>
+									<Link
+										key={link.name}
+										href={link.href}
+										target="_blank"
+										className="flex gap-2 justify-between items-end group"
+									>
+										<span>{link.name}</span>
+										<Dashes className="group-hover:border-foreground border-foreground/10 mb-2" />
+										{link.icon}
+									</Link>
+								</>
+							)}
+						</span>
 					))}
 				</div>
 			</Section>
