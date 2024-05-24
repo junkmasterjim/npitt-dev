@@ -77,4 +77,12 @@
 	.prose {
 		@apply dark:prose-invert;
 	}
+
+	::selection {
+		@apply bg-foreground text-background invert;
+	}
+
+	-moz-user-select {
+		@apply bg-foreground text-background invert;
+	}
 }
