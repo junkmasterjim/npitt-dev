@@ -5,6 +5,10 @@ import { Button } from "@/components/ui/button";
 import { ClipboardCheck, ClipboardEdit } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { toast } from "sonner";
+import { JetBrains_Mono } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
 
 export const CodePreview = ({
 	code,
@@ -50,7 +54,7 @@ export const CodePreview = ({
 			)}
 
 			<pre className="overflow-auto h-full w-full min-h-full min-w-full">
-				<code className="text-xs font-mono">{code}</code>
+				<code className={cn(jetbrains.className, "text-xs")}>{code}</code>
 			</pre>
 		</div>
 	);

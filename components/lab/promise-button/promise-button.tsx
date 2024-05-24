@@ -57,7 +57,7 @@ const PromiseButton = ({
 					key={status === "loading" ? "loading" : status}
 					initial={{
 						opacity: 0,
-						y: 5,
+						y: status === null ? 0 : 5,
 					}}
 					animate={{
 						opacity: 1,

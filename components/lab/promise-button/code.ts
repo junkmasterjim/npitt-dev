@@ -15,7 +15,7 @@ const PromiseButton = ({
 		null
 	);
 
-    // vvv HANDLE YOUR PROMISE HERE vvv
+	// vvv HANDLE YOUR PROMISE HERE vvv
 
 	const successCase = () => {
 		setStatus("loading");
@@ -40,7 +40,7 @@ const PromiseButton = ({
 		}, 1500);
 	};
 
-    // ^^^ END HANDLE PROMISE ^^^
+	// ^^^ END HANDLE PROMISE ^^^
 
 	return (
 		<>
@@ -59,7 +59,7 @@ const PromiseButton = ({
 					key={status === "loading" ? "loading" : status}
 					initial={{
 						opacity: 0,
-						y: 5,
+						y: status === null ? 0 : 5,
 					}}
 					animate={{
 						opacity: 1,
@@ -81,4 +81,5 @@ const PromiseButton = ({
 };
 
 export default PromiseButton;
+
 `;
