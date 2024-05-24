@@ -1,7 +1,7 @@
 // ! Imports for config
 
 import { Inbox } from "lucide-react";
-import { SiGithub, SiLinkedin, SiTwitter } from "react-icons/si";
+import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
 
 // * Config
 
@@ -13,25 +13,25 @@ export const CONNECT_LINKS: Array<{
 	icon: React.ReactNode;
 }> = [
 	{
+		name: "Email",
+		href: "mailto:noahpittman00@gmail.com",
+		icon: <Inbox className="size-6 " />,
+	},
+	{
 		name: "Twitter",
 		href: "https://twitter.com/_pittman",
-		icon: <SiTwitter className="size-6 fill-foreground" />,
+		icon: <SiX className="size-6 fill-foreground" />,
 	},
 	{
 		name: "GitHub",
 		href: "https://github.com/noahpittman",
 		icon: <SiGithub className="size-6 fill-foreground" />,
 	},
-	{
-		name: "LinkedIn",
-		href: "https://www.linkedin.com/in/noahrileypittman/",
-		icon: <SiLinkedin className="size-6 fill-foreground" />,
-	},
-	{
-		name: "Email",
-		href: "mailto:noahpittman00@gmail.com",
-		icon: <Inbox className="size-6 " />,
-	},
+	// {
+	// 	name: "LinkedIn",
+	// 	href: "https://www.linkedin.com/in/noahrileypittman/",
+	// 	icon: <SiLinkedin className="size-6 fill-foreground" />,
+	// },
 ];
 
 // ! All projects

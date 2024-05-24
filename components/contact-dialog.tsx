@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import {
 	Dialog,
@@ -28,13 +28,24 @@ export const ContactDialog = ({ trigger }: { trigger: React.ReactNode }) => {
 
 	const formRef = useRef<HTMLFormElement>(null);
 
-	const handleSubmit = ({
-		e,
-		form,
-	}: {
-		e?: React.FormEvent<HTMLFormElement>;
-		form: { name: string; email: string; message: string };
-	}) => {
+	// event listener to handle CMD+Enter
+	const handleKeyDown = (
+		e: React.KeyboardEvent<HTMLFormElement> | KeyboardEvent
+	) => {
+		if ((e.key === "Enter" && e.metaKey) || (e.key === "Enter" && e.ctrlKey)) {
+			console.log("attempting click");
+			document.getElementById("submit-button")?.click();
+		}
+	};
+
+	useEffect(() => {
+		document.addEventListener("keydown", handleKeyDown);
+		return () => {
+			document.removeEventListener("keydown", handleKeyDown);
+		};
+	}, []);
+
+	const handleSubmit = (e?: React.FormEvent<HTMLFormElement>) => {
 		if (e) e.preventDefault();
 
 		if (formRef.current) {
@@ -43,15 +54,17 @@ export const ContactDialog = ({ trigger }: { trigger: React.ReactNode }) => {
 					publicKey: "OUH8QIDn0ceYoUaiW",
 				})
 				.then(
-					() => {
-						console.log("SUCCESS!");
-						toast.success(
-							"Thanks for reaching out! I'll get back to you shortly."
-						);
+					(res) => {
+						res.status === 200
+							? toast.success(
+									"Thanks for reaching out! I'll get back to you shortly."
+							  )
+							: toast.error("Something went wrong. Please try again later.");
+
 						setForm({ name: "", email: "", message: "" });
 					},
 					(error) => {
-						console.log("FAILED...", error.text);
+						console.log({ error });
 						toast.error("Something went wrong. Please try again later.");
 					}
 				);
@@ -66,19 +79,15 @@ export const ContactDialog = ({ trigger }: { trigger: React.ReactNode }) => {
 					<DialogHeader className="text-left">
 						<DialogTitle>Contact me</DialogTitle>
 						<DialogDescription>
-							<p>
-								Feel free to contact me with any questions or projects you'd
-								like to work on. I'm always open to new ideas and
-								collaborations!
-							</p>
+							Feel free to contact me with any questions or projects you'd like
+							to work on. I'm always open to new ideas and collaborations!
 						</DialogDescription>
 					</DialogHeader>
 
 					<div className="h-px bg-muted-foreground/25" />
 
 					<div>
-						{/* Boilerplate form */}
-						<form onSubmit={(e) => handleSubmit({ e, form })} ref={formRef}>
+						<form onSubmit={handleSubmit} ref={formRef}>
 							<div className="grid grid-cols-1 gap-y-4 gap-x-4">
 								<div>
 									<label htmlFor="name" className="sr-only">
@@ -139,11 +148,13 @@ export const ContactDialog = ({ trigger }: { trigger: React.ReactNode }) => {
 					<DialogFooter>
 						<Button
 							variant={"outline"}
+							id="submit-button"
 							disabled={
 								form.name === "" || form.email === "" || form.message === ""
 							}
 							onClick={() => {
-								handleSubmit({ form });
+								// handleSubmit();
+								formRef.current?.requestSubmit();
 							}}
 							className="btn-primary"
 						>
