@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import {
+	Asterisk,
 	FilesIcon,
 	FlaskConical,
 	Home,
@@ -24,6 +25,12 @@ const tabs: { label: string; id: string; href: string; icon: LucideIcon }[] = [
 		id: "lab",
 		href: "/lab",
 		icon: FlaskConical,
+	},
+	{
+		label: "Styles",
+		id: "styles",
+		href: "/styles",
+		icon: Asterisk,
 	},
 ];
 
