@@ -111,13 +111,15 @@ const Styles = () => {
 									<Tooltip key={color}>
 										<TooltipTrigger asChild>
 											<div
-												className="cursor-pointer hover:opacity-80 transition-opacity shadow"
+												className="cursor-pointer hover:opacity-80 transition-opacity"
 												onClick={() => {
 													navigator.clipboard.writeText(color);
 													toast.success("Copied to clipboard");
 												}}
 											>
-												<div className={cn(color, "size-8 rounded")}></div>
+												<div
+													className={cn(color, "size-8 rounded shadow-md")}
+												/>
 											</div>
 										</TooltipTrigger>
 										<TooltipContent className="mt-2 text-center" side="bottom">
