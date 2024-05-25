@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 
 import { motion } from "framer-motion";
 import { Check, Loader, Mail, X } from "lucide-react";
+import { toast } from "sonner";
 
 const PromiseButton = ({
 	children,
@@ -22,6 +23,7 @@ const PromiseButton = ({
 
 		setTimeout(() => {
 			setStatus("success");
+			toast.success("Success! If only this were a real function.");
 
 			setTimeout(() => {
 				setStatus(null);
@@ -31,6 +33,7 @@ const PromiseButton = ({
 
 	const errorCase = () => {
 		setStatus("loading");
+		toast.error("There was an error. No worries, it's only a demo.");
 
 		setTimeout(() => {
 			setStatus("error");

@@ -140,9 +140,9 @@ const FontMap = () => {
 		<>
 			<div>
 				<h3 className="text-3xl font-bold">Monospace</h3>
-				<div className="flex gap-2 items-center">
+				<div className="flex gap-2 items-center flex-wrap">
 					{FONTS.filter((font) => font.serifType === "mono").map((font) => (
-						<Dialog>
+						<Dialog key={font.label}>
 							<DialogTrigger key={font.label} asChild>
 								<Button
 									variant={"link"}
@@ -161,7 +161,7 @@ const FontMap = () => {
 								</h4>
 								{/* // ! Weights */}
 								{!font.isVariable ? (
-									<div className="flex items-center gap-2">
+									<div className="flex items-center gap-2 flex-wrap">
 										<p>Weights: </p>{" "}
 										{font?.weights?.map((weight, i) => (
 											<p style={{ fontWeight: weight }} key={weight}>
@@ -171,7 +171,7 @@ const FontMap = () => {
 										))}
 									</div>
 								) : (
-									<div className="flex items-center gap-1 text-sm">
+									<div className="flex items-center gap-1 text-sm flex-wrap">
 										<p>Weights: </p>{" "}
 										{[100, 200, 300, 400, 500, 600, 700, 800, 900].map(
 											(weight, i) => (
@@ -208,144 +208,140 @@ const FontMap = () => {
 			</div>
 
 			<div>
-				<div>
-					<h3 className="text-3xl font-bold">Sans-serif</h3>
-					<div className="flex gap-2 items-center">
-						{FONTS.filter((font) => font.serifType === "sans").map((font) => (
-							<Dialog>
-								<DialogTrigger key={font.label} asChild>
-									<Button
-										variant={"link"}
-										className="w-fit h-fit mr-4 mt-2 p-0 text-base"
-									>
-										<div>{font.label}</div>
-									</Button>
-								</DialogTrigger>
-								<DialogContent className={cn(font.font.className)}>
-									{/* // ! Heading */}
-									<h4 className="text-3xl flex items-center gap-4">
-										{font.label}{" "}
-										{font.isVariable ? (
-											<Badge variant={"default"}>Variable</Badge>
-										) : null}
-									</h4>
-									{/* // ! Weights */}
-									{!font.isVariable ? (
-										<div className="flex items-center gap-2">
-											<p>Weights: </p>{" "}
-											{font?.weights?.map((weight, i) => (
+				<h3 className="text-3xl font-bold">Sans-serif</h3>
+				<div className="flex gap-2 items-center flex-wrap">
+					{FONTS.filter((font) => font.serifType === "sans").map((font) => (
+						<Dialog key={font.label}>
+							<DialogTrigger key={font.label} asChild>
+								<Button
+									variant={"link"}
+									className="w-fit h-fit mr-4 mt-2 p-0 text-base"
+								>
+									<div>{font.label}</div>
+								</Button>
+							</DialogTrigger>
+							<DialogContent className={cn(font.font.className)}>
+								{/* // ! Heading */}
+								<h4 className="text-3xl flex items-center gap-4">
+									{font.label}{" "}
+									{font.isVariable ? (
+										<Badge variant={"default"}>Variable</Badge>
+									) : null}
+								</h4>
+								{/* // ! Weights */}
+								{!font.isVariable ? (
+									<div className="flex items-center gap-2 flex-wrap">
+										<p>Weights: </p>{" "}
+										{font?.weights?.map((weight, i) => (
+											<p style={{ fontWeight: weight }} key={weight}>
+												{weight}
+												{i === font?.weights?.length! - 1 ? "" : ", "}
+											</p>
+										))}
+									</div>
+								) : (
+									<div className="flex items-center gap-1 text-sm flex-wrap">
+										<p>Weights: </p>{" "}
+										{[100, 200, 300, 400, 500, 600, 700, 800, 900].map(
+											(weight, i) => (
 												<p style={{ fontWeight: weight }} key={weight}>
 													{weight}
-													{i === font?.weights?.length! - 1 ? "" : ", "}
+													{i === 8 ? "" : ", "}
 												</p>
-											))}
-										</div>
-									) : (
-										<div className="flex items-center gap-1 text-sm">
-											<p>Weights: </p>{" "}
-											{[100, 200, 300, 400, 500, 600, 700, 800, 900].map(
-												(weight, i) => (
-													<p style={{ fontWeight: weight }} key={weight}>
-														{weight}
-														{i === 8 ? "" : ", "}
-													</p>
-												)
-											)}
-										</div>
-									)}
-									{/* // ! Body */}
-									<div>
-										<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-										<p className="lowercase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+											)
+										)}
 									</div>
-									<div>
-										<p>{`~!@#$%^&*()-=+{}[]<>?`}</p>
-										<p>0123456789</p>
-									</div>
-									<div>
-										<p className="font-light">
-											The quick brown fox jumps over the lazy dog.
-										</p>
-										<p>The quick brown fox jumps over the lazy dog.</p>
-										<p className="font-bold">
-											The quick brown fox jumps over the lazy dog.
-										</p>
-									</div>
-								</DialogContent>
-							</Dialog>
-						))}
-					</div>
+								)}
+								{/* // ! Body */}
+								<div>
+									<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+									<p className="lowercase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+								</div>
+								<div>
+									<p>{`~!@#$%^&*()-=+{}[]<>?`}</p>
+									<p>0123456789</p>
+								</div>
+								<div>
+									<p className="font-light">
+										The quick brown fox jumps over the lazy dog.
+									</p>
+									<p>The quick brown fox jumps over the lazy dog.</p>
+									<p className="font-bold">
+										The quick brown fox jumps over the lazy dog.
+									</p>
+								</div>
+							</DialogContent>
+						</Dialog>
+					))}
 				</div>
 			</div>
 
 			<div>
-				<div>
-					<h3 className="text-3xl font-bold">Serif</h3>
-					<div className="flex gap-2 items-center">
-						{FONTS.filter((font) => font.serifType === "serif").map((font) => (
-							<Dialog>
-								<DialogTrigger key={font.label} asChild>
-									<Button
-										variant={"link"}
-										className="w-fit h-fit mr-4 mt-2 p-0 text-base"
-									>
-										<div>{font.label}</div>
-									</Button>
-								</DialogTrigger>
-								<DialogContent className={cn(font.font.className)}>
-									{/* // ! Heading */}
-									<h4 className="text-3xl flex items-center gap-4">
-										{font.label}{" "}
-										{font.isVariable ? (
-											<Badge variant={"default"}>Variable</Badge>
-										) : null}
-									</h4>
-									{/* // ! Weights */}
-									{!font.isVariable ? (
-										<div className="flex items-center gap-2">
-											<p>Weights: </p>{" "}
-											{font?.weights?.map((weight, i) => (
+				<h3 className="text-3xl font-bold">Serif</h3>
+				<div className="flex gap-2 items-center flex-wrap">
+					{FONTS.filter((font) => font.serifType === "serif").map((font) => (
+						<Dialog key={font.label}>
+							<DialogTrigger key={font.label} asChild>
+								<Button
+									variant={"link"}
+									className="w-fit h-fit mr-4 mt-2 p-0 text-base"
+								>
+									<div>{font.label}</div>
+								</Button>
+							</DialogTrigger>
+							<DialogContent className={cn(font.font.className)}>
+								{/* // ! Heading */}
+								<h4 className="text-3xl flex items-center gap-4">
+									{font.label}{" "}
+									{font.isVariable ? (
+										<Badge variant={"default"}>Variable</Badge>
+									) : null}
+								</h4>
+								{/* // ! Weights */}
+								{!font.isVariable ? (
+									<div className="flex items-center gap-2 flex-wrap">
+										<p>Weights: </p>{" "}
+										{font?.weights?.map((weight, i) => (
+											<p style={{ fontWeight: weight }} key={weight}>
+												{weight}
+												{i === font?.weights?.length! - 1 ? "" : ", "}
+											</p>
+										))}
+									</div>
+								) : (
+									<div className="flex items-center gap-1 text-sm flex-wrap">
+										<p>Weights: </p>{" "}
+										{[100, 200, 300, 400, 500, 600, 700, 800, 900].map(
+											(weight, i) => (
 												<p style={{ fontWeight: weight }} key={weight}>
 													{weight}
-													{i === font?.weights?.length! - 1 ? "" : ", "}
+													{i === 8 ? "" : ", "}
 												</p>
-											))}
-										</div>
-									) : (
-										<div className="flex items-center gap-1 text-sm">
-											<p>Weights: </p>{" "}
-											{[100, 200, 300, 400, 500, 600, 700, 800, 900].map(
-												(weight, i) => (
-													<p style={{ fontWeight: weight }} key={weight}>
-														{weight}
-														{i === 8 ? "" : ", "}
-													</p>
-												)
-											)}
-										</div>
-									)}
-									{/* // ! Body */}
-									<div>
-										<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-										<p className="lowercase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+											)
+										)}
 									</div>
-									<div>
-										<p>{`~!@#$%^&*()-=+{}[]<>?`}</p>
-										<p>0123456789</p>
-									</div>
-									<div>
-										<p className="font-light">
-											The quick brown fox jumps over the lazy dog.
-										</p>
-										<p>The quick brown fox jumps over the lazy dog.</p>
-										<p className="font-bold">
-											The quick brown fox jumps over the lazy dog.
-										</p>
-									</div>
-								</DialogContent>
-							</Dialog>
-						))}
-					</div>
+								)}
+								{/* // ! Body */}
+								<div>
+									<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+									<p className="lowercase">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+								</div>
+								<div>
+									<p>{`~!@#$%^&*()-=+{}[]<>?`}</p>
+									<p>0123456789</p>
+								</div>
+								<div>
+									<p className="font-light">
+										The quick brown fox jumps over the lazy dog.
+									</p>
+									<p>The quick brown fox jumps over the lazy dog.</p>
+									<p className="font-bold">
+										The quick brown fox jumps over the lazy dog.
+									</p>
+								</div>
+							</DialogContent>
+						</Dialog>
+					))}
 				</div>
 			</div>
 		</>

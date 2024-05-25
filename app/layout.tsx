@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={cn(GeistMono.className, "px-2 relative")}>
+			<body className={cn(GeistMono.className, "relative")}>
 				<Background />
 				<ThemeProvider
 					attribute="class"
