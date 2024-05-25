@@ -1,6 +1,4 @@
-import { RouteHeading } from "@/components/route-heading";
-import { Section } from "@/components/section";
-import { SectionHeading } from "@/components/section-heading";
+"use client";
 
 // ! serif fonts
 import { Newsreader } from "next/font/google";
@@ -27,11 +25,23 @@ const poppins = Poppins({
 import { GeistMono } from "geist/font/mono";
 import { JetBrains_Mono } from "next/font/google";
 import { IBM_Plex_Mono } from "next/font/google";
-import { cn } from "@/lib/utils";
+
+// ! remaining imports
+
+import { toast } from "sonner";
 import { NextFont } from "next/dist/compiled/@next/font";
-import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
+import { RouteHeading } from "@/components/route-heading";
+import { Section } from "@/components/section";
+import { SectionHeading } from "@/components/section-heading";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const geistMono = GeistMono;
 const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
@@ -39,6 +49,35 @@ const ibm = IBM_Plex_Mono({
 	subsets: ["latin"],
 	weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
+
+export const neutralColors = {
+	colors: [
+		"#F2F2F2",
+		"#EAEAEA",
+		"#D1D1D1",
+		"#C4C4C4",
+		"#BDBDBD",
+		"#A0A0A0",
+		"#8B8B8B",
+		"#717171",
+		"#595959",
+		"#3F3F3F",
+		"#2D2D2D",
+	],
+	classes: [
+		"bg-neutral-50",
+		"bg-neutral-100",
+		"bg-neutral-200",
+		"bg-neutral-300",
+		"bg-neutral-400",
+		"bg-neutral-500",
+		"bg-neutral-600",
+		"bg-neutral-700",
+		"bg-neutral-800",
+		"bg-neutral-900",
+		"bg-neutral-950",
+	],
+};
 
 const Styles = () => {
 	return (
@@ -56,10 +95,47 @@ const Styles = () => {
 					</div>
 				</Section>
 
-				{/* <Section id="colors">
+				<Section id="colors">
 					<SectionHeading>Colors I use regularly</SectionHeading>
-					<div className="flex flex-col gap-8"></div>
-				</Section> */}
+					<div className="flex flex-col gap-8">
+						<section>
+							<p>
+								I'm a big fan of the{" "}
+								<span className="bg-neutral-900 text-neutral-100 px-1 rounded">
+									neutral
+								</span>{" "}
+								color palette in TailwindCSS.
+							</p>
+							<div className="flex flex-wrap gap-2 mt-2">
+								{neutralColors.classes.map((color) => (
+									<Tooltip key={color}>
+										<TooltipTrigger asChild>
+											<div
+												className="cursor-pointer hover:opacity-80 transition-opacity shadow"
+												onClick={() => {
+													navigator.clipboard.writeText(color);
+													toast.success("Copied to clipboard");
+												}}
+											>
+												<div className={cn(color, "size-8 rounded")}></div>
+											</div>
+										</TooltipTrigger>
+										<TooltipContent className="mt-2 text-center" side="bottom">
+											<p>
+												{
+													neutralColors.colors[
+														neutralColors.classes.indexOf(color)
+													]
+												}
+											</p>
+											<p>{color}</p>
+										</TooltipContent>
+									</Tooltip>
+								))}
+							</div>
+						</section>
+					</div>
+				</Section>
 			</div>
 		</>
 	);
