@@ -8,6 +8,7 @@ import PromiseButton from "@/components/lab/promise-button/promise-button";
 import { RouteHeading } from "@/components/route-heading";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 
 import { useState } from "react";
 
@@ -77,6 +78,8 @@ const Lab = () => {
 						}
 						code={CURSOR_CODE}
 					/>
+
+					{/* <Noise density={1} className="w-full h-full" /> */}
 				</div>
 			</div>
 		</>
@@ -118,7 +121,7 @@ const LabExperiment = ({
 							value="preview"
 							className="grid place-content-center max-h-[calc(100%-48px)] data-[state=active]:h-full m-0 w-full"
 						>
-							<div className="flex flex-col items-center justify-center w-full h-full -mt-2">
+							<div className="flex flex-col items-center justify-center w-full h-full -mt-2 relative">
 								{preview}
 							</div>
 						</TabsContent>
@@ -140,6 +143,82 @@ const LabExperiment = ({
 						) : null}
 					</>
 				</Tabs>
+			</div>
+		</>
+	);
+};
+
+const Noise = ({
+	className,
+	density = 2,
+}: {
+	className?: string;
+	density?: number; // ! Best to use 1-3. Defaults to 2. Higher numbers are less dense.
+}) => {
+	return (
+		<>
+			<div className={className}>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					version="1.1"
+					className="w-full h-full object-cover"
+				>
+					<defs>
+						<filter
+							id="nnnoise-filter"
+							x="-20%"
+							y="-20%"
+							width="140%"
+							height="140%"
+							filterUnits="objectBoundingBox"
+							primitiveUnits="userSpaceOnUse"
+							color-interpolation-filters="linearRGB"
+						>
+							<feTurbulence
+								type="fractalNoise"
+								baseFrequency={density / 10}
+								numOctaves="4"
+								seed="15"
+								stitchTiles="stitch"
+								x="0%"
+								y="0%"
+								width="100%"
+								height="100%"
+								result="turbulence"
+							></feTurbulence>
+							<feSpecularLighting
+								surfaceScale="40"
+								specularConstant="3"
+								specularExponent="20"
+								lighting-color="#4e2b80"
+								x="0%"
+								y="0%"
+								width="100%"
+								height="100%"
+								in="turbulence"
+								result="specularLighting"
+							>
+								<feDistantLight azimuth="3" elevation="200"></feDistantLight>
+							</feSpecularLighting>
+							<feColorMatrix
+								type="saturate"
+								values="0"
+								x="0%"
+								y="0%"
+								width="100%"
+								height="100%"
+								in="specularLighting"
+								result="colormatrix"
+							></feColorMatrix>
+						</filter>
+					</defs>
+					<rect
+						width="700"
+						height="700"
+						fill="#4e2b80"
+						filter="url(#nnnoise-filter)"
+					></rect>
+				</svg>
 			</div>
 		</>
 	);
