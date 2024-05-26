@@ -483,7 +483,6 @@ const Colors = () => {
 											]
 										}
 									</p>
-									<p>{color.split("bg-[")[1].split("]")[0]}</p>
 								</TooltipContent>
 							</Tooltip>
 						))}
