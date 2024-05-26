@@ -390,38 +390,131 @@ const Colors = () => {
 		],
 	};
 
+	const EXTRA_COLORS = {
+		colors: [
+			"Nike Red",
+			"Nike Orange",
+			"Starbucks 'Green'",
+			"Starbucks 'Light Green'",
+			"Starbucks 'House Green'",
+		],
+		classes: [
+			"bg-[#E2142D]",
+			"bg-[#E95814]",
+			"bg-[#0C5132]",
+			"bg-[#CBE4DB]",
+			"bg-[#172B25]",
+		],
+	};
+
+	const NEUTRAL_TAN_PALETTE = {
+		colors: ["#FFFFFF", "#E6DCD3", "#B4A79E", "#BDA18C", "#3F352C", "#000000"],
+		classes: [
+			"bg-[#FFFFFF]",
+			"bg-[#E6DCD3]",
+			"bg-[#B4A79E]",
+			"bg-[#BDA18C]",
+			"bg-[#3F352C]",
+			"bg-[#000000]",
+		],
+	};
+
 	return (
 		<>
-			<section>
-				<p>
-					I'm a big fan of the{" "}
-					<span className="bg-neutral-900 text-neutral-100 px-1 rounded">
-						neutral
-					</span>{" "}
-					color palette in TailwindCSS.
-				</p>
-				<div className="flex flex-wrap gap-2 mt-2">
-					{NEUTRAL_COLORS.classes.map((color) => (
-						<Tooltip key={color}>
-							<TooltipTrigger asChild>
-								<div
-									className="cursor-pointer hover:opacity-80 transition-opacity"
-									onClick={() => {
-										navigator.clipboard.writeText(color);
-										toast.success("Copied to clipboard");
-									}}
-								>
-									<div className={cn(color, "size-8 rounded shadow")} />
-								</div>
-							</TooltipTrigger>
-							<TooltipContent className="mt-2 text-center" side="bottom">
-								<p>
-									{NEUTRAL_COLORS.colors[NEUTRAL_COLORS.classes.indexOf(color)]}
-								</p>
-								<p>{color}</p>
-							</TooltipContent>
-						</Tooltip>
-					))}
+			<section className="space-y-4">
+				<div className="space-y-1">
+					<p>
+						I'm a big fan of the{" "}
+						<span className="bg-neutral-900 text-neutral-100 px-1 rounded">
+							neutral
+						</span>{" "}
+						color palette in TailwindCSS.
+					</p>
+					<div className="flex flex-wrap gap-2">
+						{NEUTRAL_COLORS.classes.map((color) => (
+							<Tooltip key={color}>
+								<TooltipTrigger asChild>
+									<div
+										className="cursor-pointer hover:opacity-80 transition-opacity"
+										onClick={() => {
+											navigator.clipboard.writeText(color);
+											toast.success("Copied to clipboard");
+										}}
+									>
+										<div className={cn(color, "size-8 rounded shadow")} />
+									</div>
+								</TooltipTrigger>
+								<TooltipContent className="mt-2 text-center" side="bottom">
+									<p>
+										{
+											NEUTRAL_COLORS.colors[
+												NEUTRAL_COLORS.classes.indexOf(color)
+											]
+										}
+									</p>
+									<p>{color.split("bg-")[1]}</p>
+								</TooltipContent>
+							</Tooltip>
+						))}
+					</div>
+				</div>
+
+				<div className="space-y-1">
+					<p>& this neutral tan palette.</p>
+					<div className="flex flex-wrap gap-2">
+						{NEUTRAL_TAN_PALETTE.classes.map((color) => (
+							<Tooltip key={color}>
+								<TooltipTrigger asChild>
+									<div
+										className="cursor-pointer hover:opacity-80 transition-opacity"
+										onClick={() => {
+											navigator.clipboard.writeText(color);
+											toast.success("Copied to clipboard");
+										}}
+									>
+										<div className={cn(color, "h-8 w-[72px] rounded shadow")} />
+									</div>
+								</TooltipTrigger>
+								<TooltipContent className="mt-2 text-center" side="bottom">
+									<p>
+										{
+											NEUTRAL_TAN_PALETTE.colors[
+												NEUTRAL_TAN_PALETTE.classes.indexOf(color)
+											]
+										}
+									</p>
+									<p>{color.split("bg-[")[1].split("]")[0]}</p>
+								</TooltipContent>
+							</Tooltip>
+						))}
+					</div>
+				</div>
+
+				<div className="space-y-1">
+					<p>&& a few brand colors that fit my taste.</p>
+					<div className="flex flex-wrap gap-2">
+						{EXTRA_COLORS.classes.map((color) => (
+							<Tooltip key={color}>
+								<TooltipTrigger asChild>
+									<div
+										className="cursor-pointer hover:opacity-80 transition-opacity"
+										onClick={() => {
+											navigator.clipboard.writeText(color);
+											toast.success("Copied to clipboard");
+										}}
+									>
+										<div className={cn(color, "h-8 w-[72px] rounded shadow")} />
+									</div>
+								</TooltipTrigger>
+								<TooltipContent className="mt-2 text-center" side="bottom">
+									<p>
+										{EXTRA_COLORS.colors[EXTRA_COLORS.classes.indexOf(color)]}
+									</p>
+									<p>{color.split("bg-[")[1].split("]")[0]}</p>
+								</TooltipContent>
+							</Tooltip>
+						))}
+					</div>
 				</div>
 			</section>
 		</>
