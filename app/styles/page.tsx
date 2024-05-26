@@ -58,7 +58,7 @@ const Styles = () => {
 				description="Some of my favorite design styles & UI libraries. I keep a list of them here, mostly for my own reference."
 			/>
 
-			<div className="flex flex-col gap-12">
+			<div className="flex flex-col gap-16">
 				<Section id="fonts">
 					<SectionHeading>Fonts I use regularly</SectionHeading>
 					<div className="flex flex-col gap-8">
@@ -151,7 +151,7 @@ const FontMap = () => {
 	return (
 		<>
 			<div>
-				<h3 className="text-3xl font-bold">Monospace</h3>
+				<h3 className="text-2xl font-bold">Monospace</h3>
 				<div className="flex gap-2 items-center flex-wrap">
 					{FONTS.filter((font) => font.serifType === "mono").map((font) => (
 						<Dialog key={font.label}>
@@ -220,7 +220,7 @@ const FontMap = () => {
 			</div>
 
 			<div>
-				<h3 className="text-3xl font-bold">Sans-serif</h3>
+				<h3 className="text-2xl font-bold">Sans-serif</h3>
 				<div className="flex gap-2 items-center flex-wrap">
 					{FONTS.filter((font) => font.serifType === "sans").map((font) => (
 						<Dialog key={font.label}>
@@ -289,7 +289,7 @@ const FontMap = () => {
 			</div>
 
 			<div>
-				<h3 className="text-3xl font-bold">Serif</h3>
+				<h3 className="text-2xl font-bold">Serif</h3>
 				<div className="flex gap-2 items-center flex-wrap">
 					{FONTS.filter((font) => font.serifType === "serif").map((font) => (
 						<Dialog key={font.label}>
@@ -390,10 +390,11 @@ const Colors = () => {
 		],
 	};
 
-	const EXTRA_COLORS = {
+	const BRAND_COLORS = {
 		colors: [
 			"Nike Red",
 			"Nike Orange",
+			"Michigan Yellow",
 			"Starbucks 'Green'",
 			"Starbucks 'Light Green'",
 			"Starbucks 'House Green'",
@@ -401,6 +402,7 @@ const Colors = () => {
 		classes: [
 			"bg-[#E2142D]",
 			"bg-[#E95814]",
+			"bg-[#F2BA0A]",
 			"bg-[#0C5132]",
 			"bg-[#CBE4DB]",
 			"bg-[#172B25]",
@@ -425,7 +427,7 @@ const Colors = () => {
 				<div className="space-y-1">
 					<p>
 						I'm a big fan of the{" "}
-						<span className="bg-neutral-900 text-neutral-100 px-1 rounded">
+						<span className="bg-neutral-900 text-neutral-100 dark:bg-neutral-100 dark:text-neutral-950 px-1 rounded">
 							neutral
 						</span>{" "}
 						color palette in TailwindCSS.
@@ -472,7 +474,9 @@ const Colors = () => {
 											toast.success("Copied to clipboard");
 										}}
 									>
-										<div className={cn(color, "h-8 w-[72px] rounded shadow")} />
+										<div
+											className={cn(color, "size-8 sm:w-16 rounded shadow")}
+										/>
 									</div>
 								</TooltipTrigger>
 								<TooltipContent className="mt-2 text-center" side="bottom">
@@ -492,7 +496,7 @@ const Colors = () => {
 				<div className="space-y-1">
 					<p>&& a few brand colors that fit my taste.</p>
 					<div className="flex flex-wrap gap-2">
-						{EXTRA_COLORS.classes.map((color) => (
+						{BRAND_COLORS.classes.map((color) => (
 							<Tooltip key={color}>
 								<TooltipTrigger asChild>
 									<div
@@ -502,12 +506,14 @@ const Colors = () => {
 											toast.success("Copied to clipboard");
 										}}
 									>
-										<div className={cn(color, "h-8 w-[72px] rounded shadow")} />
+										<div
+											className={cn(color, "size-8 sm:w-16 rounded shadow")}
+										/>
 									</div>
 								</TooltipTrigger>
 								<TooltipContent className="mt-2 text-center" side="bottom">
 									<p>
-										{EXTRA_COLORS.colors[EXTRA_COLORS.classes.indexOf(color)]}
+										{BRAND_COLORS.colors[BRAND_COLORS.classes.indexOf(color)]}
 									</p>
 									<p>{color.split("bg-[")[1].split("]")[0]}</p>
 								</TooltipContent>
