@@ -60,7 +60,10 @@ const Styles = () => {
 
       <div className="flex flex-col gap-16">
         <Section id="fonts">
-          <SectionHeading>Fonts I use regularly</SectionHeading>
+          <SectionHeading>
+            Fonts I use regularly{" "}
+            <span className="tracking-tighter">(Click to preview)</span>
+          </SectionHeading>
           <div className="flex flex-col gap-8">
             <FontMap />
           </div>

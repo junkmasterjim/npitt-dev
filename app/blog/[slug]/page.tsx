@@ -4,47 +4,47 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export const generateStaticParams = async () =>
-	allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
+  allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-	const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-	if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
-	return { title: post.title };
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
+  return { title: post.title };
 };
 
 const BlogPost = ({ params }: { params: { slug: string } }) => {
-	const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-	if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 
-	return (
-		<article>
-			<div className="mb-8 relative mt-4">
-				<Link href="/blog">
-					<Button
-						className="absolute -top-[40px] right-0 text-xs"
-						variant={"outline"}
-						size={"sm"}
-					>
-						Back to all posts
-					</Button>
-				</Link>
+  return (
+    <article className="prose-img:rounded-xl prose-img:border-4 prose-img:border-accent/25 prose-img:bg-primary/75 prose-img:shadow-2xl prose-img:shadow-primary/25">
+      <div className="mb-8 relative mt-4">
+        <Link href="/blog">
+          <Button
+            className="absolute -top-[40px] right-0 text-xs"
+            variant={"outline"}
+            size={"sm"}
+          >
+            Back to all posts
+          </Button>
+        </Link>
 
-				<span className="prose">
-					<h1>{post.title}</h1>
-				</span>
-				<time
-					dateTime={post.date}
-					className="mb-1 text-xs text-muted-foreground"
-				>
-					{format(post.date, "LLLL d, yyyy")}
-				</time>
-			</div>
-			<div
-				className="[&>*]:mb-3 [&>*:last-child]:mb-0 prose"
-				dangerouslySetInnerHTML={{ __html: post.body.html }}
-			/>
-		</article>
-	);
+        <span className="prose">
+          <h1>{post.title}</h1>
+        </span>
+        <time
+          dateTime={post.date}
+          className="mb-1 text-xs text-muted-foreground"
+        >
+          {format(post.date, "LLLL d, yyyy")}
+        </time>
+      </div>
+      <div
+        className="[&>*]:mb-3 [&>*:last-child]:mb-0 prose"
+        dangerouslySetInnerHTML={{ __html: post.body.html }}
+      />
+    </article>
+  );
 };
 
 export default BlogPost;
