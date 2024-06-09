@@ -55,7 +55,7 @@ const Styles = () => {
     <>
       <RouteHeading
         heading="Styles"
-        description="Some of my favorite design styles & UI libraries. I keep a list of them here, mostly for my own reference."
+        description="Some of my favorite design styles. I keep a list of them here, mostly for my own reference."
       />
 
       <div className="flex flex-col gap-16">

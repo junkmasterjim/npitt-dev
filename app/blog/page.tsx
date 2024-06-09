@@ -6,7 +6,6 @@ const Blog = () => {
   return (
     <>
       <div>
-        {/* <h1 className="text-4xl font-bold">Blog</h1> */}
         <RouteHeading
           heading="Blog"
           description="Here you'll find my general thoughts and musings on technology, design, and the world around me. Updated from time to time, sorted by most recent."
