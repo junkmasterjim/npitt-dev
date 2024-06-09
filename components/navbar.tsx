@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import {
-  Asterisk,
   FilesIcon,
   FlaskConical,
   Home,
