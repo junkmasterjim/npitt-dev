@@ -27,16 +27,18 @@ export const CONNECT_LINKS: Array<{
     href: "https://github.com/noahpittman",
     icon: <SiGithub className="size-6 fill-foreground" />,
   },
-  // {
-  // 	name: "LinkedIn",
-  // 	href: "https://www.linkedin.com/in/noahrileypittman/",
-  // 	icon: <SiLinkedin className="size-6 fill-foreground" />,
-  // },
 ];
 
 // ! All projects
 
-export const ALL_PROJECTS: Array<{
+export const WORK: Array<{
+  name: string;
+  desc: string;
+  href: string;
+  src: string;
+}> = [];
+
+export const SIDE_PROJECTS: Array<{
   name: string;
   desc: string;
   href: string;
@@ -47,6 +49,12 @@ export const ALL_PROJECTS: Array<{
     desc: "Minimalist white noise generator for MacOS",
     href: "https://hushh.npitt.dev",
     src: "/projects/hushh.png",
+  },
+  {
+    name: "Green Screen Generator",
+    desc: "Generate green screen backgrounds for your videos",
+    href: "https://www.greenscreengenerator.com/",
+    src: "/projects/green.png",
   },
   {
     name: "Bordly",

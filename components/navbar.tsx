@@ -27,18 +27,6 @@ const tabs: { label: string; id: string; href: string; icon: LucideIcon }[] = [
     href: "/lab",
     icon: FlaskConical,
   },
-  {
-    label: "Styles",
-    id: "styles",
-    href: "/styles",
-    icon: Paintbrush,
-  },
-  {
-    label: "Essentials",
-    id: "essentials",
-    href: "/essentials",
-    icon: PocketKnife,
-  },
 ];
 
 const Navbar = () => {
