@@ -1,7 +1,7 @@
 // ! Imports for config
 
-import { Inbox } from "lucide-react";
-import { SiGithub, SiX } from "react-icons/si";
+import { Inbox } from 'lucide-react';
+import { SiGithub, SiX } from 'react-icons/si';
 
 // * Config
 
@@ -13,18 +13,18 @@ export const CONNECT_LINKS: Array<{
   icon: React.ReactNode;
 }> = [
   {
-    name: "Email",
-    href: "mailto:noahpittman00@gmail.com",
+    name: 'Email',
+    href: 'mailto:noahpittman00@gmail.com',
     icon: <Inbox className="size-6 " />,
   },
   {
-    name: "Twitter",
-    href: "https://twitter.com/_pittman",
+    name: 'Twitter',
+    href: 'https://twitter.com/junkmasterjim',
     icon: <SiX className="size-6 fill-foreground" />,
   },
   {
-    name: "GitHub",
-    href: "https://github.com/noahpittman",
+    name: 'GitHub',
+    href: 'https://github.com/junkmasterjim',
     icon: <SiGithub className="size-6 fill-foreground" />,
   },
 ];
@@ -45,63 +45,63 @@ export const SIDE_PROJECTS: Array<{
   src: string;
 }> = [
   {
-    name: "hushh",
-    desc: "Minimalist white noise generator for MacOS",
-    href: "https://hushh.npitt.dev",
-    src: "/projects/hushh.png",
+    name: 'hushh',
+    desc: 'Minimalist white noise generator for MacOS',
+    href: 'https://hushh.npitt.dev',
+    src: '/projects/hushh.png',
   },
   {
-    name: "Green Screen Generator",
-    desc: "Generate green screen backgrounds for your videos",
-    href: "https://www.greenscreengenerator.com/",
-    src: "/projects/green.png",
+    name: 'Green Screen Generator',
+    desc: 'Generate green screen backgrounds for your videos',
+    href: 'https://www.greenscreengenerator.com/',
+    src: '/projects/green.png',
   },
   {
-    name: "Bordly",
-    desc: "Style guide generator for quick design systems",
-    href: "https://bordly.app",
-    src: "/projects/bordly.png",
+    name: 'Bordly',
+    desc: 'Style guide generator for quick design systems',
+    href: 'https://bordly.app',
+    src: '/projects/bordly.png',
   },
   {
     name: "Where's Bobby?",
-    desc: "Quickly find your elevation & coordinates. Made for a friend",
-    href: "https://wheresbobby.vercel.app",
-    src: "/projects/wheresbobby.png",
+    desc: 'Quickly find your elevation & coordinates. Made for a friend',
+    href: 'https://wheresbobby.vercel.app',
+    src: '/projects/wheresbobby.png',
   },
   {
-    name: "PomoLogs",
-    desc: "Pomodoro timer with log tracking",
-    href: "https://pomologs.org",
-    src: "/projects/pomologs.png",
+    name: 'PomoLogs',
+    desc: 'Pomodoro timer with log tracking',
+    href: 'https://pomologs.org',
+    src: '/projects/pomologs.png',
   },
   {
-    name: "DevPillar",
-    desc: "Open source design & development resource library",
-    href: "https://devpillar.org",
-    src: "/projects/devpillar.png",
+    name: 'DevPillar',
+    desc: 'Open source design & development resource library',
+    href: 'https://devpillar.org',
+    src: '/projects/devpillar.png',
   },
   {
-    name: "QR Gen",
-    desc: "QR code generator",
-    href: "https://qr.npitt.dev",
-    src: "/projects/qr.png",
+    name: 'QR Gen',
+    desc: 'QR code generator',
+    href: 'https://qr.npitt.dev',
+    src: '/projects/qr.png',
   },
   {
-    name: "Pokédex",
-    desc: "Simple pokédex made with Tanstack Query",
-    href: "https://pokedex.npitt.dev",
-    src: "/projects/pokedex.png",
+    name: 'Pokédex',
+    desc: 'Simple pokédex made with Tanstack Query',
+    href: 'https://pokedex.npitt.dev',
+    src: '/projects/pokedex.png',
   },
   {
-    name: "Historicolor",
-    desc: "Restore b/w photos to color with AI",
-    href: "https://historicolor.org",
-    src: "/projects/historicolor.png",
+    name: 'Historicolor',
+    desc: 'Restore b/w photos to color with AI',
+    href: 'https://historicolor.org',
+    src: '/projects/historicolor.png',
   },
   {
-    name: "Shade Shuffle",
-    desc: "Color palette generator",
-    href: "https://shadeshuffle.org",
-    src: "/projects/shadeshuffle.png",
+    name: 'Shade Shuffle',
+    desc: 'Color palette generator',
+    href: 'https://shadeshuffle.org',
+    src: '/projects/shadeshuffle.png',
   },
 ];
