@@ -1,17 +1,17 @@
-import { cn } from "@/lib/utils";
-import "./globals.css";
-import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/ui/theme-provider";
-import Navbar from "@/components/navbar";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { cn } from '@/lib/utils';
+import './globals.css';
+import type { Metadata } from 'next';
+import { ThemeProvider } from '@/components/ui/theme-provider';
+import Navbar from '@/components/navbar';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
-import { Toaster } from "@/components/ui/sonner";
-import { GeistSans } from "geist/font/sans";
+import { Toaster } from '@/components/ui/sonner';
+import { GeistSans } from 'geist/font/sans';
 
 export const metadata: Metadata = {
-  title: "Noah Pittman",
+  title: 'Noah Pittman',
   description:
-    "Noah Pittman is a full stack web developer & designer from eastern Canada.",
+    'Noah Pittman is a full stack web developer & designer from eastern Canada.',
 };
 
 export default function RootLayout({
@@ -21,10 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(GeistSans.className, "relative")}>
+      <body className={cn(GeistSans.className, 'relative')}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
