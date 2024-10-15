@@ -7,6 +7,7 @@ slug: devpillar-redesign
 [![DevPillar Redesign](/devpillar/split.png)](https://devpillar.org)
 
 ## **Introduction**
+
 After a brief hiatus. I came back to DevPillar for a redesign. I wanted to make it more community-focused, and grow it as an Open Source project. I also wanted to make it look better.
 
 I think I did a pretty good job. The website is also a lot faster now due to some optimizations I made with passing props & data fetching. It's not perfect, but it's a lot better than it was before.
@@ -15,11 +16,10 @@ I think I did a pretty good job. The website is also a lot faster now due to som
 
 ## **1. Total UI Overhaul**
 
-- *New sidebar and overall website feel.*
-- *More sophisticated and compact layout.*
-- *Geist font.*
-- *Light & Dark mode.*
-
+- _New sidebar and overall website feel._
+- _More sophisticated and compact layout._
+- _Geist font._
+- _Light & Dark mode._
 
 The majority of work was done on the UI. Overall, the new design is much more sophisticated and compact.
 
@@ -29,59 +29,59 @@ Here's a quick rundown of the changes:
 
 ![Hero Section](/devpillar/hero.png)
 
-- *Newsletter CTA is now one of the first things the user sees.*
-- *Cleaner design.*
-- *Number of resources clearly displayed.*
+- _Newsletter CTA is now one of the first things the user sees._
+- _Cleaner design._
+- _Number of resources clearly displayed._
 
 ### **Resource Cards**
 
 ![Resource Cards](/devpillar/resource-cards.png)
 
-- *Compact design.*
-- *Design allows for dense, or spaced layouts.*
-- *Design is consistent with the rest of the site.*
+- _Compact design._
+- _Design allows for dense, or spaced layouts._
+- _Design is consistent with the rest of the site._
 
 ### **Sidebar & Categories**
 
 ![Side by side of the old and new sidebar.](/devpillar/sidebars.png)
 
-- *New sidebar design.*
-- *Categories are now more organized.*
-- *Easier to read.*
+- _New sidebar design._
+- _Categories are now more organized._
+- _Easier to read._
 
 ### Page Layouts
 
 ![Route Layouts](/devpillar/page-layouts.png)
 
-- *New layouts for categories, search, profile, etc.*
-- *Stylish headings for each page.*
-- *Buttons to submit resources on every page.*
-- *Consistent layout across all pages.*
-- *Sort method now in heading & doens't take up extra space.*
+- _New layouts for categories, search, profile, etc._
+- _Stylish headings for each page._
+- _Buttons to submit resources on every page._
+- _Consistent layout across all pages._
+- _Sort method now in heading & doens't take up extra space._
 
 ### Footer
 
 ![Footer](/devpillar/footer.png)
 
-- *Consistent with rest of the site.*
-- *Simple & to the point.*
-- *Newsletter CTA.*
+- _Consistent with rest of the site._
+- _Simple & to the point._
+- _Newsletter CTA._
 
 ### Login Page
 
 ![Login Page](/devpillar/login.png)
 
-- *Clean design.*
-- *No more weird layout shifts.*
-- *Added Google sign-in.*
+- _Clean design._
+- _No more weird layout shifts._
+- _Added Google sign-in._
 
 ### Dark Mode
 
 ![Dark Mode](/devpillar/dark-mode.png)
 
-- *Dark mode looks pretty good.*
-- *So does light mode.*
-- *What else is there to say?*
+- _Dark mode looks pretty good._
+- _So does light mode._
+- _What else is there to say?_
 
 And thats basically it for the UI, among other minor tweaks. I think it looks great, and blows the last design out of the water.
 
@@ -95,7 +95,7 @@ Another core change is how submissions are handled. Previously they hit an API e
 
 Now, they're community-driven and managed through pull requests on GitHub. I really feel like this will improve the user experience and promote a stronger community presence.
 
-*Fun fact: the old design had a secret `/requests` page that I would use to log and track the resources. It was a disaster.*
+_Fun fact: the old design had a secret `/requests` page that I would use to log and track the resources. It was a disaster._
 
 ---
 
@@ -108,7 +108,8 @@ Before, I had 41 categories, which was a bit much. Now, there are 10 main catego
 ---
 
 ## **10. Next Up…**
-*Current goals for DevPillar are to add a TON of new resources, and do some marketing to get new users and hopefully grow the project. I would love for it to become self-sufficient and grow via mostly community engagement.*
+
+_Current goals for DevPillar are to add a TON of new resources, and do some marketing to get new users and hopefully grow the project. I would love for it to become self-sufficient and grow via mostly community engagement._
 
 Moving forward, the plan is to add a bunch of new resources and ramp up marketing efforts to attract more users.
 
@@ -136,4 +137,4 @@ Noah
 
 [Check out DevPillar here!](https://devpillar.org)
 
-*p.s. I'm always looking for new resources. If you have one in mind, please contribute!*
+_p.s. I'm always looking for new resources. If you have one in mind, please contribute!_

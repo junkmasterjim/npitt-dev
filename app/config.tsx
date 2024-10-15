@@ -36,72 +36,71 @@ export const WORK: Array<{
   desc: string;
   href: string;
   src: string;
-}> = [];
+  tags: string[];
+}> = [
+  {
+    name: 'Wendr.de',
+    desc: 'Client project. UberEats/AirBnB style app for finding local vendors.',
+    href: 'https://wendr.de',
+    src: '/projects/wendr.png',
+    tags: ['react', 'typescript', 'postgresql', 'ui/ux design'],
+  },
+];
 
 export const SIDE_PROJECTS: Array<{
   name: string;
   desc: string;
   href: string;
   src: string;
+  tags: string[];
 }> = [
   {
     name: 'hushh',
     desc: 'Minimalist white noise generator for MacOS',
     href: 'https://hushh.npitt.dev',
     src: '/projects/hushh.png',
-  },
-  {
-    name: 'Green Screen Generator',
-    desc: 'Generate green screen backgrounds for your videos',
-    href: 'https://www.greenscreengenerator.com/',
-    src: '/projects/green.png',
+    tags: ['tauri', 'react', 'typescript', 'rust'],
   },
   {
     name: 'Bordly',
     desc: 'Style guide generator for quick design systems',
     href: 'https://bordly.app',
     src: '/projects/bordly.png',
-  },
-  {
-    name: "Where's Bobby?",
-    desc: 'Quickly find your elevation & coordinates. Made for a friend',
-    href: 'https://wheresbobby.vercel.app',
-    src: '/projects/wheresbobby.png',
+    tags: ['react', 'typescript'],
   },
   {
     name: 'PomoLogs',
     desc: 'Pomodoro timer with log tracking',
     href: 'https://pomologs.org',
     src: '/projects/pomologs.png',
+    tags: ['tauri', 'react', 'typescript', 'rust'],
   },
   {
     name: 'DevPillar',
     desc: 'Open source design & development resource library',
     href: 'https://devpillar.org',
     src: '/projects/devpillar.png',
+    tags: ['react', 'typescript', 'postgresql', 'ui/ux design'],
   },
   {
     name: 'QR Gen',
-    desc: 'QR code generator',
+    desc: 'A simple QR code generator',
     href: 'https://qr.npitt.dev',
     src: '/projects/qr.png',
+    tags: ['react', 'typescript', 'postgresql', 'ui/ux design'],
   },
   {
     name: 'Pokédex',
     desc: 'Simple pokédex made with Tanstack Query',
     href: 'https://pokedex.npitt.dev',
     src: '/projects/pokedex.png',
-  },
-  {
-    name: 'Historicolor',
-    desc: 'Restore b/w photos to color with AI',
-    href: 'https://historicolor.org',
-    src: '/projects/historicolor.png',
+    tags: ['react', 'typescript'],
   },
   {
     name: 'Shade Shuffle',
     desc: 'Color palette generator',
     href: 'https://shadeshuffle.org',
     src: '/projects/shadeshuffle.png',
+    tags: ['react', 'ui/ux design'],
   },
 ];

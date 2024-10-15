@@ -1,19 +1,19 @@
-"use client";
+'use client';
 
-import { CodePreview } from "@/components/code-preview";
-import { CURSOR_CODE } from "@/components/lab/cursor/code";
-import { Cursor } from "@/components/lab/cursor/cursor";
-import { PROMISE_BUTTON_CODE } from "@/components/lab/promise-button/code";
-import PromiseButton from "@/components/lab/promise-button/promise-button";
-import { RouteHeading } from "@/components/route-heading";
-import { Button } from "@/components/ui/button";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CodePreview } from '@/components/code-preview';
+import { CURSOR_CODE } from '@/components/lab/cursor/code';
+import { Cursor } from '@/components/lab/cursor/cursor';
+import { PROMISE_BUTTON_CODE } from '@/components/lab/promise-button/code';
+import PromiseButton from '@/components/lab/promise-button/promise-button';
+import { RouteHeading } from '@/components/route-heading';
+import { Button } from '@/components/ui/button';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 const Lab = () => {
-  const [cursorBehaviour, setCursorBehaviour] = useState<"static" | "spring">(
-    "static",
+  const [cursorBehaviour, setCursorBehaviour] = useState<'static' | 'spring'>(
+    'static'
   );
   return (
     <>
@@ -55,17 +55,17 @@ const Lab = () => {
                   Hover me to see the cursor.
                 </p>
                 <Button
-                  variant={"outline"}
+                  variant={'outline'}
                   className="uppercase"
                   onClick={() =>
                     setCursorBehaviour((prev) =>
-                      prev === "static" ? "spring" : "static",
+                      prev === 'static' ? 'spring' : 'static'
                     )
                   }
                 >
-                  Swap to {cursorBehaviour === "static" ? "spring" : "static"}
+                  Swap to {cursorBehaviour === 'static' ? 'spring' : 'static'}
                 </Button>
-                {cursorBehaviour === "static" ? (
+                {cursorBehaviour === 'static' ? (
                   <Cursor className="hidden group-hover:block" />
                 ) : (
                   <Cursor
@@ -105,6 +105,7 @@ const LabExperiment = ({
       <div className="group">
         <h3 className="text-lg font-semibold leading-none">{title}</h3>
         <p className="text-sm text-muted-foreground">{description}</p>
+
         <Tabs
           defaultValue="preview"
           className="aspect-[4/3] max-h-96 w-full rounded-lg border shadow-md bg-background dark:bg-neutral-900 mt-2 overflow-hidden"
