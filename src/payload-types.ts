@@ -71,7 +71,7 @@ export interface Config {
     media: Media;
     projects: Project;
     elements: Element;
-    'contact-info': ContactInfo;
+    'home-info': HomeInfo;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -83,7 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     elements: ElementsSelect<false> | ElementsSelect<true>;
-    'contact-info': ContactInfoSelect<false> | ContactInfoSelect<true>;
+    'home-info': HomeInfoSelect<false> | HomeInfoSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -174,6 +174,7 @@ export interface Project {
   title: string;
   description: string;
   'project link': string;
+  'repo link': string;
   stack:
     | {
         [k: string]: unknown;
@@ -209,10 +210,25 @@ export interface Element {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact-info".
+ * via the `definition` "home-info".
  */
-export interface ContactInfo {
+export interface HomeInfo {
   id: number;
+  bio: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   email: string;
   github: string;
   linkedin: string;
@@ -260,8 +276,8 @@ export interface PayloadLockedDocument {
         value: number | Element;
       } | null)
     | ({
-        relationTo: 'contact-info';
-        value: number | ContactInfo;
+        relationTo: 'home-info';
+        value: number | HomeInfo;
       } | null)
     | ({
         relationTo: 'payload-kv';
@@ -358,6 +374,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   'project link'?: T;
+  'repo link'?: T;
   stack?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -384,9 +401,10 @@ export interface ElementsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact-info_select".
+ * via the `definition` "home-info_select".
  */
-export interface ContactInfoSelect<T extends boolean = true> {
+export interface HomeInfoSelect<T extends boolean = true> {
+  bio?: T;
   email?: T;
   github?: T;
   linkedin?: T;
