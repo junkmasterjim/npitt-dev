@@ -6,12 +6,13 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { s3Storage } from '@payloadcms/storage-s3'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Projects } from './collections/Projects'
 import { Elements } from './collections/Elements'
-import { s3Storage } from '@payloadcms/storage-s3'
+import { ContactInformation } from './collections/ContactInformation'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -27,7 +28,8 @@ export default buildConfig({
     Users,
     Media,
     Projects,
-    Elements
+    Elements,
+    ContactInformation
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

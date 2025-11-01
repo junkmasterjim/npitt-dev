@@ -71,6 +71,7 @@ export interface Config {
     media: Media;
     projects: Project;
     elements: Element;
+    'contact-info': ContactInfo;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -82,6 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     elements: ElementsSelect<false> | ElementsSelect<true>;
+    'contact-info': ContactInfoSelect<false> | ContactInfoSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -207,6 +209,18 @@ export interface Element {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-info".
+ */
+export interface ContactInfo {
+  id: number;
+  email: string;
+  github: string;
+  linkedin: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -244,6 +258,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'elements';
         value: number | Element;
+      } | null)
+    | ({
+        relationTo: 'contact-info';
+        value: number | ContactInfo;
       } | null)
     | ({
         relationTo: 'payload-kv';
@@ -361,6 +379,17 @@ export interface ElementsSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   code?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-info_select".
+ */
+export interface ContactInfoSelect<T extends boolean = true> {
+  email?: T;
+  github?: T;
+  linkedin?: T;
   updatedAt?: T;
   createdAt?: T;
 }
