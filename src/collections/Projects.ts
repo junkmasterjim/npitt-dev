@@ -24,6 +24,11 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: 'repo link',
+      type: 'text',
+      required: true
+    },
+    {
       name: 'stack',
       type: 'json',
       required: true,
