@@ -12,7 +12,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Projects } from './collections/Projects'
 import { Elements } from './collections/Elements'
-import { ContactInformation } from './collections/ContactInformation'
+import { HomeInformation } from './collections/HomeInformation'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -29,7 +29,7 @@ export default buildConfig({
     Media,
     Projects,
     Elements,
-    ContactInformation
+    HomeInformation
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
