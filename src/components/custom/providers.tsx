@@ -1,5 +1,6 @@
 "use client"
 
+import { fetchCMSData } from "@/lib/utils";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
 
@@ -18,23 +19,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 function CMSDataProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     queryClient.prefetchQuery({
-      queryKey: ['projects'],
-      queryFn: fetchProjects,
-    });
-
-    queryClient.prefetchQuery({
-      queryKey: ['hero'],
-      queryFn: fetchHeroContent,
-    });
-
-    queryClient.prefetchQuery({
-      queryKey: ['socialLinks'],
-      queryFn: fetchSocialLinks,
-    });
-
-    queryClient.prefetchQuery({
-      queryKey: ['caseStudies'],
-      queryFn: fetchCaseStudies,
+      queryKey: ['cms-data'],
+      queryFn: fetchCMSData,
     });
   }, []);
 
