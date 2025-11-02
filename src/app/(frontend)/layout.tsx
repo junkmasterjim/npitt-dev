@@ -1,8 +1,16 @@
 import React from 'react'
 import "./globals.css"
-import Container from '@/components/custom/Container'
+import Container from '@/components/custom/container'
+import { Metadata } from 'next'
+import { Noto_Serif } from 'next/font/google'
+import { cn } from '@/lib/utils'
 
-export const metadata = {
+const noto = Noto_Serif({
+  weight: 'variable',
+  subsets: ['latin'],
+})
+
+export const metadata: Metadata = {
   description: 'A blank template using Payload in a Next.js app.',
   title: 'Payload Blank Template',
 }
@@ -10,8 +18,9 @@ export const metadata = {
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
+
   return (
-    <html lang="en">
+    <html lang="en" className={cn(noto.className)}>
       <body>
         <main>
           <Container>
