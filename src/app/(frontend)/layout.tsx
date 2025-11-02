@@ -4,6 +4,7 @@ import Container from '@/components/custom/container'
 import { Metadata } from 'next'
 import { Noto_Serif } from 'next/font/google'
 import { cn } from '@/lib/utils'
+import Providers from '@/components/custom/providers'
 
 const noto = Noto_Serif({
   weight: 'variable',
@@ -18,16 +19,17 @@ export const metadata: Metadata = {
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
-
   return (
     <html lang="en" className={cn(noto.className)}>
-      <body>
-        <main>
-          <Container>
-            {children}
-          </Container>
-        </main>
-      </body>
+      <Providers>
+        <body>
+          <main>
+            <Container>
+              {children}
+            </Container>
+          </main>
+        </body>
+      </Providers>
     </html>
   )
 }

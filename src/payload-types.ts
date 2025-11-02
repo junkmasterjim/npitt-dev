@@ -70,7 +70,6 @@ export interface Config {
     users: User;
     media: Media;
     projects: Project;
-    elements: Element;
     'home-content': HomeContent;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
@@ -82,7 +81,6 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
-    elements: ElementsSelect<false> | ElementsSelect<true>;
     'home-content': HomeContentSelect<false> | HomeContentSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -198,18 +196,6 @@ export interface Project {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "elements".
- */
-export interface Element {
-  id: number;
-  title: string;
-  description?: string | null;
-  code: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-content".
  */
 export interface HomeContent {
@@ -270,10 +256,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'projects';
         value: number | Project;
-      } | null)
-    | ({
-        relationTo: 'elements';
-        value: number | Element;
       } | null)
     | ({
         relationTo: 'home-content';
@@ -387,17 +369,6 @@ export interface ProjectsSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "elements_select".
- */
-export interface ElementsSelect<T extends boolean = true> {
-  title?: T;
-  description?: T;
-  code?: T;
-  updatedAt?: T;
-  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

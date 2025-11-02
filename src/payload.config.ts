@@ -11,7 +11,6 @@ import { s3Storage } from '@payloadcms/storage-s3'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Projects } from './collections/Projects'
-import { Elements } from './collections/Elements'
 import { HomeContent } from './collections/HomeContent'
 
 const filename = fileURLToPath(import.meta.url)
@@ -28,7 +27,6 @@ export default buildConfig({
     Users,
     Media,
     Projects,
-    Elements,
     HomeContent
   ],
   editor: lexicalEditor(),
