@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 import { Noto_Serif } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import Providers from '@/components/custom/providers'
+import Navbar from '@/components/custom/navbar'
 
 const noto = Noto_Serif({
   weight: 'variable',
@@ -25,6 +26,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <main>
           <Container>
             <Providers>
+              <Navbar />
               {children}
             </Providers>
           </Container>
