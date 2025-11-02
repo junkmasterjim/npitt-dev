@@ -4,6 +4,9 @@ export const HomeContent: CollectionConfig = {
   slug: 'home-content',
   access: {
     read: () => true,
+    create: () => false,
+    delete: () => false,
+    update: () => true
   },
   fields: [
     {
