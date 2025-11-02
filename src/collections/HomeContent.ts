@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
-export const HomeInformation: CollectionConfig = {
-  slug: 'home-info',
+export const HomeContent: CollectionConfig = {
+  slug: 'home-content',
   access: {
     read: () => true,
   },

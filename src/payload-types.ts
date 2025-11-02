@@ -71,7 +71,7 @@ export interface Config {
     media: Media;
     projects: Project;
     elements: Element;
-    'home-info': HomeInfo;
+    'home-content': HomeContent;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -83,7 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     elements: ElementsSelect<false> | ElementsSelect<true>;
-    'home-info': HomeInfoSelect<false> | HomeInfoSelect<true>;
+    'home-content': HomeContentSelect<false> | HomeContentSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -210,9 +210,9 @@ export interface Element {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home-info".
+ * via the `definition` "home-content".
  */
-export interface HomeInfo {
+export interface HomeContent {
   id: number;
   bio: {
     root: {
@@ -276,8 +276,8 @@ export interface PayloadLockedDocument {
         value: number | Element;
       } | null)
     | ({
-        relationTo: 'home-info';
-        value: number | HomeInfo;
+        relationTo: 'home-content';
+        value: number | HomeContent;
       } | null)
     | ({
         relationTo: 'payload-kv';
@@ -401,9 +401,9 @@ export interface ElementsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "home-info_select".
+ * via the `definition` "home-content_select".
  */
-export interface HomeInfoSelect<T extends boolean = true> {
+export interface HomeContentSelect<T extends boolean = true> {
   bio?: T;
   email?: T;
   github?: T;
