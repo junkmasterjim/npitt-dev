@@ -21,15 +21,15 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en" className={cn(noto.className)}>
-      <Providers>
-        <body>
-          <main>
-            <Container>
+      <body>
+        <main>
+          <Container>
+            <Providers>
               {children}
-            </Container>
-          </main>
-        </body>
-      </Providers>
-    </html>
+            </Providers>
+          </Container>
+        </main>
+      </body>
+    </html >
   )
 }

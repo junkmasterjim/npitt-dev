@@ -13,7 +13,7 @@ function CMSDataProvider({ children }: { children: React.ReactNode }) {
   })
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="min-h-96 flex items-center w-full justify-center">Loading...</div>;
   }
 
   return children;
