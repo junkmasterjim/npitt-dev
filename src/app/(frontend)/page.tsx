@@ -1,7 +1,7 @@
 "use client"
 
 import PageContainer from "@/components/custom/page-container"
-import { fetchCMSData } from "@/lib/utils"
+import { cn, fetchCMSData } from "@/lib/utils"
 import { HomeContent } from "@/payload-types"
 import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
@@ -17,17 +17,21 @@ export default function HomePage() {
   return (
     <PageContainer>
       {/* header */}
-      <h1 className="tracking-tight">Noah <span>Riley</span> Pittman</h1>
-      <h3>Full Stack Developer, Multi-Faceted Creative</h3>
+      <div className="w-fit border-b pb-2 mb-2">
+        <h1 className="tracking-tighter font-semibold text-3xl leading-8">
+          Noah <span className="bg-foreground text-background px-1">Riley</span> Pittman
+        </h1>
+        <H2 className="tracking-tighter text-foreground/60 font-medium leading-7">Full-stack developer; Multi-faceted creative.</H2>
+      </div>
 
       {/* bio */}
       {content.bio.root.children.map((child: any, i: number) => (
-        <p key={i}>{child.children[0].text}</p>
+        <p key={i} className="max-w-[80ch]">{child.children[0].text}</p>
       ))}
 
       {/* contact */}
-      <h3>Connect</h3>
-      <ul>
+      <H2 className="w-fit border-b mt-3">Connect</H2>
+      <ul className="flex items-center gap-4">
         <Link href={content.email} target="_blank">
           <li>Email</li>
         </Link>
@@ -40,9 +44,9 @@ export default function HomePage() {
       </ul>
 
       {/* projects */}
-      <h3>Projects</h3>
-      <ul>
-        {["", "", ""].map((str, i) => (
+      <H2 className="w-fit border-b mt-3">Projects</H2>
+      <ul className="flex items-center gap-4 flex-wrap max-w-md">
+        {['', '', '', '', '', ''].map((str, i) => (
           <li key={i}>
             <h4>Project Title</h4>
             <p>Project description</p>
@@ -56,9 +60,9 @@ export default function HomePage() {
       </ul>
 
       {/* writing */}
-      <h3>Writing</h3>
-      <ul>
-        {["", "", ""].map((str, i) => (
+      <H2 className="w-fit border-b mt-3">Writing</H2>
+      <ul className="flex items-center gap-4 flex-wrap max-w-md">
+        {['', '', '', '', '', ''].map((str, i) => (
           <li key={i}>
             <h4>Title</h4>
             <p>Description</p>
@@ -67,4 +71,8 @@ export default function HomePage() {
       </ul>
     </PageContainer>
   )
+}
+
+function H2({ children, className }: { children: React.ReactNode, className: string }) {
+  return <h2 className={cn("tracking-tighter text-foreground/60 font-medium leading-7", className)}>{children}</h2>
 }
