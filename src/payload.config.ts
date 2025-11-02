@@ -9,9 +9,10 @@ import sharp from 'sharp'
 import { s3Storage } from '@payloadcms/storage-s3'
 
 import { Users } from './collections/Users'
-import { Media } from './collections/Media'
 import { Projects } from './collections/Projects'
 import { HomeContent } from './collections/HomeContent'
+import { CaseStudies } from './collections/CaseStudies'
+import { BlogPosts } from './collections/BlogPosts'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,12 +24,15 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
+
   collections: [
     Users,
-    Media,
     Projects,
-    HomeContent
+    HomeContent,
+    CaseStudies,
+    BlogPosts
   ],
+
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
