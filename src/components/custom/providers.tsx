@@ -1,10 +1,23 @@
 "use client"
 
 import { fetchCMSData } from "@/lib/utils";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
+
+function CMSDataProvider({ children }: { children: React.ReactNode }) {
+
+  const { isLoading } = useQuery({
+    queryKey: ['cms-data'],
+    queryFn: fetchCMSData,
+  })
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  return children;
+}
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -14,15 +27,4 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       </CMSDataProvider>
     </QueryClientProvider>
   )
-}
-
-function CMSDataProvider({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    queryClient.prefetchQuery({
-      queryKey: ['cms-data'],
-      queryFn: fetchCMSData,
-    });
-  }, []);
-
-  return children;
 }
