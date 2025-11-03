@@ -17,6 +17,8 @@ export default function HomePage() {
   const featuredProjects = projects.filter((proj) => proj["is featured"] == true);
   const featuredPosts = posts.filter((post) => post["is-featured"] == true)
 
+  if (!content) return <div>Loading...</div>
+
   return (
     <PageContainer>
       {/* header */}
