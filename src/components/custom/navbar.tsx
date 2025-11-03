@@ -12,8 +12,8 @@ export default function Navbar() {
   const navigation: Array<{ href: string; label: string }> = [
     { href: "/", label: "Home" },
     { href: "/projects", label: "Projects" },
-    { href: "/writing", label: "Writing" },
-    { href: "/playground", label: "Playground" },
+    { href: "/posts", label: "Posts" },
+    // { href: "/playground", label: "Playground" },
   ];
 
   return (

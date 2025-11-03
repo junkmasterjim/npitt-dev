@@ -14,6 +14,7 @@ export const GET = async (request: Request) => {
     payload.find({ collection: 'home-content' }),
     payload.find({ collection: 'posts' }),
   ])
+
   return Response.json({
     projects: projects.docs,
     media: media.docs,

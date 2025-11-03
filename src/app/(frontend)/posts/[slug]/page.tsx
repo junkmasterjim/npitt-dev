@@ -1,0 +1,59 @@
+import { getPayload } from 'payload';
+import config from '@/payload.config'; // Adjust path as needed
+import { H2 } from '@/components/custom/h2';
+import { RichText } from '@/components/custom/rich-text';
+import { Separator } from '@/components/ui/separator';
+import { formatPayloadDate } from '@/lib/utils';
+import { SlidingLink } from '@/components/custom/sliding-link';
+import { ArrowUpLeft } from 'lucide-react';
+import PageContainer from '@/components/custom/page-container';
+
+export default async function PostPage({ params }: { params: { slug: string } }) {
+  const payload = await getPayload({ config });
+
+  const posts = await payload.find({
+    collection: 'posts',
+    where: {
+      slug: {
+        equals: params.slug,
+      },
+    },
+  });
+
+  const post = posts.docs[0];
+
+  if (!post) {
+    // Handle 404
+    return <div>Post not found</div>;
+  }
+
+  return (
+    <PageContainer>
+      {/* post header */}
+      <div className='flex items-center justify-between tracking-tight text-muted-foreground leading-none mt-2'>
+        <p className=''>{post.type}</p>
+        <SlidingLink href={"/posts"}>Return to posts</SlidingLink>
+      </div>
+      <h1 className='text-4xl font-semibold tracking-tighter'>
+        {post.title}
+      </h1>
+      <H2>{post.tagline}</H2>
+      <p className='tracking-tighter text-xs, text-foreground/70 -mt-1'>
+        {formatPayloadDate(post.date)}
+      </p>
+      <Separator className='mb-4' />
+
+      {/* post data */}
+      <RichText lexicalData={post.content} />
+    </PageContainer>
+  );
+}
+
+export async function generateStaticParams() {
+  const payload = await getPayload({ config });
+  const posts = await payload.find({ collection: 'posts', limit: 0 }); // Fetch all posts
+
+  return posts.docs.map((post) => ({
+    slug: post.slug,
+  }));
+}

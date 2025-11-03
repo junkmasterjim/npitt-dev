@@ -9,6 +9,7 @@ import TooltipLink from "@/components/custom/tooltip-link"
 import { SlidingLink } from "@/components/custom/sliding-link"
 import { useCMS } from "@/components/custom/providers"
 import { RichText } from "@/components/custom/rich-text"
+import { H2 } from "@/components/custom/h2"
 
 export default function HomePage() {
   const { homeContent, projects, posts } = useCMS();
@@ -88,7 +89,4 @@ export default function HomePage() {
   )
 }
 
-function H2({ children, className }: { children: React.ReactNode, className: string }) {
-  return <h2 className={cn("text-lg tracking-tighter text-foreground/70 font-medium leading-7", className)}>{children}</h2>
-}
 

@@ -232,7 +232,9 @@ export interface HomeContent {
 export interface Post {
   id: number;
   title: string;
+  slug: string;
   tagline: string;
+  type: string;
   content: {
     root: {
       type: string;
@@ -426,7 +428,9 @@ export interface HomeContentSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
   tagline?: T;
+  type?: T;
   content?: T;
   date?: T;
   'project-link'?: T;
