@@ -13,6 +13,7 @@ import { Projects } from './collections/Projects'
 import { HomeContent } from './collections/HomeContent'
 import { CaseStudies } from './collections/CaseStudies'
 import { BlogPosts } from './collections/BlogPosts'
+import { Media } from './collections/Media'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -27,6 +28,7 @@ export default buildConfig({
 
   collections: [
     Users,
+    Media,
     Projects,
     HomeContent,
     CaseStudies,
