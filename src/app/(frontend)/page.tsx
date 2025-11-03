@@ -1,7 +1,8 @@
 "use client"
 
 import PageContainer from "@/components/custom/page-container"
-import { cn, fetchCMSData } from "@/lib/utils"
+import { cn } from "@/lib/utils"
+import { fetchCMSData } from "@/lib/api"
 import { HomeContent } from "@/payload-types"
 import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
