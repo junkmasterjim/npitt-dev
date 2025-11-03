@@ -17,7 +17,6 @@ export default function PostsPage() {
             <SlidingLink href={`/posts/${p.slug}`}>
               {p.type}: {p.slug}
             </SlidingLink>
-            {/* <RichText lexicalData={study.content} /> */}
           </div>
         ))}
       </div>

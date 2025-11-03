@@ -56,5 +56,9 @@ export const Posts: CollectionConfig = {
       name: 'project-link',
       type: 'text',
     },
+    {
+      name: 'is-featured',
+      type: 'checkbox',
+    },
   ],
 }

@@ -252,6 +252,7 @@ export interface Post {
   };
   date: string;
   'project-link'?: string | null;
+  'is-featured'?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -434,6 +435,7 @@ export interface PostsSelect<T extends boolean = true> {
   content?: T;
   date?: T;
   'project-link'?: T;
+  'is-featured'?: T;
   updatedAt?: T;
   createdAt?: T;
 }

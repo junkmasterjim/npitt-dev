@@ -15,6 +15,7 @@ export default function HomePage() {
   const { homeContent, projects, posts } = useCMS();
   const content: HomeContent = homeContent[0];
   const featuredProjects = projects.filter((proj) => proj["is featured"] == true);
+  const featuredPosts = posts.filter((post) => post["is-featured"] == true)
 
   return (
     <PageContainer>
@@ -64,46 +65,40 @@ export default function HomePage() {
         </PkmnTextbox>
 
         {/* projects */}
+        <PkmnTextbox label={"Featured Projects"}>
+          <ul className="space-y-4">
+            {featuredProjects.map((p: Project, i) => {
+              // get stack fr each project
+              const s: Array<{ name: string }> = p.stack as Array<{ name: string }>
 
-        {/* {["Featured Projects", "All Projects"].map((p) => { */}
-        {/*   // filter based on if we are in "Projects" or "Featured Projects" */}
-        {/*   const projs = p === "Featured Projects" ? */}
-        {/*     projects.filter((proj) => proj["is featured"] == true) : projects; */}
-        {/**/}
-        {/*   return ( */}
-        {/*     <PkmnTextbox label={p} key={p}> */}
-        {/*       <ul className="space-y-4"> */}
-        {/*         {projs.map((p: Project, i) => { */}
-        {/*           // get stack for each project */}
-        {/*           const s: Array<{ name: string }> = p.stack as Array<{ name: string }> */}
-        {/**/}
-        {/*           return ( */}
-        {/*             <li key={i}> */}
-        {/*               <div className="flex items-center gap-2"> */}
-        {/*                 <h4 className="text-md tracking-tighter italic">{p.title}</h4> */}
-        {/*                 <TooltipLink href={p["project link"]} label="Live Website" content={<Globe size={16} />} /> */}
-        {/*                 <TooltipLink href={p["repo link"]} label="Code Repository" content={<Code2 size={16} />} /> */}
-        {/*               </div> */}
-        {/*               <p className="text-sm tracking-tighter -mt-1 text-foreground/70">{formatPayloadDate(p.date)}</p> */}
-        {/*               <p>{p.description}</p> */}
-        {/*               <div className="flex items-center gap-1"> */}
-        {/*                 {s.map((tech: any, i: number) => ( */}
-        {/*                   <Badge className="rounded-none" key={i}>{tech.name}</Badge> */}
-        {/*                 ))} */}
-        {/*               </div> */}
-        {/*             </li> */}
-        {/*           ) */}
-        {/*         })} */}
-        {/*       </ul> */}
-        {/*     </PkmnTextbox> */}
-        {/*   ); */}
-        {/* })} */}
-        {/**/}
+              return (
+                <li key={i}>
+                  <div className="flex items-center gap-2">
+                    <h4 className="text-md tracking-tighter italic">{p.title}</h4>
+                    <TooltipLink href={p["project link"]} label="Live Website" content={<Globe size={16} />} />
+                    <TooltipLink href={p["repo link"]} label="Code Repository" content={<Code2 size={16} />} />
+                  </div>
+                  <p className="text-sm tracking-tighter -mt-1 text-foreground/70">{formatPayloadDate(p.date)}</p>
+                  <p>{p.description}</p>
+                  <div className="flex items-center gap-1">
+                    {s.map((tech: any, i: number) => (
+                      <Badge className="rounded-none" key={i}>{tech.name}</Badge>
+                    ))}
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
+          <SlidingLink className="text-foreground/70" classHovered="text-foreground underline" href={"/projects"}>
+            See all projects
+          </SlidingLink>
+        </PkmnTextbox>
+
 
         {/* writing */}
-        {/* <PkmnTextbox label="Writing"> */}
+        {/* <PkmnTextbox label="Featured Posts"> */}
         {/*   <ul className="flex items-center gap-4 flex-wrap max-w-md"> */}
-        {/*     {posts.map((p, i) => ( */}
+        {/*     {featuredPosts.map((p, i) => ( */}
         {/*       <li key={i}> */}
         {/*         <h4 className="italic">{p.title}</h4> */}
         {/*         <p className="-mt-0.5">{p.tagline}</p> */}
@@ -111,6 +106,9 @@ export default function HomePage() {
         {/*       </li> */}
         {/*     ))} */}
         {/*   </ul> */}
+        {/*   <SlidingLink className="text-foreground/70" classHovered="text-foreground underline" href={"/posts"}> */}
+        {/*     See all posts */}
+        {/*   </SlidingLink> */}
         {/* </PkmnTextbox> */}
 
       </div>

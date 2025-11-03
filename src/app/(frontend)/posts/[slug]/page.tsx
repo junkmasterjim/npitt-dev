@@ -1,26 +1,23 @@
-import { getPayload } from 'payload';
-import config from '@/payload.config'; // Adjust path as needed
+"use client";
+
 import { H2 } from '@/components/custom/h2';
 import { RichText } from '@/components/custom/rich-text';
 import { Separator } from '@/components/ui/separator';
 import { formatPayloadDate } from '@/lib/utils';
 import { SlidingLink } from '@/components/custom/sliding-link';
-import { ArrowUpLeft } from 'lucide-react';
 import PageContainer from '@/components/custom/page-container';
+import { useCMS } from '@/components/custom/providers';
+import { usePathname } from 'next/navigation';
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const payload = await getPayload({ config });
+export default function PostPage() {
+  const { posts } = useCMS();
+  const pathname = usePathname();
+  const postPath = pathname.split("/posts/")[1]
 
-  const posts = await payload.find({
-    collection: 'posts',
-    where: {
-      slug: {
-        equals: params.slug,
-      },
-    },
-  });
+  const post = posts.find((p) => p.slug == postPath)
 
-  const post = posts.docs[0];
+  console.log(post)
+
 
   if (!post) {
     // Handle 404
@@ -28,7 +25,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
   }
 
   return (
-    <PageContainer>
+    <PageContainer><></>
       {/* post header */}
       <div className='flex items-center justify-between tracking-tight text-muted-foreground leading-none mt-2'>
         <p className=''>{post.type}</p>
@@ -49,11 +46,11 @@ export default async function PostPage({ params }: { params: { slug: string } })
   );
 }
 
-export async function generateStaticParams() {
-  const payload = await getPayload({ config });
-  const posts = await payload.find({ collection: 'posts', limit: 0 }); // Fetch all posts
-
-  return posts.docs.map((post) => ({
-    slug: post.slug,
-  }));
-}
+// export async function generateStaticParams() {
+//   const payload = await getPayload({ config });
+//   const posts = await payload.find({ collection: 'posts', limit: 0 }); // Fetch all posts
+//
+//   return posts.docs.map((post) => ({
+//     slug: post.slug,
+//   }));
+// }
