@@ -2,24 +2,19 @@
 
 import PageContainer from "@/components/custom/page-container"
 import { cn, formatPayloadDate } from "@/lib/utils"
-import { fetchCMSData, CMSData } from "@/lib/api"
+import { CMSData } from "@/lib/api"
 import { HomeContent, Project } from "@/payload-types"
-import { useQuery } from "@tanstack/react-query"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Globe } from "lucide-react"
 import TooltipLink from "@/components/custom/tooltip-link"
 import { SlidingLink } from "@/components/custom/sliding-link"
+import { useCMS } from "@/components/custom/providers"
 
 export default function HomePage() {
-  const { data } = useQuery({
-    queryKey: ['cms-data'],
-    queryFn: fetchCMSData,
-  })
+  const data: CMSData = useCMS();
 
-  const d: CMSData = data
-
-  const content: HomeContent = d.homeContent[0];
-  const projects: Array<Project> = d.projects;
+  const content: HomeContent = data.homeContent[0];
+  const projects: Array<Project> = data.projects;
 
   return (
     <PageContainer>
@@ -39,15 +34,21 @@ export default function HomePage() {
       {/* contact */}
       <H2 className="w-fit border-b mt-3">Connect</H2>
       <ul className="flex items-center gap-4">
-        <SlidingLink href={content.email} target="_blank">
-          <li>Email</li>
-        </SlidingLink>
-        <SlidingLink href={content.github} target="_blank">
-          <li>Github</li>
-        </SlidingLink>
-        <SlidingLink href={content.linkedin} target="_blank">
-          <li>LinkedIn</li>
-        </SlidingLink>
+        <li>
+          <SlidingLink href={content.email} target="_blank">
+            Email
+          </SlidingLink>
+        </li>
+        <li>
+          <SlidingLink href={content.github} target="_blank">
+            Github
+          </SlidingLink>
+        </li>
+        <li>
+          <SlidingLink href={content.linkedin} target="_blank">
+            LinkedIn
+          </SlidingLink>
+        </li>
       </ul>
 
       {/* projects */}

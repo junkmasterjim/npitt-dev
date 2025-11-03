@@ -1,23 +1,15 @@
 "use client"
 
 import PageContainer from "@/components/custom/page-container"
+import { useCMS } from "@/components/custom/providers"
 import TooltipLink from "@/components/custom/tooltip-link"
 import { Badge } from "@/components/ui/badge"
-import { fetchCMSData, CMSData } from "@/lib/api"
 import { formatPayloadDate } from "@/lib/utils"
 import { Project } from "@/payload-types"
-import { useQuery } from "@tanstack/react-query"
 import { Code2, Globe } from "lucide-react"
 
 export default function Page() {
-  const { data } = useQuery({
-    queryKey: ['cms-data'],
-    queryFn: fetchCMSData,
-  })
-
-  const d: CMSData = data
-  const projects: Array<Project> = d.projects;
-
+  const { projects }: { projects: Array<Project> } = useCMS();
 
   return (
     <PageContainer>

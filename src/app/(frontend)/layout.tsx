@@ -6,6 +6,7 @@ import { Noto_Serif } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import Providers from '@/components/custom/providers'
 import Navbar from '@/components/custom/navbar'
+import { fetchCMSData } from '@/lib/api'
 
 const noto = Noto_Serif({
   weight: 'variable',
@@ -17,15 +18,15 @@ export const metadata: Metadata = {
   title: 'noahriley dot online',
 }
 
-export default async function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const cmsData = await fetchCMSData();
 
   return (
-    <html lang="en" className={cn(noto.className)}>
+    <html lang="en" className={cn(noto.className)} suppressHydrationWarning>
       <body>
         <main>
           <Container>
-            <Providers>
+            <Providers cmsData={cmsData}>
               <Navbar />
               {children}
             </Providers>

@@ -1,29 +1,47 @@
 "use client"
 
-import { fetchCMSData } from "@/lib/api";
-import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
+import { CMSData } from "@/lib/api";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { ThemeProvider as NextThemesProvider, ThemeProviderProps } from "next-themes";
+import { createContext, useContext } from "react";
 
 const queryClient = new QueryClient();
 
-function CMSDataProvider({ children }: { children: React.ReactNode }) {
+const CMSContext = createContext<CMSData | undefined>(undefined);
 
-  const { isLoading } = useQuery({
-    queryKey: ['cms-data'],
-    queryFn: fetchCMSData,
-  })
-
-  if (isLoading) {
-    return <div className="min-h-96 flex items-center w-full justify-center">Loading...</div>;
+export function useCMS() {
+  const context = useContext(CMSContext);
+  if (context === undefined) {
+    throw new Error('useCMS must be used within a CMSDataProvider');
   }
-
-  return children;
+  return context;
 }
 
-export default function Providers({ children }: { children: React.ReactNode }) {
+function CMSDataProvider({
+  children,
+  data
+}: {
+  children: React.ReactNode;
+  data: CMSData;
+}) {
+  return (
+    <CMSContext.Provider value={data}>
+      {children}
+    </CMSContext.Provider>
+  );
+}
+
+export default function Providers({
+  children,
+  cmsData
+}: {
+  children: React.ReactNode;
+  cmsData: CMSData;
+}) {
   return (
     <QueryClientProvider client={queryClient}>
-      <CMSDataProvider>
+      <CMSDataProvider data={cmsData}>
         <TooltipProvider>
           <ThemeProvider
             attribute="class"
@@ -37,8 +55,11 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     </QueryClientProvider>
   )
 }
-import { ThemeProvider as NextThemesProvider, ThemeProviderProps } from "next-themes";
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+  return (
+    <NextThemesProvider {...props}>
+      {children}
+    </NextThemesProvider>
+  );
 }
