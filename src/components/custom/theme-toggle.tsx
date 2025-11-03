@@ -32,7 +32,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           <span className="sr-only">Toggle theme</span>
         </motion.div>
       </TooltipTrigger>
-      <TooltipContent className="mt-2">Toggle theme</TooltipContent>
+      <TooltipContent>Toggle theme</TooltipContent>
     </Tooltip>
   );
 }

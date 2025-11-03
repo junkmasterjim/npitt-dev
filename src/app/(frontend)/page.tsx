@@ -26,7 +26,7 @@ export default function HomePage() {
       {/* header */}
       <div className="w-fit border-b pb-2 mb-2">
         <h1 className="tracking-tighter font-semibold text-3xl leading-8">
-          Noah <span className="bg-foreground text-background px-1">Riley</span> Pittman
+          Noah <span className="invert bg-background text-foreground px-1">Riley</span> Pittman
         </h1>
         <H2 className="tracking-tighter text-foreground/60 font-medium leading-7">Full-stack developer; Multi-faceted creative.</H2>
       </div>
