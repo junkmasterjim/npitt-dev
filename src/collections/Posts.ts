@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
-export const BlogPosts: CollectionConfig = {
-  slug: 'blog-posts',
+export const Posts: CollectionConfig = {
+  slug: 'posts',
   access: {
     read: () => true,
     create: () => true,
@@ -11,6 +11,11 @@ export const BlogPosts: CollectionConfig = {
   fields: [
     {
       name: 'title',
+      type: 'text',
+      required: true
+    },
+    {
+      name: 'tagline',
       type: 'text',
       required: true
     },

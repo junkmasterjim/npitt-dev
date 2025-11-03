@@ -71,8 +71,7 @@ export interface Config {
     media: Media;
     projects: Project;
     'home-content': HomeContent;
-    'case-studies': CaseStudy;
-    'blog-posts': BlogPost;
+    posts: Post;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,8 +83,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
     'home-content': HomeContentSelect<false> | HomeContentSelect<true>;
-    'case-studies': CaseStudiesSelect<false> | CaseStudiesSelect<true>;
-    'blog-posts': BlogPostsSelect<false> | BlogPostsSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -229,39 +227,12 @@ export interface HomeContent {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "case-studies".
+ * via the `definition` "posts".
  */
-export interface CaseStudy {
+export interface Post {
   id: number;
   title: string;
-  tagline: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  date: string;
-  'project-link'?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog-posts".
- */
-export interface BlogPost {
-  id: number;
-  title: string;
+  tagline?: string | null;
   content: {
     root: {
       type: string;
@@ -323,12 +294,8 @@ export interface PayloadLockedDocument {
         value: number | HomeContent;
       } | null)
     | ({
-        relationTo: 'case-studies';
-        value: number | CaseStudy;
-      } | null)
-    | ({
-        relationTo: 'blog-posts';
-        value: number | BlogPost;
+        relationTo: 'posts';
+        value: number | Post;
       } | null)
     | ({
         relationTo: 'payload-kv';
@@ -455,23 +422,11 @@ export interface HomeContentSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "case-studies_select".
+ * via the `definition` "posts_select".
  */
-export interface CaseStudiesSelect<T extends boolean = true> {
+export interface PostsSelect<T extends boolean = true> {
   title?: T;
   tagline?: T;
-  content?: T;
-  date?: T;
-  'project-link'?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blog-posts_select".
- */
-export interface BlogPostsSelect<T extends boolean = true> {
-  title?: T;
   content?: T;
   date?: T;
   'project-link'?: T;

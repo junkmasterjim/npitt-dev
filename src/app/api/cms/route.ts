@@ -8,17 +8,16 @@ export const GET = async (request: Request) => {
 
   // Fetch all collections
   // slug must match exact slug of collection
-  const [projects, homeContent, caseStudies, blogPosts] = await Promise.all([
+  const [projects, media, homeContent, posts] = await Promise.all([
     payload.find({ collection: 'projects' }),
+    payload.find({ collection: 'media' }),
     payload.find({ collection: 'home-content' }),
-    payload.find({ collection: 'case-studies' }),
-    payload.find({ collection: 'blog-posts' }),
+    payload.find({ collection: 'posts' }),
   ])
-
   return Response.json({
     projects: projects.docs,
+    media: media.docs,
     homeContent: homeContent.docs,
-    caseStudies: caseStudies.docs,
-    blogPosts: blogPosts.docs,
+    posts: posts.docs
   })
 }

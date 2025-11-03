@@ -2,15 +2,16 @@
 
 import PageContainer from "@/components/custom/page-container"
 import { cn, formatPayloadDate } from "@/lib/utils"
-import { HomeContent, Project } from "@/payload-types"
+import { HomeContent, Post, Project } from "@/payload-types"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Globe } from "lucide-react"
 import TooltipLink from "@/components/custom/tooltip-link"
 import { SlidingLink } from "@/components/custom/sliding-link"
 import { useCMS } from "@/components/custom/providers"
+import { RichText } from "@/components/custom/rich-text"
 
 export default function HomePage() {
-  const { homeContent, projects, caseStudies, blogPosts } = useCMS();
+  const { homeContent, projects, posts } = useCMS();
   const content: HomeContent = homeContent[0];
 
   return (
@@ -24,9 +25,7 @@ export default function HomePage() {
       </div>
 
       {/* bio */}
-      {content.bio.root.children.map((child: any, i: number) => (
-        <p key={i} >{child.children[0].text}</p>
-      ))}
+      <RichText lexicalData={content.bio} />
 
       {/* contact */}
       <H2 className="w-fit border-b mt-3">Connect</H2>
@@ -77,10 +76,11 @@ export default function HomePage() {
       {/* writing */}
       <H2 className="w-fit border-b mt-3">Writing</H2>
       <ul className="flex items-center gap-4 flex-wrap max-w-md">
-        {['', '', '', '', '', ''].map((str, i) => (
+        {posts.map((p, i) => (
           <li key={i}>
-            <h4>Title</h4>
-            <p>Description</p>
+            <h4>{p.title}</h4>
+            <p>{p.tagline}</p>
+            <p>{formatPayloadDate(p.date)}</p>
           </li>
         ))}
       </ul>

@@ -1,9 +1,9 @@
 // lib/api.ts
-import { BlogPost, CaseStudy, HomeContent, Project } from "@/payload-types"
+import { HomeContent, Media, Post, Project } from "@/payload-types"
 
 export async function fetchCMSData(): Promise<CMSData> {
   const baseUrl = process.env.NEXT_PUBLIC_URL ||
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
+    (process.env.NEXT_PUBLIC_SERVER_URL ? `${process.env.NEXT_PUBLIC_SERVER_URL}` : 'http://localhost:3000')
 
   const res = await fetch(`${baseUrl}/api/cms`, {
     cache: 'force-cache',
@@ -15,7 +15,8 @@ export async function fetchCMSData(): Promise<CMSData> {
 
 export interface CMSData {
   projects: Project[];
+  media: Media[];
   homeContent: HomeContent[];
-  caseStudies: CaseStudy[];
-  blogPosts: BlogPost[];
+  posts: Post[];
+
 }
