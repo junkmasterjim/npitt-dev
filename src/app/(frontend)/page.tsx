@@ -1,11 +1,15 @@
 "use client"
 
 import PageContainer from "@/components/custom/page-container"
-import { cn } from "@/lib/utils"
-import { fetchCMSData } from "@/lib/api"
-import { HomeContent } from "@/payload-types"
+import { cn, formatPayloadDate } from "@/lib/utils"
+import { fetchCMSData, CMSData } from "@/lib/api"
+import { HomeContent, Project } from "@/payload-types"
 import { useQuery } from "@tanstack/react-query"
 import Link from "next/link"
+import { Badge } from "@/components/ui/badge"
+import { Code2, Globe } from "lucide-react"
+import TooltipLink from "@/components/custom/tooltip-link"
+import { SlidingLink } from "@/components/custom/sliding-link"
 
 export default function HomePage() {
   const { data } = useQuery({
@@ -13,7 +17,10 @@ export default function HomePage() {
     queryFn: fetchCMSData,
   })
 
-  const content: HomeContent = data.homeContent[0];
+  const d: CMSData = data
+
+  const content: HomeContent = d.homeContent[0];
+  const projects: Array<Project> = d.projects;
 
   return (
     <PageContainer>
@@ -27,37 +34,43 @@ export default function HomePage() {
 
       {/* bio */}
       {content.bio.root.children.map((child: any, i: number) => (
-        <p key={i} className="max-w-[80ch]">{child.children[0].text}</p>
+        <p key={i} >{child.children[0].text}</p>
       ))}
 
       {/* contact */}
       <H2 className="w-fit border-b mt-3">Connect</H2>
       <ul className="flex items-center gap-4">
-        <Link href={content.email} target="_blank">
+        <SlidingLink href={content.email} target="_blank">
           <li>Email</li>
-        </Link>
-        <Link href={content.github} target="_blank">
+        </SlidingLink>
+        <SlidingLink href={content.github} target="_blank">
           <li>Github</li>
-        </Link>
-        <Link href={content.linkedin} target="_blank">
+        </SlidingLink>
+        <SlidingLink href={content.linkedin} target="_blank">
           <li>Linkedin</li>
-        </Link>
+        </SlidingLink>
       </ul>
 
       {/* projects */}
       <H2 className="w-fit border-b mt-3">Projects</H2>
-      <ul className="flex items-center gap-4 flex-wrap max-w-md">
-        {['', '', '', '', '', ''].map((str, i) => (
+      <ul className="flex items-center gap-4 flex-wrap ">
+        {projects.map((p: Project, i) => (
           <li key={i}>
-            <h4>Project Title</h4>
-            <p>Project description</p>
-            <div>
-              <span>stack</span>
-              <span>stack</span>
-              <span>stack</span>
+            <div className="flex items-center gap-2">
+              <h4 className="text-md tracking-tighter italic">{p.title}</h4>
+              <TooltipLink href={p["project link"]} label="Live Website" content={<Globe size={16} />} />
+              <TooltipLink href={p["repo link"]} label="Code Repository" content={<Code2 size={16} />} />
+            </div>
+            <p className="text-sm tracking-tighter -mt-1 text-foreground/70">{formatPayloadDate(p.date)}</p>
+            <p>{p.description}</p>
+            <div className="flex items-center gap-1">
+              {p.stack?.map((tech: any, i: number) => (
+                <Badge className="rounded-none" key={i}>{tech.name}</Badge>
+              ))}
             </div>
           </li>
-        ))}
+        )
+        )}
       </ul>
 
       {/* writing */}
@@ -75,5 +88,6 @@ export default function HomePage() {
 }
 
 function H2({ children, className }: { children: React.ReactNode, className: string }) {
-  return <h2 className={cn("tracking-tighter text-foreground/60 font-medium leading-7", className)}>{children}</h2>
+  return <h2 className={cn("text-lg tracking-tighter text-foreground/70 font-medium leading-7", className)}>{children}</h2>
 }
+

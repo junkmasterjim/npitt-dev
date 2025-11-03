@@ -1,8 +1,8 @@
 "use client"
 
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SlidingLink } from "@/components/custom/sliding-link";
 
 export default function Navbar() {
 
@@ -11,9 +11,9 @@ export default function Navbar() {
   return (
 
     <nav className="flex items-center w-full gap-2 border-b py-2 px-3">
-      <Link className={cn(pathname == "/" && "font-semibold")} href={"/"}>Home</Link>
-      <Link className={cn(pathname == "/projects" && "font-semibold")} href={"/projects"}>Projects</Link>
-      <Link className={cn(pathname == "/writing" && "font-semibold")} href={"/writing"}>Writing</Link>
+      <SlidingLink className={cn(pathname == "/" && "font-semibold")} href={"/"}>Home</SlidingLink>
+      <SlidingLink className={cn(pathname == "/projects" && "font-semibold")} href={"/projects"}>Projects</SlidingLink>
+      <SlidingLink className={cn(pathname == "/writing" && "font-semibold")} href={"/writing"}>Writing</SlidingLink>
     </nav >
   )
 }

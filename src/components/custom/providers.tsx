@@ -1,7 +1,8 @@
 "use client"
 
-import { fetchCMSData } from "@/lib/utils";
+import { fetchCMSData } from "@/lib/api";
 import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +24,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <CMSDataProvider>
-        {children}
+        <TooltipProvider>
+          {children}
+        </TooltipProvider>
       </CMSDataProvider>
     </QueryClientProvider>
   )

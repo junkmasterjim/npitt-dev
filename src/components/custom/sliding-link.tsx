@@ -5,7 +5,9 @@ export const SlidingLink = ({
   children,
   className,
   classHovered,
+  target
 }: {
+  target?: string
   href?: string;
   children: React.ReactNode;
   className?: string;
@@ -40,6 +42,7 @@ export const SlidingLink = ({
     return (
       <>
         <a
+          target={target}
           href={href}
           className={cn(
             "relative cursor-pointer line-clamp-1 truncate leading-relaxed group",
