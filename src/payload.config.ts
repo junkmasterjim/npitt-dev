@@ -44,13 +44,12 @@ export default buildConfig({
     },
   }),
   sharp,
+
   plugins: [
     payloadCloudPlugin(),
     s3Storage({
       collections: {
-        media: {
-          prefix: 'media',
-        }
+        projects: true,
       },
       bucket: process.env.S3_BUCKET || '',
       config: {
