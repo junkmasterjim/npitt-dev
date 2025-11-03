@@ -9,11 +9,7 @@ export async function fetchCMSData(): Promise<CMSData> {
     cache: 'force-cache',
   })
 
-  // if (!res.ok) throw new Error('Failed to fetch CMS data')
-  if (!res.ok) {
-    const test: CMSData = { projects: [], media: [], homeContent: [], posts: [] }
-    return test;
-  }
+  if (!res.ok) throw new Error('Failed to fetch CMS data')
 
   return res.json()
 }
