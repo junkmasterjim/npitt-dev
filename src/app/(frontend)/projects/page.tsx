@@ -10,6 +10,7 @@ import { Code2, Globe } from "lucide-react"
 
 export default function ProjectsPage() {
   const { projects }: { projects: Array<Project> } = useCMS();
+  const featuredProjects = projects.filter((proj) => proj["is featured"] == true);
 
   return (
     <PageContainer>
