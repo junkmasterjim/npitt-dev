@@ -41,6 +41,10 @@ export const Projects: CollectionConfig = {
         { name: "C#" }
       ]
     },
+    {
+      name: 'is featured',
+      type: 'checkbox',
+    },
   ],
   upload: true,
 }

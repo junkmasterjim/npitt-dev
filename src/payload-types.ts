@@ -155,6 +155,7 @@ export interface Project {
   description: string;
   'project link': string;
   'repo link': string;
+  date: string;
   stack:
     | {
         [k: string]: unknown;
@@ -164,6 +165,7 @@ export interface Project {
     | number
     | boolean
     | null;
+  'is featured'?: boolean | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -225,6 +227,7 @@ export interface CaseStudy {
     };
     [k: string]: unknown;
   };
+  date: string;
   'project-link'?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -251,6 +254,7 @@ export interface BlogPost {
     };
     [k: string]: unknown;
   };
+  date: string;
   'project-link'?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -376,7 +380,9 @@ export interface ProjectsSelect<T extends boolean = true> {
   description?: T;
   'project link'?: T;
   'repo link'?: T;
+  date?: T;
   stack?: T;
+  'is featured'?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -408,6 +414,7 @@ export interface HomeContentSelect<T extends boolean = true> {
 export interface CaseStudiesSelect<T extends boolean = true> {
   title?: T;
   content?: T;
+  date?: T;
   'project-link'?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -419,6 +426,7 @@ export interface CaseStudiesSelect<T extends boolean = true> {
 export interface BlogPostsSelect<T extends boolean = true> {
   title?: T;
   content?: T;
+  date?: T;
   'project-link'?: T;
   updatedAt?: T;
   createdAt?: T;
