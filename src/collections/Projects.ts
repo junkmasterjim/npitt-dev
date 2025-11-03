@@ -1,7 +1,5 @@
 import type { CollectionConfig } from 'payload'
 
-// TODO: make projects randomly shuffle
-
 export const Projects: CollectionConfig = {
   slug: 'projects',
   access: {
@@ -26,6 +24,11 @@ export const Projects: CollectionConfig = {
     {
       name: 'repo link',
       type: 'text',
+      required: true
+    },
+    {
+      name: 'date',
+      type: 'date',
       required: true
     },
     {
