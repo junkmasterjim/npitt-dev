@@ -8,7 +8,7 @@ import { formatPayloadDate } from "@/lib/utils"
 import { Project } from "@/payload-types"
 import { Code2, Globe } from "lucide-react"
 
-export default function Page() {
+export default function ProjectsPage() {
   const { projects }: { projects: Array<Project> } = useCMS();
 
   return (

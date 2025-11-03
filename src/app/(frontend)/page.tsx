@@ -11,10 +11,8 @@ import { SlidingLink } from "@/components/custom/sliding-link"
 import { useCMS } from "@/components/custom/providers"
 
 export default function HomePage() {
-  const data: CMSData = useCMS();
-
-  const content: HomeContent = data.homeContent[0];
-  const projects: Array<Project> = data.projects;
+  const { homeContent, projects, caseStudies, blogPosts } = useCMS();
+  const content: HomeContent = homeContent[0];
 
   return (
     <PageContainer>
@@ -80,6 +78,12 @@ export default function HomePage() {
       {/* writing */}
       <H2 className="w-fit border-b mt-3">Writing</H2>
       <ul className="flex items-center gap-4 flex-wrap max-w-md">
+        {['', '', '', '', '', ''].map((str, i) => (
+          <li key={i}>
+            <h4>Title</h4>
+            <p>Description</p>
+          </li>
+        ))}
         {['', '', '', '', '', ''].map((str, i) => (
           <li key={i}>
             <h4>Title</h4>

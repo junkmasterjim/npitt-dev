@@ -3,9 +3,9 @@
 import PageContainer from "@/components/custom/page-container";
 import { useCMS } from "@/components/custom/providers";
 
-export default function PlaygroundPage() {
+export default function WritingPage() {
+  const { caseStudies, blogPosts } = useCMS();
 
-  const { } = useCMS();
 
   return (
     <PageContainer>

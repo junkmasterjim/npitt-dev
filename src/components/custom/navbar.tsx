@@ -3,18 +3,29 @@
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { SlidingLink } from "@/components/custom/sliding-link";
-import { ThemeToggle } from "./theme-toggle";
+import { ThemeToggle } from "@/components/custom/theme-toggle";
 
 export default function Navbar() {
 
   const pathname = usePathname();
 
+  const navigation: Array<{ href: string; label: string }> = [
+    { href: "/", label: "Home" },
+    { href: "/projects", label: "Project" },
+    { href: "/writing", label: "Writing" },
+    { href: "/playground", label: "Playground" },
+  ];
+
   return (
     <div className="flex items-center justify-between px-3 py-2 w-full border-b">
       <nav className="flex items-center gap-4">
-        <SlidingLink className={cn(pathname == "/" && "font-semibold")} href={"/"}>Home</SlidingLink>
-        <SlidingLink className={cn(pathname == "/projects" && "font-semibold")} href={"/projects"}>Projects</SlidingLink>
-        <SlidingLink className={cn(pathname == "/writing" && "font-semibold")} href={"/writing"}>Writing</SlidingLink>
+        {
+          navigation.map((link) => (
+            <SlidingLink key={link.label} className={cn(pathname == link.href && "font-semibold")} href={link.href}>
+              {link.label}
+            </SlidingLink>
+          ))
+        }
       </nav>
       <ThemeToggle />
     </div>
