@@ -15,6 +15,11 @@ export const CaseStudies: CollectionConfig = {
       required: true
     },
     {
+      name: 'tagline',
+      type: 'text',
+      required: true
+    },
+    {
       name: 'content',
       type: 'richText',
       required: true,
