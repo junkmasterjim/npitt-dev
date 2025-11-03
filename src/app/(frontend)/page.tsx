@@ -46,7 +46,7 @@ export default function HomePage() {
           <li>Github</li>
         </SlidingLink>
         <SlidingLink href={content.linkedin} target="_blank">
-          <li>Linkedin</li>
+          <li>LinkedIn</li>
         </SlidingLink>
       </ul>
 

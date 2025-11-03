@@ -13,8 +13,8 @@ const noto = Noto_Serif({
 })
 
 export const metadata: Metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'A personal portfolio website for Noah Pittman. Programmer, creative, enjoyer of things.',
+  title: 'noahriley dot online',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
