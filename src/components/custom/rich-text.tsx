@@ -12,6 +12,7 @@ import {
   type JSXConvertersFunction,
   LinkJSXConverter,
   RichText as RichTextConverter,
+  SerializedLexicalNodeWithParent,
 } from '@payloadcms/richtext-lexical/react'
 import React from 'react'
 
@@ -57,7 +58,8 @@ const jsxConverters: JSXConvertersFunction<DefaultNodeTypes> = ({
 
   // Paragraphs
   paragraph: ({ node, nodesToJSX }: { node: SerializedLexicalNode; nodesToJSX: any }) => {
-    return <p className="leading-7 [&:not(:first-child)]:mt-6">{nodesToJSX({ nodes: node.children })}</p>
+    // @ts-expect-error
+    return <p className="leading-7 not-first:mt-6">{nodesToJSX({ nodes: node.children })}</p>
   },
 
   // Lists
