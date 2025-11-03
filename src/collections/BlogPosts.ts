@@ -20,6 +20,11 @@ export const BlogPosts: CollectionConfig = {
       required: true,
     },
     {
+      name: 'date',
+      type: 'date',
+      required: true
+    },
+    {
       name: 'project-link',
       type: 'text',
     },
