@@ -27,7 +27,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         <TooltipProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
