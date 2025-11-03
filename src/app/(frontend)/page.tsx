@@ -2,7 +2,6 @@
 
 import PageContainer from "@/components/custom/page-container"
 import { cn, formatPayloadDate } from "@/lib/utils"
-import { CMSData } from "@/lib/api"
 import { HomeContent, Project } from "@/payload-types"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Globe } from "lucide-react"
@@ -78,12 +77,6 @@ export default function HomePage() {
       {/* writing */}
       <H2 className="w-fit border-b mt-3">Writing</H2>
       <ul className="flex items-center gap-4 flex-wrap max-w-md">
-        {['', '', '', '', '', ''].map((str, i) => (
-          <li key={i}>
-            <h4>Title</h4>
-            <p>Description</p>
-          </li>
-        ))}
         {['', '', '', '', '', ''].map((str, i) => (
           <li key={i}>
             <h4>Title</h4>

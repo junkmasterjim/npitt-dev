@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider as NextThemesProvider, ThemeProviderProps } from "next-themes";
 import { createContext, useContext } from "react";
+import { Toaster } from "sonner";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ export default function Providers({
             disableTransitionOnChange
           >
             {children}
+            <Toaster />
           </ThemeProvider>
         </TooltipProvider>
       </CMSDataProvider>

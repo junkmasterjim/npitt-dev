@@ -22,7 +22,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const cmsData = await fetchCMSData();
 
   return (
-    <html lang="en" className={cn(noto.className)} suppressHydrationWarning>
+    <html id='htmlRoot' lang="en" className={cn(noto.className)} suppressHydrationWarning>
       <body>
         <main>
           <Container>
