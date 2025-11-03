@@ -78,9 +78,9 @@ export default function HomePage() {
       <ul className="flex items-center gap-4 flex-wrap max-w-md">
         {posts.map((p, i) => (
           <li key={i}>
-            <h4>{p.title}</h4>
-            <p>{p.tagline}</p>
-            <p>{formatPayloadDate(p.date)}</p>
+            <h4 className="italic">{p.title}</h4>
+            <p className="-mt-0.5">{p.tagline}</p>
+            <p className="text-sm tracking-tighter -mt-1 text-foreground/70">{formatPayloadDate(p.date)}</p>
           </li>
         ))}
       </ul>

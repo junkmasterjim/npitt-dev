@@ -232,7 +232,7 @@ export interface HomeContent {
 export interface Post {
   id: number;
   title: string;
-  tagline?: string | null;
+  tagline: string;
   content: {
     root: {
       type: string;
