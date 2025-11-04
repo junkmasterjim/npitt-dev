@@ -9,10 +9,10 @@ import sharp from 'sharp'
 import { s3Storage } from '@payloadcms/storage-s3'
 
 import { Users } from './collections/Users'
-import { Projects } from './collections/Projects'
 import { HomeContent } from './collections/HomeContent'
 import { Posts } from './collections/Posts'
 import { Media } from './collections/Media'
+import { OldProjects } from './collections/OldProjects'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -28,7 +28,7 @@ export default buildConfig({
   collections: [
     Users,
     Media,
-    Projects,
+    OldProjects,
     HomeContent,
     Posts
   ],

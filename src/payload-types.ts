@@ -69,7 +69,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
-    projects: Project;
+    'old-projects': OldProject;
     'home-content': HomeContent;
     posts: Post;
     'payload-kv': PayloadKv;
@@ -81,7 +81,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
-    projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    'old-projects': OldProjectsSelect<false> | OldProjectsSelect<true>;
     'home-content': HomeContentSelect<false> | HomeContentSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -167,9 +167,9 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
+ * via the `definition` "old-projects".
  */
-export interface Project {
+export interface OldProject {
   id: number;
   title: string;
   description: string;
@@ -188,15 +188,6 @@ export interface Project {
   'is featured'?: boolean | null;
   updatedAt: string;
   createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -289,8 +280,8 @@ export interface PayloadLockedDocument {
         value: number | Media;
       } | null)
     | ({
-        relationTo: 'projects';
-        value: number | Project;
+        relationTo: 'old-projects';
+        value: number | OldProject;
       } | null)
     | ({
         relationTo: 'home-content';
@@ -389,9 +380,9 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects_select".
+ * via the `definition` "old-projects_select".
  */
-export interface ProjectsSelect<T extends boolean = true> {
+export interface OldProjectsSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   'project link'?: T;
@@ -401,15 +392,6 @@ export interface ProjectsSelect<T extends boolean = true> {
   'is featured'?: T;
   updatedAt?: T;
   createdAt?: T;
-  url?: T;
-  thumbnailURL?: T;
-  filename?: T;
-  mimeType?: T;
-  filesize?: T;
-  width?: T;
-  height?: T;
-  focalX?: T;
-  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
