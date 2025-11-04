@@ -16,8 +16,6 @@ export default function PostPage() {
 
   const post = posts.find((p) => p.slug == postPath)
 
-  console.log(post)
-
 
   if (!post) {
     // Handle 404
@@ -29,7 +27,7 @@ export default function PostPage() {
       {/* post header */}
       <div className='flex items-center justify-between tracking-tight text-muted-foreground leading-none mt-2'>
         <p className=''>{post.type}</p>
-        <SlidingLink href={"/posts"}>Return to posts</SlidingLink>
+        <SlidingLink href={"/posts"} className='text-muted-foreground' classHovered='text-foreground underline'>Return to posts</SlidingLink>
       </div>
       <h1 className='text-4xl font-semibold tracking-tighter'>
         {post.title}
@@ -45,12 +43,3 @@ export default function PostPage() {
     </PageContainer>
   );
 }
-
-// export async function generateStaticParams() {
-//   const payload = await getPayload({ config });
-//   const posts = await payload.find({ collection: 'posts', limit: 0 }); // Fetch all posts
-//
-//   return posts.docs.map((post) => ({
-//     slug: post.slug,
-//   }));
-// }

@@ -19,7 +19,6 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  // Fetch server-side
   const cmsData = await fetchCMSData();
 
   return (
