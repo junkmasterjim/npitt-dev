@@ -1,17 +1,26 @@
 // lib/api.ts
 import { HomeContent, Media, Post, OldProject as Project } from "@/payload-types"
+import configPromise from '@payload-config'
+import { getPayload } from "payload";
 
 export async function fetchCMSData(): Promise<CMSData> {
-  const baseUrl = process.env.NEXT_PUBLIC_URL ||
-    (process.env.NEXT_PUBLIC_SERVER_URL ? `${process.env.NEXT_PUBLIC_SERVER_URL}` : 'http://localhost:3000')
+  const payload = await getPayload({
+    config: configPromise
+  });
 
-  const res = await fetch(`${baseUrl}/api/cms`, {
-    cache: 'force-cache',
-  })
+  const [projects, media, homeContent, posts] = await Promise.all([
+    payload.find({ collection: 'old-projects' }),
+    payload.find({ collection: 'media' }),
+    payload.find({ collection: 'home-content' }),
+    payload.find({ collection: 'posts' }),
+  ]);
 
-  if (!res.ok) throw new Error('Failed to fetch CMS data')
-
-  return res.json()
+  return {
+    projects: projects.docs,
+    media: media.docs,
+    homeContent: homeContent.docs,
+    posts: posts.docs,
+  };
 }
 
 export interface CMSData {
