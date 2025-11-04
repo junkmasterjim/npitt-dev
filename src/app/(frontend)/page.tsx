@@ -1,7 +1,7 @@
 "use client"
 
 import PageContainer from "@/components/custom/page-container"
-import { cn, formatPayloadDate } from "@/lib/utils"
+import { formatPayloadDate } from "@/lib/utils"
 import { HomeContent, OldProject as Project } from "@/payload-types"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Github, Globe, Linkedin, Mail } from "lucide-react"
@@ -30,7 +30,7 @@ export default function HomePage() {
         <H2 className="tracking-tighter text-foreground/60 font-medium leading-7">Full-stack developer; Multi-faceted creative.</H2>
       </div>
 
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-12">
         {/* bio */}
         <PkmnTextbox label="About">
           <RichText lexicalData={content.bio} />
@@ -38,8 +38,8 @@ export default function HomePage() {
 
 
         {/* contact */}
-        <PkmnTextbox label="Connect" className="w-fit">
-          <ul className="flex items-center gap-4">
+        <PkmnTextbox label="Connect">
+          <ul className="flex items-center gap-4 flex-wrap">
             <li>
               <SlidingLink href={content.email} target="_blank">
                 <span className="flex items-center gap-2">
@@ -69,7 +69,7 @@ export default function HomePage() {
 
         {/* projects */}
         <PkmnTextbox label={"Featured Projects"}>
-          <ul className="space-y-4">
+          <ul className="space-y-8 mb-4">
             {featuredProjects.map((p: Project, i) => {
               // get stack fr each project
               const s: Array<{ name: string }> = p.stack as Array<{ name: string }>
@@ -99,20 +99,20 @@ export default function HomePage() {
 
 
         {/* writing */}
-        {/* <PkmnTextbox label="Featured Posts"> */}
-        {/*   <ul className="flex items-center gap-4 flex-wrap max-w-md"> */}
-        {/*     {featuredPosts.map((p, i) => ( */}
-        {/*       <li key={i}> */}
-        {/*         <h4 className="italic">{p.title}</h4> */}
-        {/*         <p className="-mt-0.5">{p.tagline}</p> */}
-        {/*         <p className="text-sm tracking-tighter -mt-1 text-foreground/70">{formatPayloadDate(p.date)}</p> */}
-        {/*       </li> */}
-        {/*     ))} */}
-        {/*   </ul> */}
-        {/*   <SlidingLink className="text-foreground/70" classHovered="text-foreground underline" href={"/posts"}> */}
-        {/*     See all posts */}
-        {/*   </SlidingLink> */}
-        {/* </PkmnTextbox> */}
+        <PkmnTextbox label="Featured Posts">
+          <ul className="flex items-center gap-4 flex-wrap max-w-md">
+            {featuredPosts.map((p, i) => (
+              <li key={i}>
+                <h4 className="italic">{p.title}</h4>
+                <p className="-mt-0.5">{p.tagline}</p>
+                <p className="text-sm tracking-tighter -mt-1 text-foreground/70">{formatPayloadDate(p.date)}</p>
+              </li>
+            ))}
+          </ul>
+          <SlidingLink className="text-foreground/70" classHovered="text-foreground underline" href={"/posts"}>
+            See all posts
+          </SlidingLink>
+        </PkmnTextbox>
 
       </div>
     </PageContainer>

@@ -18,7 +18,7 @@ export const SlidingLink = ({
       <>
         <div
           className={cn(
-            "relative cursor-pointer line-clamp-1 truncate leading-relaxed group w-fit",
+            "relative cursor-pointer line-clamp-1 leading-relaxed group w-fit",
             className,
           )}
         >
