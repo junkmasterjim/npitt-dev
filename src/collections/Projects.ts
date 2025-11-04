@@ -46,5 +46,4 @@ export const Projects: CollectionConfig = {
       type: 'checkbox',
     },
   ],
-  upload: true,
 }
