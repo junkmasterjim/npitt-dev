@@ -30,4 +30,14 @@ export const HomeContent: CollectionConfig = {
       required: true,
     },
   ],
+  hooks: {
+    afterChange: [
+      async () => {
+        //trigger revalidation
+        await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/revalidate?secret=${process.env.REVALIDATE_SECRET}`, {
+          method: 'POST',
+        });
+      }
+    ]
+  }
 }
