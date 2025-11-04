@@ -45,7 +45,7 @@ export const SlidingLink = ({
           target={target}
           href={href}
           className={cn(
-            "relative cursor-pointer line-clamp-1 truncate leading-relaxed group w-fit",
+            "relative cursor-pointer overflow-hidden block leading-relaxed group whitespace-nowrap",
             className,
           )}
         >
