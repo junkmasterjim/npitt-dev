@@ -12,12 +12,11 @@ import { PkmnTextbox } from "@/components/custom/pkmn-textbox"
 import { ProjectDisplay } from "@/components/custom/project-display"
 
 export default function HomePage() {
-  const { homeContent, projects, posts } = useCMS();
+  const { homeContent, projects, posts, } = useCMS();
+
   const content: HomeContent = homeContent[0];
   const featuredProjects = projects.filter((proj) => proj["is featured"] == true);
   const featuredPosts = posts.filter((post) => post["is-featured"] == true)
-
-  if (!content) return <div>Loading...</div>
 
   return (
     <PageContainer>
@@ -103,4 +102,3 @@ export default function HomePage() {
     </PageContainer>
   )
 }
-

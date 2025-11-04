@@ -4,7 +4,7 @@ import { CMSData } from "@/lib/api";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider as NextThemesProvider, ThemeProviderProps } from "next-themes";
-import { createContext, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 import { Toaster } from "sonner";
 
 const queryClient = new QueryClient();
@@ -21,11 +21,14 @@ export function useCMS() {
 
 function CMSDataProvider({
   children,
-  data
+  initialData
 }: {
   children: React.ReactNode;
-  data: CMSData;
+  initialData: CMSData;
 }) {
+
+  const [data] = useState<CMSData>(initialData);
+
   return (
     <CMSContext.Provider value={data}>
       {children}
@@ -35,14 +38,14 @@ function CMSDataProvider({
 
 export default function Providers({
   children,
-  cmsData
+  initialData
 }: {
   children: React.ReactNode;
-  cmsData: CMSData;
+  initialData: CMSData;
 }) {
   return (
     <QueryClientProvider client={queryClient}>
-      <CMSDataProvider data={cmsData}>
+      <CMSDataProvider initialData={initialData}>
         <TooltipProvider>
           <ThemeProvider
             attribute="class"

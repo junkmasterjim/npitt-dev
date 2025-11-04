@@ -1,24 +1,16 @@
-import configPromise from '@payload-config'
-import { getPayload } from 'payload'
+// app/api/cms-data/route.ts
+import { NextResponse } from 'next/server';
+import { fetchCMSData } from '@/lib/api';
 
-export const GET = async (request: Request) => {
-  const payload = await getPayload({
-    config: configPromise,
-  })
-
-  // Fetch all collections
-  // slug must match exact slug of collection
-  const [projects, media, homeContent, posts] = await Promise.all([
-    payload.find({ collection: 'old-projects' }),
-    payload.find({ collection: 'media' }),
-    payload.find({ collection: 'home-content' }),
-    payload.find({ collection: 'posts' }),
-  ])
-
-  return Response.json({
-    projects: projects.docs,
-    media: media.docs,
-    homeContent: homeContent.docs,
-    posts: posts.docs
-  })
+export async function GET() {
+  try {
+    const data = await fetchCMSData();
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error('Failed to fetch CMS data:', error);
+    return NextResponse.json(
+      { error: 'Failed to fetch CMS data' },
+      { status: 500 }
+    );
+  }
 }

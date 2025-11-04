@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Fetch server-side
   const cmsData = await fetchCMSData();
 
   return (
@@ -26,13 +27,13 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body>
         <main>
           <Container>
-            <Providers cmsData={cmsData}>
+            <Providers initialData={cmsData}>
               <Navbar />
               {children}
             </Providers>
           </Container>
         </main>
       </body>
-    </html >
+    </html>
   )
 }
