@@ -5,7 +5,7 @@ import { useCMS } from "@/components/custom/providers"
 import TooltipLink from "@/components/custom/tooltip-link"
 import { Badge } from "@/components/ui/badge"
 import { formatPayloadDate } from "@/lib/utils"
-import { Project } from "@/payload-types"
+import { OldProject as Project } from "@/payload-types"
 import { Code2, Globe } from "lucide-react"
 
 export default function ProjectsPage() {

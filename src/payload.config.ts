@@ -49,7 +49,7 @@ export default buildConfig({
     payloadCloudPlugin(),
     s3Storage({
       collections: {
-        projects: true,
+        media: true
       },
       bucket: process.env.S3_BUCKET || '',
       config: {

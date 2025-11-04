@@ -1,5 +1,5 @@
 // lib/api.ts
-import { HomeContent, Media, Post, Project } from "@/payload-types"
+import { HomeContent, Media, Post, OldProject as Project } from "@/payload-types"
 
 export async function fetchCMSData(): Promise<CMSData> {
   const baseUrl = process.env.NEXT_PUBLIC_URL ||

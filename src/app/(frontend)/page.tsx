@@ -2,7 +2,7 @@
 
 import PageContainer from "@/components/custom/page-container"
 import { cn, formatPayloadDate } from "@/lib/utils"
-import { HomeContent, Project } from "@/payload-types"
+import { HomeContent, OldProject as Project } from "@/payload-types"
 import { Badge } from "@/components/ui/badge"
 import { Code2, Github, Globe, Linkedin, Mail } from "lucide-react"
 import TooltipLink from "@/components/custom/tooltip-link"

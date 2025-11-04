@@ -9,7 +9,7 @@ export const GET = async (request: Request) => {
   // Fetch all collections
   // slug must match exact slug of collection
   const [projects, media, homeContent, posts] = await Promise.all([
-    payload.find({ collection: 'projects' }),
+    payload.find({ collection: 'old-projects' }),
     payload.find({ collection: 'media' }),
     payload.find({ collection: 'home-content' }),
     payload.find({ collection: 'posts' }),
