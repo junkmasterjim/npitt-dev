@@ -3,6 +3,7 @@
 import PageContainer from "@/components/custom/page-container";
 import { useCMS } from "@/components/custom/providers";
 import { SlidingLink } from "@/components/custom/sliding-link";
+import { formatPayloadDate } from "@/lib/utils";
 
 export default function PostsPage() {
   const { posts } = useCMS();
@@ -12,8 +13,8 @@ export default function PostsPage() {
       <div>
         {posts.map((p) => (
           <div key={p.id}>
-            <SlidingLink href={`/posts/${p.slug}`}>
-              {p.type}: {p.slug}
+            <SlidingLink className="text-muted-foreground" classHovered="text-foreground underline" href={`/posts/${p.slug}`}>
+              {p.type}: {p.title} - {formatPayloadDate(p.createdAt)}
             </SlidingLink>
           </div>
         ))}

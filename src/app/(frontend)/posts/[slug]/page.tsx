@@ -23,7 +23,7 @@ export default function PostPage() {
   }
 
   return (
-    <PageContainer><></>
+    <PageContainer>
       {/* post header */}
       <div className='flex items-center justify-between tracking-tight text-muted-foreground leading-none mt-2'>
         <p className=''>{post.type}</p>

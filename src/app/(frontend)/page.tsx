@@ -3,13 +3,14 @@
 import PageContainer from "@/components/custom/page-container"
 import { formatPayloadDate } from "@/lib/utils"
 import { HomeContent, OldProject as Project } from "@/payload-types"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { BookOpen, Github, Linkedin, Mail } from "lucide-react"
 import { SlidingLink } from "@/components/custom/sliding-link"
 import { useCMS } from "@/components/custom/providers"
 import { RichText } from "@/components/custom/rich-text"
 import { H2 } from "@/components/custom/h2"
 import { PkmnTextbox } from "@/components/custom/pkmn-textbox"
 import { ProjectDisplay } from "@/components/custom/project-display"
+import TooltipLink from "@/components/custom/tooltip-link"
 
 export default function HomePage() {
   const { homeContent, projects, posts, } = useCMS();
@@ -87,7 +88,15 @@ export default function HomePage() {
           <ul className="flex items-center gap-4 flex-wrap max-w-md">
             {featuredPosts.map((p, i) => (
               <li key={i}>
-                <h4 className="italic">{p.title}</h4>
+                <h4 className="italic flex items-center gap-2">{p.title}
+                  <TooltipLink
+                    href={`/posts/${p.slug}`}
+                    label="Read Post"
+                    content={
+                      <BookOpen size={16} />
+                    }
+                  />
+                </h4>
                 <p className="-mt-0.5">{p.tagline}</p>
                 <p className="text-sm tracking-tighter -mt-1 text-foreground/70">{formatPayloadDate(p.date)}</p>
               </li>
@@ -99,6 +108,6 @@ export default function HomePage() {
         </PkmnTextbox>
 
       </div>
-    </PageContainer>
+    </PageContainer >
   )
 }
